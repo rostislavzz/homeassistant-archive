@@ -1,0 +1,140 @@
+# прихожая
+group.home:
+  order: 1
+sensor.0x00158d0001b8d3ca_temperature:
+  friendly_name: 'Прихожая Температура'
+sensor.0x00158d0001b8d3ca_humidity:
+  friendly_name: 'Прихожая Влажность'
+binary_sensor.0x00158d0001b14504:
+  friendly_name: 'Прихожая Дверь'
+light.yeelight_white_34ce00882e95:
+  friendly_name: 'Верхний свет'
+switch.rock_home:
+  friendly_name: 'Сервер'
+
+# кухня
+group.kitchen:
+  order: 2
+sensor.0x00158d0001700c18_temperature:
+  friendly_name: 'Температура'
+sensor.0x00158d0001700c18_humidity:
+  friendly_name: 'Влажность'
+sensor.illumination_158d0001a24e62:
+  hidden: true
+  friendly_name: 'Освещенность'
+binary_sensor.motion_sensor_158d0001a24e62:
+  hidden: true
+  friendly_name: 'Движение на кухне'
+sensor.illumination_158d0002236dfb:
+  hidden: true
+  friendly_name: 'Освещенность у раковины'
+binary_sensor.motion_sensor_158d0002236dfb:
+  hidden: true
+  friendly_name: 'Движение у раковины'
+binary_sensor.kitchen_motion_sensor:
+  friendly_name: 'Движение'
+light.kitchen_rgb_lightstrip:
+  friendly_name: 'Ночник Кухня'
+switch.plug_158d00019ccab8:
+  friendly_name: 'Свет'
+  icon: mdi:ceiling-light
+media_player.kitchen_tv:
+  friendly_name: 'Телевизор Кухня'
+
+# кухня телевизор
+group.kitchen_tv:
+  order: 3
+switch.kitchen_tv_power:
+  friendly_name: 'Power'
+  icon: mdi:power
+script.smart_hub:
+  friendly_name: 'Smart Hub'
+  icon: mdi:cube
+script.select:
+  friendly_name: 'Select'
+  icon: mdi:radiobox-blank
+script.left:
+  friendly_name: 'Left'
+  icon: mdi:arrow-left-bold
+script.right:
+  friendly_name: 'Right'
+  icon: mdi:arrow-right-bold
+
+# гостиная
+group.livingroom:
+  order: 4
+switch.wall_switch_left_158d0001715c96:
+  friendly_name: 'Свет'
+  icon: mdi:ceiling-light
+light.livingroom_ceiling_light:
+  friendly_name: 'Свет'
+  icon: mdi:ceiling-light
+light.livingroom_nightlight:
+  friendly_name: 'Ночник'
+  icon: mdi:lamp
+switch.wall_switch_right_158d0001715c96:
+  friendly_name: 'Светильники'
+  icon: mdi:track-light
+cover.curtain_158d0001ef4b95:
+  friendly_name: 'Шторы'
+binary_sensor.0x00158d0001db8a6a:
+  friendly_name: 'Датчик дыма'
+binary_sensor.cube_158d00010ed5cf:
+  friendly_name: 'Куб'
+  icon: mdi:cube-outline
+vacuum.xiaomi_vacuum_cleaner:
+  friendly_name: 'Пылесос'
+  icon: mdi:roomba
+binary_sensor.0x00158d0001ab1e55:
+  friendly_name: 'Гостинная Дверь'
+media_player.livingroom_tv:
+  friendly_name: 'Телевизор'
+media_player.apple_tv_4:
+  friendly_name: 'Apple TV'
+plant.crassula:
+  friendly_name: 'Денежное дерево'
+
+# ванная
+binary_sensor.0x00158d0001bb87d2:
+  friendly_name: 'Датчик протечки'
+
+# спальня
+light.bedroom_daylight:
+  friendly_name: 'Свет'
+light.bedroom_nightlight:
+  friendly_name: 'Ночник'
+light.bedroom_color:
+  hidden: true
+light.bedroom_mono:
+  hidden: true
+sensor.0x00158d00016445cc:
+  hidden: true
+sensor.0x00158d0001639086:
+  hidden: true
+
+# сервер
+switch.transmission:
+  friendly_name: 'Ограничение скорости'
+  icon: mdi:speedometer
+
+# автоматизации
+automation.turn_on_server:
+  friendly_name: 'Включение сервера'
+automation.turn_off_server:
+  friendly_name: 'Выключение сервера'
+
+switch.socket_switch:
+  friendly_name: 'Розетка'
+  icon: mdi:power-socket-au
+sensor.socket_power:
+  friendly_name: 'Розетка'
+
+device_tracker.iphonerosthome:
+  friendly_name: 'iPhone Рост'
+device_tracker.iphonejanahome:
+  friendly_name: 'iPhone Яна'
+
+person.rostislav:
+  friendly_name: 'Рост'
+person.jana:
+  friendly_name: 'Яна'

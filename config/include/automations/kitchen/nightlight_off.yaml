@@ -1,0 +1,15 @@
+- alias: 'kitchen nightlight off'
+  initial_state: 'on'
+  trigger:
+  - platform: state
+    entity_id: group.kitchen_motion_sensor
+    to: 'off'
+    for:
+      minutes: 3
+  condition:
+    condition: state
+    entity_id: media_player.kitchen_tv
+    state: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_rgb_lightstrip

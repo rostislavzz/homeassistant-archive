@@ -1,0 +1,1 @@
+My personal [Home Assistant](https://home-assistant.io) configuration.

@@ -1,0 +1,11 @@
+.idea/
+config/.ssh/
+config/.storage/
+config/.homekit.state
+config/.uuid
+config/core
+config/home-assistant.log
+config/known_devices.yaml
+config/plex.conf
+config/secrets.yaml
+config/webostv.conf

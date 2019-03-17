@@ -1,0 +1,53 @@
+platform: template
+lights:
+  bedroom_daylight:
+    value_template: >
+      {% if is_state('light.bedroom_mono', 'on') %}
+        on
+      {% else %}
+        off
+      {% endif %}
+    turn_on:
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_mono
+        brightness: 255
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_color
+        brightness: 255
+        kelvin: 4000
+    turn_off:
+    - service: light.turn_off
+      entity_id: light.bedroom_mono, light.bedroom_color
+  bedroom_nightlight:
+    value_template: >
+      {% if is_state('light.bedroom_color', 'off') or is_state('light.bedroom_color', '') %}
+        off
+      {% elif is_state_attr('light.bedroom_color', 'brightness', 255) %}
+        off
+      {% else %}
+        on
+      {% endif %}
+    turn_on:
+    - service: light.turn_off
+      entity_id: light.bedroom_mono
+    - service: light.turn_on
+      data:
+        entity_id: light.bedroom_color
+        brightness: 1
+        kelvin: 1700
+    turn_off:
+    - service: light.turn_off
+      entity_id: light.bedroom_mono, light.bedroom_color
+  livingroom_nightlight:
+    turn_on:
+    - service: light.yeelight_set_mode
+      data:
+        entity_id: light.livingroom_ceiling_light
+        mode: 'moonlight'
+    turn_off:
+    - service: light.yeelight_set_mode
+      data:
+        entity_id: light.livingroom_ceiling_light
+        mode: 'normal'

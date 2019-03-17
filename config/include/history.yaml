@@ -1,0 +1,6 @@
+exclude:
+  domains:
+  - script
+  entities:
+  - light.gateway_light_34ce00fb7404
+  - sensor.public_transport_stop_324

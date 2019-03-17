@@ -1,0 +1,59 @@
+homeassistant:
+  name: Home
+  latitude: !secret hass_latitude
+  longitude: !secret hass_longitude
+  elevation: 177
+  unit_system: metric
+  time_zone: Europe/Kirov
+  customize: !include include/customize.yaml
+
+alert: !include include/alert.yaml
+automation: !include_dir_merge_list include/automations/
+
+#camera:
+#  - platform: ffmpeg
+#    name: Hall
+#    input: -rtsp_transport tcp -i rtsp://10.0.0.87/ch0.h264
+
+config:
+device_tracker: !include_dir_list include/device_tracker/
+
+#discovery:
+#  ignore:
+#    - apple_tv
+
+frontend:
+group: !include include/groups.yaml
+history: !include include/history.yaml
+homekit: !include include/homekit.yaml
+http:
+influxdb: !include include/influxdb.yaml
+input_boolean: !include include/input_boolean.yaml
+light: !include_dir_list include/light/
+logbook:
+
+lovelace:
+  mode: yaml
+
+media_player: !include_dir_list include/media_player/
+mqtt: !include include/mqtt.yaml
+notify: !include include/notify.yaml
+person: !include include/person.yaml
+plant: !include include/plant.yaml
+recorder: !include include/recorder.yaml
+scene: !include include/scene.yaml
+script: !include include/scripts.yaml
+sensor: !include_dir_list include/sensors/
+
+shell_command:
+  turn_off_rock: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@10.0.0.213 sudo pm-suspend'
+
+sun:
+system_health:
+switch: !include_dir_list include/switch/
+transmission: !include include/transmission.yaml
+updater:
+vacuum: !include_dir_list include/vacuum/
+wake_on_lan:
+weather: !include_dir_list include/weather/
+xiaomi_aqara: !include include/xiaomi_aqara.yaml

@@ -1,0 +1,257 @@
+title: 'Дом'
+views:
+  - title: 'Дом'
+    icon: mdi:home
+    path: home
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            entity: person.rostislav
+            image: '/local/rostislav.jpg'
+            show_name: false
+          - type: picture-entity
+            entity: person.iana
+            image: '/local/jana.jpg'
+            show_name: false
+      - type: glance
+        title: 'Прихожая'
+        entities:
+          - entity: binary_sensor.0x00158d0001b14504
+            name: 'Дверь'
+          - entity: switch.rock_home
+            icon: mdi:server
+      - type: glance
+        title: 'Кухня'
+        entities:
+          - group.kitchen_motion_sensor
+          - entity: switch.plug_158d00019ccab8
+            tap_action:
+              action: toggle
+          - entity: light.kitchen_rgb_lightstrip
+            name: 'Ночник'
+            icon: mdi:lamp
+            tap_action:
+              action: toggle
+      - type: glance
+        title: 'Гостинная'
+        entities:
+          - entity: binary_sensor.0x00158d0001ab1e55
+            name: 'Дверь'
+          - binary_sensor.0x00158d0001db8a6a
+          - entity: cover.curtain_158d0001ef4b95
+            tap_action:
+              action: toggle
+          - entity: switch.wall_switch_left_158d0001715c96
+            tap_action:
+              action: toggle
+          - entity: switch.wall_switch_right_158d0001715c96
+            icon: mdi:track-light
+            tap_action:
+              action: toggle
+      - type: glance
+        title: 'Спальня'
+        entities:
+          - entity: light.bedroom_daylight
+            name: 'Свет'
+            icon: mdi:ceiling-light
+          - entity: light.bedroom_nightlight
+            name: 'Ночник'
+            icon: mdi:lamp
+      - type: media-control
+        entity: media_player.livingroom_tv
+
+  - title: 'Погода'
+    icon: mdi:weather-partlycloudy
+    path: weather
+    cards:
+      - type: weather-forecast
+        entity: weather.dark_sky
+      - type: history-graph
+        title: 'Температура'
+        entities:
+          - entity: sensor.0x00158d0001b8d3ca_temperature
+            name: 'Прихожая'
+          - entity: sensor.0x00158d0001700c18_temperature
+            name: 'Кухня'
+          - entity: sensor.0x00158d0002b518b9_temperature
+            name: 'Гостинная'
+      - type: sensor
+        name: 'Давление'
+        entity: sensor.0x00158d0002b518b9_pressure
+        graph: line
+      - type: history-graph
+        title: 'Влажность'
+        entities:
+          - entity: sensor.0x00158d0001b8d3ca_humidity
+            name: 'Прихожая'
+          - entity: sensor.0x00158d0001700c18_humidity
+            name: 'Кухня'
+          - entity: sensor.0x00158d0002b518b9_humidity
+            name: 'Гостинная'
+
+  - title: 'Кухня'
+    icon: mdi:silverware-fork-knife
+    path: kitchen
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: entities
+            title: 'Свет'
+            entities:
+              - entity: switch.plug_158d00019ccab8
+              - entity: light.kitchen_rgb_lightstrip
+                name: 'Ночник'
+          - type: entities
+            title: 'Автоматизации'
+            show_header_toggle: true
+            entities:
+              - entity: switch.kitchen_automations_light
+                name: 'Свет'
+                icon: mdi:ceiling-light
+              - entity: switch.kitchen_automations_nightlight
+                name: 'Ночник'
+                icon: mdi:lightbulb
+              - entity: switch.flux
+                name: 'Ночной режим света'
+                icon: mdi:theme-light-dark
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.0x00158d0001700c18_temperature
+            name: 'Температура'
+            graph: line
+          - type: sensor
+            entity: sensor.0x00158d0001700c18_humidity
+            name: 'Влажность'
+            graph: line
+      - type: media-control
+        entity: media_player.kitchen_tv
+
+  - title: 'Гостинная'
+    icon: mdi:sofa
+    path: livingroom
+    cards:
+      - type: entities
+        entities:
+          - switch.wall_switch_left_158d0001715c96
+          - switch.wall_switch_right_158d0001715c96
+          - cover.curtain_158d0001ef4b95
+      - type: media-control
+        entity: media_player.livingroom_tv
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.0x00158d0002b518b9_temperature
+            name: 'Температура'
+            graph: line
+          - type: sensor
+            entity: sensor.0x00158d0002b518b9_humidity
+            name: 'Влажность'
+            graph: line
+      - type: plant-status
+        entity: plant.crassula
+
+  - title: 'Спальня'
+    icon: mdi:bed-empty
+    path: bedroom
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: entity-button
+            entity: light.bedroom_daylight
+            icon: mdi:ceiling-light
+            tap_action:
+              action: toggle
+          - type: entity-button
+            entity: light.bedroom_nightlight
+            icon: mdi:lamp
+            tap_action:
+              action: toggle
+
+  - title: 'Сервер'
+    icon: mdi:server
+    path: server
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: >
+              ## Transmission
+          - type: horizontal-stack
+            cards:
+              - type: sensor
+                entity: sensor.transmission_down_speed
+                name: 'Скачивание'
+                icon: mdi:arrow-down-bold
+                graph: line
+              - type: sensor
+                entity: sensor.transmission_up_speed
+                name: 'Загрузка'
+                icon: mdi:arrow-up-bold
+                graph: line
+          - type: entities
+            entities:
+              - entity: switch.transmission
+              - entity: sensor.transmission_status
+                name: 'Статус'
+              - entity: sensor.transmission_total_torrents
+                name: 'Всего'
+                icon: mdi:sigma
+              - entity: sensor.transmission_active_torrents
+                name: 'Активно'
+                icon: mdi:play
+              - entity: sensor.transmission_started_torrents
+                name: 'Скачивается'
+                icon: mdi:arrow-down-bold
+              - entity: sensor.transmission_paused_torrents
+                name: 'Приостановлено'
+                icon: mdi:pause
+              - entity: sensor.transmission_completed_torrents
+                name: 'Завершено'
+                icon: mdi:flag-checkered
+      - type: entities
+        title: 'Сервер'
+        show_header_toggle: false
+        entities:
+          - entity: switch.rock_home
+            name: 'Сервер'
+            icon: mdi:server
+          - entity: switch.server_automation
+            name: 'Автоматическое включение'
+            icon: mdi:power
+
+  - title: 'Батарейки'
+    icon: mdi:battery
+    path: batteries
+    cards:
+      - type: entities
+        title: 'Прихожая'
+        show_header_toggle: false
+        entities:
+         - sensor.hall_temperature_battery
+      - type: entities
+        title: 'Кухня'
+        show_header_toggle: false
+        entities:
+         - sensor.kitchen_temperature_battery
+         - sensor.kitchen_motion_sensor_battery
+         - sensor.kitchen_motion_sensor2_battery
+      - type: entities
+        title: 'Гостинная'
+        show_header_toggle: false
+        entities:
+         - sensor.livingroom_temperature_battery
+         - sensor.livingroom_smoke_battery_level
+         - sensor.livingroom_miflora_battery
+      - type: entities
+        title: 'Ванная'
+        show_header_toggle: false
+        entities:
+         - sensor.bathroom_water_leak_battery_level
+      - type: entities
+        title: 'Спальня'
+        show_header_toggle: false
+        entities:
+         - sensor.bedroom_switch_battery
+         - sensor.bedroom_button_battery

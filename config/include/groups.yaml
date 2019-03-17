@@ -1,0 +1,77 @@
+hall:
+  name: 'Прихожая'
+  entities:
+    - sensor.0x00158d0001b8d3ca_temperature
+    - sensor.0x00158d0001b8d3ca_humidity
+    - binary_sensor.0x00158d0001b14504
+    - light.yeelight_white_34ce00882e95
+
+kitchen:
+  name: 'Кухня'
+  entities:
+    - sensor.kitchensensor_temperature
+    - sensor.kitchensensor_humidity
+    - sensor.illumination_34ce00fb7404
+    - sensor.illumination_158d0001a24e62
+    - binary_sensor.motion_sensor_158d0001a24e62
+    - sensor.illumination_158d0002236dfb
+    - binary_sensor.motion_sensor_158d0002236dfb
+    - binary_sensor.kitchen_motion_sensor
+    - light.kitchen_rgb_lightstrip
+    - switch.plug_158d00019ccab8
+    - light.gateway_light_34ce00fb7404
+    - media_player.kitchen_ue32f6510
+
+kitchen_tv:
+  name: 'Телевизор на кухне'
+  control: hidden
+  entities:
+    - switch.kitchen_tv_power
+    - script.smart_hub
+    - script.select
+    - script.left
+    - script.right
+
+livingroom:
+  name: 'Гостиная'
+  entities:
+    - switch.wall_switch_left_158d0001715c96
+    - light.livingroom_ceiling_light
+    - light.livingroom_nightlight
+    - switch.wall_switch_right_158d0001715c96
+    - cover.curtain_158d0001ef4b95
+    - binary_sensor.0x00158d0001db8a6a
+    - vacuum.xiaomi_vacuum_cleaner
+    - binary_sensor.cube_158d00010ed5cf
+    - binary_sensor.0x00158d0001ab1e55
+
+bathroom:
+  name: 'Ванная'
+  entities:
+    - binary_sensor.0x00158d0001bb87d2
+
+bedroom:
+  name: 'Спальня'
+  entities:
+    - light.bedroom_daylight
+    - light.bedroom_nightlight
+    - light.bedroom_color
+    - light.bedroom_mono
+    - sensor.0x00158d00016445cc
+    - sensor.0x00158d0001639086
+
+all_switches:
+  entities:
+    - sensor.socket_power
+
+person:
+  entities:
+    - person.rostislav
+    - person.iana
+
+kitchen_motion_sensor:
+  name: 'Движение'
+  icon: mdi:walk
+  entities:
+    - binary_sensor.motion_sensor_158d0001a24e62
+    - binary_sensor.motion_sensor_158d0002236dfb

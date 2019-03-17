@@ -1,0 +1,3 @@
+platform: miflora
+mac: !secret miflora_mac
+median: 1

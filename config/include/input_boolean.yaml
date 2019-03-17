@@ -1,0 +1,4 @@
+notify_livingroom_tv_eat:
+  name: 'Уведомление о запрете еды в гостиной'
+  initial: off
+  icon: mdi:food-off

@@ -1,0 +1,9 @@
+host: 10.0.0.62
+include:
+  entities:
+    - sensor.0x00158d0001b8d3ca_humidity
+    - sensor.0x00158d0001b8d3ca_temperature
+    - sensor.0x00158d0001700c18_humidity
+    - sensor.0x00158d0001700c18_temperature
+    - sensor.0x00158d0002b518b9_humidity
+    - sensor.0x00158d0002b518b9_temperature

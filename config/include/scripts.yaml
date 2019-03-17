@@ -1,0 +1,16 @@
+smart_hub:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.smart_hub
+select:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.select
+left:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.left
+right:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.right

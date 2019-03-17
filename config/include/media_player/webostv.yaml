@@ -1,0 +1,11 @@
+platform: webostv
+host: 10.0.0.162
+name: livingroom_tv
+turn_on_action:
+  service: wake_on_lan.send_magic_packet
+  data:
+    mac: !secret webost_tv_mac
+customize:
+  sources:
+    - plex
+    - youtube

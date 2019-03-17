@@ -1,0 +1,183 @@
+- alias: 'flux turn on'
+  initial_state: 'on'
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    - service: switch.turn_on
+      entity_id: switch.flux
+
+- alias: 'livingroom tv pause'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.cube_action
+    event_data:
+      entity_id: binary_sensor.cube_158d00010ed5cf_2
+      action_type: tap_twice
+  action:
+  - service: media_player.media_play_pause
+    data:
+      entity_id: media_player.livingroom_tv
+
+- alias: 'livingroom tv volume'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: event
+    event_type: xiaomi_aqara.cube_action
+    event_data:
+      entity_id: binary_sensor.cube_158d00010ed5cf_2
+      action_type: rotate
+  action:
+  - service_template: >
+      {%if trigger.event.data.action_value | float > 0 %}
+        media_player.volume_up
+      {% else %} 
+        media_player.volume_down
+      {% endif %}
+    data:
+      entity_id: media_player.livingroom_tv
+
+- alias: 'livingroom tv notify eat on'
+  initial_state: 'off'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    to: 'off'
+    for:
+      minutes: 1
+  condition:
+    condition: state
+    entity_id: device_tracker.f86fc1ef4425
+    state: home
+  action:
+  - service: input_boolean.turn_on
+    data:
+      entity_id: input_boolean.notify_livingroom_tv_eat
+
+- alias: 'livingroom tv notify eat off'
+  initial_state: 'off'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.kitchen_motion_sensor
+    to: 'off'
+    for:
+      minutes: 6
+  action:
+  - service: input_boolean.turn_off
+    data:
+      entity_id: input_boolean.notify_livingroom_tv_eat
+
+- alias: 'livingroom tv moonlight'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: template
+    value_template: "{{ is_state_attr('media_player.livingroom_tv', 'source', 'Plex') }}"
+  condition:
+    condition: state
+    entity_id: light.livingroom_ceiling_light
+    state: 'on'
+  action:
+    service: light.yeelight_set_mode
+    data:
+      entity_id: light.livingroom_ceiling_light
+      mode: 'moonlight'
+
+- alias: 'bedroom nightlight'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: mqtt
+    topic: 'zigbee2mqtt/bedroom/button'
+  - platform: mqtt
+    topic: 'zigbee2mqtt/bedroom/switch'
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.click in ['single', 'left'] }}"
+  action:
+    service: light.toggle
+    entity_id: light.bedroom_nightlight
+
+- alias: 'bedroom daylight'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: mqtt
+    topic: 'zigbee2mqtt/bedroom/button'
+  - platform: mqtt
+    topic: 'zigbee2mqtt/bedroom/switch'
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.click in ['long', 'right'] }}"
+  action:
+    service: light.toggle
+    entity_id: light.bedroom_daylight
+
+- alias: 'transmission_downloaded_torrent'
+  initial_state: 'on'
+  trigger:
+  - platform: event
+    event_type: transmission_downloaded_torrent
+  action:
+    service: notify.transmission_downloaded_torrent
+
+- id: '7'
+  alias: Закрыть шторы при включении света
+  initial_state: 'off'
+  trigger:
+  - platform: state
+    entity_id: switch.wall_switch_left_158d0001715c96
+    to: 'on'
+  - platform: state
+    entity_id: switch.wall_switch_right_158d0001715c96
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: sun
+      after: sunset
+      after_offset: -00:30:00
+    - condition: state
+      entity_id: cover.curtain_158d0001ef4b95
+      state: open
+  action:
+    service: cover.close_cover
+    entity_id: cover.curtain_158d0001ef4b95
+
+- id: '8'
+  alias: Закрыть шторы перед заходом солнца
+  initial_state: 'off'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: -00:30:00
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: switch.wall_switch_left_158d0001715c96
+      state: 'on'
+    - condition: state
+      entity_id: switch.wall_switch_right_158d0001715c96
+      state: 'on'
+  action:
+    service: cover.close_cover
+    entity_id: cover.curtain_158d0001ef4b95
+
+- id: '9'
+  alias: Включение телевизора на кухне
+  initial_state: 'off'
+  hide_entity: true
+  trigger:
+  - platform: event
+    event_type: cube_action
+    event_data:
+      entity_id: binary_sensor.cube_158d00010ed5cf
+      action_type: tap_twice
+  action:
+    service: script.power

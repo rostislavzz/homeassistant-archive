@@ -1,0 +1,26 @@
+filter:
+  include_entities:
+   # основное
+   - switch.rock_home
+   - binary_sensor.0x00158d0001b14504
+   - sensor.0x00158d0001b8d3ca_humidity
+   - sensor.0x00158d0001b8d3ca_temperature
+   # кухня
+   - switch.plug_158d00019ccab8
+   - sensor.kitchensensor_humidity
+   - sensor.kitchensensor_temperature
+   - light.kitchen_rgb_lightstrip
+   - switch.kitchen_automations_light
+   - switch.kitchen_automations_nightlight
+   # гостиная
+   - switch.wall_switch_left_158d0001715c96
+   - switch.wall_switch_right_158d0001715c96
+   - light.livingroom_nightlight
+   - cover.curtain_158d0001ef4b95
+   - binary_sensor.0x00158d0001db8a6a
+   - binary_sensor.livingroomdoor
+   # ванная
+   - binary_sensor.0x00158d0001bb87d2
+   # спальня
+   - light.bedroom_daylight
+   - light.bedroom_nightlight

@@ -1,0 +1,10 @@
+- name: rostislav
+  id: rostislav
+  user_id: 403cad6c2d2e49f2ba014d9bafb685e9
+  device_trackers:
+    - device_tracker.iphonerosthome
+- name: jana
+  id: jana
+  device_trackers:
+    - device_tracker.iphonejanahome
+    - device_tracker.zenbookjanahome

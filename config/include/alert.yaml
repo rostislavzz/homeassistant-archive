@@ -1,0 +1,19 @@
+bathroomwater_leak:
+  name: Обнаружена протечка воды в ванной!
+  done_message: Протечка воды в ванной устранена
+  entity_id: binary_sensor.bathroomwater_leak
+  state: 'on'
+  repeat: 1
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - bathroom_water_leak
+livingroom_tv_eat:
+  name: Есть и пить можно только на кухне!
+  entity_id: input_boolean.notify_livingroom_tv_eat
+  state: 'on'
+  repeat: 1
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - livingroom_tv_eat

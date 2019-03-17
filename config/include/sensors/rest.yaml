@@ -1,0 +1,7 @@
+platform: rest
+scan_interval: 120
+name: public_transport_stop_317
+resource: https://cdsvyatka.com/api/kirov/prediction/317
+method: GET
+value_template: >
+  {{ value_json | selectattr("number", "in", "4, 51") | list }}
