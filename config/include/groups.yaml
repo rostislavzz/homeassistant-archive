@@ -50,15 +50,11 @@ bathroom:
   entities:
     - binary_sensor.0x00158d0001bb87d2
 
-bedroom:
-  name: 'Спальня'
+bedroom_light:
+  name: 'Спальня Свет'
   entities:
-    - light.bedroom_daylight
-    - light.bedroom_nightlight
     - light.bedroom_color
     - light.bedroom_mono
-    - sensor.0x00158d00016445cc
-    - sensor.0x00158d0001639086
 
 person:
   entities:
