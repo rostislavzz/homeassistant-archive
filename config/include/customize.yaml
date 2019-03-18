@@ -117,12 +117,6 @@ switch.transmission:
   friendly_name: 'Ограничение скорости'
   icon: mdi:speedometer
 
-# автоматизации
-automation.turn_on_server:
-  friendly_name: 'Включение сервера'
-automation.turn_off_server:
-  friendly_name: 'Выключение сервера'
-
 switch.socket_switch:
   friendly_name: 'Розетка'
   icon: mdi:power-socket-au
