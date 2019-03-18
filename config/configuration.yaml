@@ -46,7 +46,7 @@ script: !include include/scripts.yaml
 sensor: !include_dir_list include/sensors/
 
 shell_command:
-  turn_off_rock: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@10.0.0.213 sudo pm-suspend'
+  turn_off_server: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@10.0.0.213 sudo pm-suspend'
 
 sun:
 system_health:

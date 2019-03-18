@@ -1,4 +1,4 @@
-- alias: 'server turn on when tv on'
+- alias: 'server_turn_on_when_tv_on'
   initial_state: 'on'
   trigger:
   - platform: state
@@ -11,11 +11,11 @@
     condition: and
     conditions:
     - condition: state
-      entity_id: switch.rock_home
+      entity_id: switch.server
       state: 'off'
     - condition: state
       entity_id: group.person
       state: 'home'
   action:
   - service: switch.turn_on
-    entity_id: switch.rock_home
+    entity_id: switch.server

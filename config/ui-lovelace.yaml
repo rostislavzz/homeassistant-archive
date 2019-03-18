@@ -19,7 +19,7 @@ views:
         entities:
           - entity: binary_sensor.0x00158d0001b14504
             name: 'Дверь'
-          - entity: switch.rock_home
+          - entity: switch.server
             icon: mdi:server
       - type: glance
         title: 'Кухня'
@@ -214,11 +214,9 @@ views:
         title: 'Сервер'
         show_header_toggle: false
         entities:
-          - entity: switch.rock_home
-            name: 'Сервер'
+          - entity: switch.server
             icon: mdi:server
           - entity: switch.server_automation
-            name: 'Автоматическое включение'
             icon: mdi:power
 
   - title: 'Батарейки'

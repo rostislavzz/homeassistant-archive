@@ -1,4 +1,4 @@
-- alias: 'server turn on when someone comes'
+- alias: 'server_turn_on_when_someone_comes'
   initial_state: 'on'
   trigger:
   - platform: state
@@ -6,8 +6,8 @@
     to: home
   condition:
     condition: state
-    entity_id: switch.rock_home
+    entity_id: switch.server
     state: 'off'
   action:
   - service: switch.turn_on
-    entity_id: switch.rock_home
+    entity_id: switch.server

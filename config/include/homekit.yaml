@@ -1,7 +1,7 @@
 filter:
   include_entities:
    # основное
-   - switch.rock_home
+   - switch.server
    - binary_sensor.0x00158d0001b14504
    - sensor.0x00158d0001b8d3ca_humidity
    - sensor.0x00158d0001b8d3ca_temperature

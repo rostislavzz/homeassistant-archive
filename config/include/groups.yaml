@@ -60,10 +60,6 @@ bedroom:
     - sensor.0x00158d00016445cc
     - sensor.0x00158d0001639086
 
-all_switches:
-  entities:
-    - sensor.socket_power
-
 person:
   entities:
     - person.rostislav
@@ -75,3 +71,10 @@ kitchen_motion_sensor:
   entities:
     - binary_sensor.motion_sensor_158d0001a24e62
     - binary_sensor.motion_sensor_158d0002236dfb
+
+server:
+  name: 'Автоматическое включение/выключение'
+  entities:
+    - automation.server_turn_off
+    - automation.server_turn_on_when_tv_on
+    - automation.server_turn_on_when_someone_comes

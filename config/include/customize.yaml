@@ -9,8 +9,6 @@ binary_sensor.0x00158d0001b14504:
   friendly_name: 'Прихожая Дверь'
 light.yeelight_white_34ce00882e95:
   friendly_name: 'Верхний свет'
-switch.rock_home:
-  friendly_name: 'Сервер'
 
 # кухня
 group.kitchen:
@@ -113,6 +111,8 @@ sensor.0x00158d0001639086:
   hidden: true
 
 # сервер
+switch.server:
+  friendly_name: 'Сервер'
 switch.transmission:
   friendly_name: 'Ограничение скорости'
   icon: mdi:speedometer
