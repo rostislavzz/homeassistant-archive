@@ -1,0 +1,15 @@
+- alias: 'livingroom_tv_moonlight'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: template
+    value_template: "{{ is_state_attr('media_player.livingroom_tv', 'source', 'Plex') }}"
+  condition:
+    condition: state
+    entity_id: light.livingroom_ceiling_light
+    state: 'on'
+  action:
+    service: light.yeelight_set_mode
+    data:
+      entity_id: light.livingroom_ceiling_light
+      mode: 'moonlight'
