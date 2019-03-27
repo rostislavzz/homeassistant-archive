@@ -1,0 +1,9 @@
+name: 'bedroom_daylight'
+entities:
+  light.bedroom_mono:
+    state: true
+    brightness: 255
+  light.bedroom_color:
+    state: true
+    brightness: 255
+    kelvin: 4000

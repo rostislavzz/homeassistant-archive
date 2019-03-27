@@ -41,7 +41,7 @@ notify: !include include/notify.yaml
 person: !include include/person.yaml
 plant: !include include/plant.yaml
 recorder: !include include/recorder.yaml
-scene: !include include/scene.yaml
+scene: !include_dir_list include/scene/
 script: !include include/scripts.yaml
 sensor: !include_dir_list include/sensors/
 

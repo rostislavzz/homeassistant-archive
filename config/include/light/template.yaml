@@ -1,26 +1,21 @@
 platform: template
 lights:
+
   bedroom_daylight:
     friendly_name: 'Свет'
     value_template: >
-      {% if is_state('group.bedroom_light', 'on') %}
+      {% if is_state('light.bedroom_mono', 'on') %}
         on
       {% else %}
         off
       {% endif %}
     turn_on:
-    - service: light.turn_on
-      data:
-        entity_id: light.bedroom_mono
-        brightness: 255
-    - service: light.turn_on
-      data:
-        entity_id: light.bedroom_color
-        brightness: 255
-        kelvin: 4000
+    - service: scene.turn_on
+      entity_id: scene.bedroom_daylight
     turn_off:
     - service: light.turn_off
       entity_id: group.bedroom_light
+
   bedroom_nightlight:
     friendly_name: 'Ночник'
     value_template: >
@@ -32,16 +27,12 @@ lights:
         on
       {% endif %}
     turn_on:
-    - service: light.turn_off
-      entity_id: light.bedroom_mono
-    - service: light.turn_on
-      data:
-        entity_id: light.bedroom_color
-        brightness: 1
-        kelvin: 1700
+     - service: scene.turn_on
+       entity_id: scene.bedroom_nightlight
     turn_off:
     - service: light.turn_off
       entity_id: group.bedroom_light
+
   livingroom_nightlight:
     turn_on:
     - service: light.yeelight_set_mode
