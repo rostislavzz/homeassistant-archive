@@ -2,6 +2,7 @@ platform: nmap_tracker
 hosts:
   - 10.0.0.5
   - 10.0.0.10
+  - 10.0.0.56
   - 10.0.0.90
   - 10.0.0.201
 home_interval: 30
