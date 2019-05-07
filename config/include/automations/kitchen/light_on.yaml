@@ -9,7 +9,7 @@
     conditions:
     - condition: sun
       after: sunset
-      after_offset: -01:00:00
+      after_offset: '-01:00:00'
     - condition: state
       entity_id: switch.plug_158d00019ccab8
       state: 'off'

@@ -1,10 +1,11 @@
 - name: rostislav
   id: rostislav
-  user_id: 403cad6c2d2e49f2ba014d9bafb685e9
   device_trackers:
-    - device_tracker.iphonerosthome
+    - device_tracker.rost_watch
+    - device_tracker.rost_phone
+    - device_tracker.rost_laptop
 - name: jana
   id: jana
   device_trackers:
-    - device_tracker.iphonejanahome
-    - device_tracker.zenbookjanahome
+    - device_tracker.jana_phone
+    - device_tracker.jana_laptop
