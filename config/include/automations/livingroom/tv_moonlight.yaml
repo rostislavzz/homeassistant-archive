@@ -9,7 +9,7 @@
     entity_id: light.livingroom_ceiling_light
     state: 'on'
   action:
-    service: light.yeelight_set_mode
+    service: yeelight.set_mode
     data:
       entity_id: light.livingroom_ceiling_light
       mode: 'moonlight'

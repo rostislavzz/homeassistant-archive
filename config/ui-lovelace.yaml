@@ -137,6 +137,10 @@ views:
       - type: entities
         entities:
           - switch.wall_switch_left_158d0001715c96
+          - entity: light.livingroom_ceiling_light_ambilight
+            name: 'Подсветка'
+            icon: mdi:lightbulb-on
+          - light.livingroom_nightlight
           - switch.wall_switch_right_158d0001715c96
           - cover.curtain_158d0001ef4b95
       - type: media-control
