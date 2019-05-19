@@ -233,6 +233,7 @@ views:
         title: 'Прихожая'
         show_header_toggle: false
         entities:
+         - sensor.hall_door_battery
          - sensor.hall_temperature_battery
       - type: entities
         title: 'Кухня'
@@ -245,14 +246,15 @@ views:
         title: 'Гостинная'
         show_header_toggle: false
         entities:
+         - sensor.livingroom_door_battery
          - sensor.livingroom_temperature_battery
-         - sensor.livingroom_smoke_battery_level
+         - sensor.livingroom_smoke_battery
          - sensor.livingroom_miflora_battery
       - type: entities
         title: 'Ванная'
         show_header_toggle: false
         entities:
-         - sensor.bathroom_water_leak_battery_level
+         - sensor.bathroom_water_leak_battery
       - type: entities
         title: 'Спальня'
         show_header_toggle: false

@@ -7,6 +7,8 @@ sensor.0x00158d0001b8d3ca_humidity:
   friendly_name: 'Прихожая Влажность'
 binary_sensor.0x00158d0001b14504:
   friendly_name: 'Прихожая Дверь'
+sensor.hall_door_battery:
+  friendly_name: 'Прихожая Дверь'
 light.yeelight_white_34ce00882e95:
   friendly_name: 'Верхний свет'
 
@@ -77,6 +79,8 @@ cover.curtain_158d0001ef4b95:
   friendly_name: 'Шторы'
 binary_sensor.0x00158d0001db8a6a:
   friendly_name: 'Датчик дыма'
+sensor.livingroom_smoke_battery:
+  friendly_name: 'Датчик дыма'
 binary_sensor.cube_158d00010ed5cf:
   friendly_name: 'Куб'
   icon: mdi:cube-outline
@@ -84,6 +88,8 @@ vacuum.xiaomi_vacuum_cleaner:
   friendly_name: 'Пылесос'
   icon: mdi:roomba
 binary_sensor.0x00158d0001ab1e55:
+  friendly_name: 'Гостинная Дверь'
+sensor.livingroom_door_battery:
   friendly_name: 'Гостинная Дверь'
 media_player.livingroom_tv:
   friendly_name: 'Телевизор'
@@ -95,20 +101,18 @@ plant.crassula:
 # ванная
 binary_sensor.0x00158d0001bb87d2:
   friendly_name: 'Датчик протечки'
+sensor.bathroom_water_leak_battery:
+  friendly_name: 'Датчик протечки'
 
 # спальня
 light.bedroom_daylight:
   friendly_name: 'Свет'
 light.bedroom_nightlight:
   friendly_name: 'Ночник'
-light.bedroom_color:
-  hidden: true
-light.bedroom_mono:
-  hidden: true
-sensor.0x00158d00016445cc:
-  hidden: true
-sensor.0x00158d0001639086:
-  hidden: true
+sensor.bedroom_button_battery:
+  friendly_name: 'Кнопка'
+sensor.bedroom_switch_battery:
+  friendly_name: 'Выключатель'
 
 # сервер
 switch.server:
