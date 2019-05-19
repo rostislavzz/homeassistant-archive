@@ -234,12 +234,12 @@ views:
         show_header_toggle: false
         entities:
          - sensor.hall_door_battery
-         - sensor.hall_temperature_battery
+         - sensor.hall_sensor_battery
       - type: entities
         title: 'Кухня'
         show_header_toggle: false
         entities:
-         - sensor.kitchen_temperature_battery
+         - sensor.kitchen_sensor_battery
          - sensor.kitchen_motion_sensor_battery
          - sensor.kitchen_motion_sensor2_battery
       - type: entities
@@ -247,7 +247,7 @@ views:
         show_header_toggle: false
         entities:
          - sensor.livingroom_door_battery
-         - sensor.livingroom_temperature_battery
+         - sensor.livingroom_sensor_battery
          - sensor.livingroom_smoke_battery
          - sensor.livingroom_miflora_battery
       - type: entities

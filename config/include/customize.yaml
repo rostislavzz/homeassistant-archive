@@ -1,6 +1,6 @@
 # прихожая
-group.home:
-  order: 1
+sensor.hall_sensor_battery:
+  friendly_name: 'Датчик температуры и влажности'
 sensor.0x00158d0001b8d3ca_temperature:
   friendly_name: 'Прихожая Температура'
 sensor.0x00158d0001b8d3ca_humidity:
@@ -13,8 +13,8 @@ light.yeelight_white_34ce00882e95:
   friendly_name: 'Верхний свет'
 
 # кухня
-group.kitchen:
-  order: 2
+sensor.kitchen_sensor_battery:
+  friendly_name: 'Датчик температуры и влажности'
 sensor.0x00158d0001700c18_temperature:
   friendly_name: 'Температура'
 sensor.0x00158d0001700c18_humidity:
@@ -61,8 +61,8 @@ script.right:
   icon: mdi:arrow-right-bold
 
 # гостиная
-group.livingroom:
-  order: 4
+sensor.livingroom_sensor_battery:
+  friendly_name: 'Датчик температуры и влажности'
 switch.wall_switch_left_158d0001715c96:
   friendly_name: 'Свет'
   icon: mdi:ceiling-light
