@@ -7,44 +7,6 @@
     - service: switch.turn_on
       entity_id: switch.flux
 
-- alias: 'bedroom nightlight'
-  initial_state: 'on'
-  hide_entity: true
-  trigger:
-  - platform: mqtt
-    topic: 'zigbee2mqtt/bedroom/button'
-  - platform: mqtt
-    topic: 'zigbee2mqtt/bedroom/switch'
-  condition:
-    condition: template
-    value_template: "{{ trigger.payload_json.click in ['single', 'left'] }}"
-  action:
-    service: light.toggle
-    entity_id: light.bedroom_nightlight
-
-- alias: 'bedroom daylight'
-  initial_state: 'on'
-  hide_entity: true
-  trigger:
-  - platform: mqtt
-    topic: 'zigbee2mqtt/bedroom/button'
-  - platform: mqtt
-    topic: 'zigbee2mqtt/bedroom/switch'
-  condition:
-    condition: template
-    value_template: "{{ trigger.payload_json.click in ['long', 'right'] }}"
-  action:
-    service: light.toggle
-    entity_id: light.bedroom_daylight
-
-- alias: 'transmission_downloaded_torrent'
-  initial_state: 'on'
-  trigger:
-  - platform: event
-    event_type: transmission_downloaded_torrent
-  action:
-    service: notify.transmission_downloaded_torrent
-
 - id: '7'
   alias: Закрыть шторы при включении света
   initial_state: 'off'

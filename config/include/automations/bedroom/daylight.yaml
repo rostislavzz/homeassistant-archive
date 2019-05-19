@@ -1,0 +1,14 @@
+- alias: 'bedroom daylight'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: mqtt
+    topic: 'zigbee2mqtt/bedroom/button'
+  - platform: mqtt
+    topic: 'zigbee2mqtt/bedroom/switch'
+  condition:
+    condition: template
+    value_template: "{{ trigger.payload_json.click in ['long', 'right'] }}"
+  action:
+    service: light.toggle
+    entity_id: light.bedroom_daylight

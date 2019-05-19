@@ -1,0 +1,6 @@
+name: transmission_downloaded_torrent
+platform: group
+services:
+  - service: livingroom_tv
+    data:
+      message: 'Скачивание завершено'
