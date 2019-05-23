@@ -1,0 +1,12 @@
+- alias: 'bathroom_notify_water_leak'
+  initial_state: 'on'
+  hide_entity: true
+  trigger:
+  - platform: state
+    entity_id: alert.bathroom_water_leak
+    to: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.kitchen_rgb_lightstrip, light.livingroom_ceiling_light_ambilight, light.bedroom_color
+      effect: 'Twitter'

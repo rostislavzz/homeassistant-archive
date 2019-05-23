@@ -136,7 +136,12 @@ views:
     cards:
       - type: entities
         entities:
-          - switch.wall_switch_left_158d0001715c96
+          - entity: switch.wall_switch_left_158d0001715c96
+            name: 'Свет'
+            icon: mdi:light-switch
+          - entity: light.livingroom_ceiling_light
+            name: 'Свет'
+            icon: mdi:ceiling-light
           - entity: light.livingroom_ceiling_light_ambilight
             name: 'Подсветка'
             icon: mdi:lightbulb-on
