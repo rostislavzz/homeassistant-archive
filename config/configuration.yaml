@@ -9,12 +9,7 @@ homeassistant:
 
 alert: !include include/alert.yaml
 automation: !include_dir_merge_list include/automations/
-
-#camera:
-#  - platform: ffmpeg
-#    name: Hall
-#    input: -rtsp_transport tcp -i rtsp://10.0.0.87/ch0.h264
-
+camera: !include include/camera.yaml
 config:
 device_tracker: !include_dir_list include/device_tracker/
 

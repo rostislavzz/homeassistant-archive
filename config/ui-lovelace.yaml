@@ -14,13 +14,12 @@ views:
             entity: person.iana
             image: '/local/jana.jpg'
             show_name: false
-      - type: glance
-        title: 'Прихожая'
+      - type: picture-glance
+        title: Прихожая
         entities:
-          - entity: binary_sensor.0x00158d0001b14504
-            name: 'Дверь'
-          - entity: switch.server
-            icon: mdi:server
+          - camera.hall
+          - binary_sensor.0x00158d0001b14504
+        camera_image: camera.hall
       - type: glance
         title: 'Кухня'
         entities:
@@ -137,13 +136,13 @@ views:
       - type: entities
         entities:
           - entity: switch.wall_switch_left_158d0001715c96
-            name: 'Свет'
+            name: 'Выключатель'
             icon: mdi:light-switch
           - entity: light.livingroom_ceiling_light
             name: 'Свет'
             icon: mdi:ceiling-light
           - entity: light.livingroom_ceiling_light_ambilight
-            name: 'Подсветка'
+            name: 'Фоновый свет'
             icon: mdi:lightbulb-on
           - light.livingroom_nightlight
           - switch.wall_switch_right_158d0001715c96

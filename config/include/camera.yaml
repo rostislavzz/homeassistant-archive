@@ -1,0 +1,4 @@
+- platform: ffmpeg
+  name: hall
+  extra_arguments: -pred 1 -rtsp_transport tcp
+  input: rtsp://hall-camera/ch0.h264
