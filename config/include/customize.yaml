@@ -93,6 +93,7 @@ sensor.livingroom_door_battery:
   friendly_name: 'Гостинная Дверь'
 media_player.livingroom_tv:
   friendly_name: 'Телевизор'
+  device_class: tv
 media_player.apple_tv_4:
   friendly_name: 'Apple TV'
 plant.crassula:

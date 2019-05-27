@@ -7,5 +7,6 @@ turn_on_action:
     mac: !secret webost_tv_mac
 customize:
   sources:
-    - plex
-    - youtube
+    - Plex
+    - HDMI-3
+    - YouTube

@@ -19,8 +19,16 @@ filter:
    - cover.curtain_158d0001ef4b95
    - binary_sensor.0x00158d0001db8a6a
    - binary_sensor.livingroomdoor
+   - media_player.livingroom_tv
    # ванная
    - binary_sensor.0x00158d0001bb87d2
    # спальня
    - light.bedroom_daylight
    - light.bedroom_nightlight
+entity_config:
+  media_player.livingroom_tv:
+    feature_list:
+      - feature: on_off
+      - feature: play_pause
+      - feature: play_stop
+      - feature: toggle_mute
