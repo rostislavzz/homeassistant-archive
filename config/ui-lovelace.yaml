@@ -68,6 +68,14 @@ views:
     cards:
       - type: weather-forecast
         entity: weather.dark_sky
+      - type: entities
+        title: 'Солнце'
+        show_header_toggle: false
+        entities:
+          - entity: sensor.sun_sunrise
+            icon: mdi:weather-sunset-up
+          - entity: sensor.sun_sunset
+            icon: mdi:weather-sunset-down
       - type: history-graph
         title: 'Температура'
         entities:
