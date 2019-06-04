@@ -19,3 +19,20 @@ devices:
     model: ceiling4
     use_music_mode: false
     save_on_change: false
+
+custom_effects:
+- name: 'Plex'
+  flow_params:
+    count: 0
+    transitions:
+    - RGBTransition: [225, 106, 11, 50, 1]
+- name: 'Water Leak'
+  flow_params:
+    count: 5
+    transitions:
+    - RGBTransition: [0, 0, 255, 50, 0]
+    - RGBTransition: [0, 0, 255, 250, 100]
+    - RGBTransition: [0, 0, 255, 250, 0]
+    - RGBTransition: [0, 0, 255, 250, 100]
+    - RGBTransition: [0, 0, 255, 250, 0]
+    - SleepTransition: [5000]

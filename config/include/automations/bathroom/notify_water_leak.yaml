@@ -9,4 +9,4 @@
     service: light.turn_on
     data:
       entity_id: light.kitchen_rgb_lightstrip, light.livingroom_ceiling_light_ambilight, light.bedroom_color
-      effect: 'Twitter'
+      effect: 'Water Leak'
