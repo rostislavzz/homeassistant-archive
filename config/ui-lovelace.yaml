@@ -273,3 +273,14 @@ views:
         entities:
          - sensor.bedroom_switch_battery
          - sensor.bedroom_button_battery
+
+  - title: 'Магазины'
+    icon: mdi:store
+    path: store
+    cards:
+    - type: entities
+      title: 'Leroy Merlin'
+      show_header_toggle: false
+      entities:
+        - entity: sensor.leroymerlin_plintus
+          name: 'Плинтус'
