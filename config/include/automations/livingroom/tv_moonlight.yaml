@@ -9,7 +9,10 @@
     entity_id: light.livingroom_ceiling_light
     state: 'on'
   action:
-    service: light.turn_on
-    data:
-      entity_id: light.livingroom_ceiling_light_ambilight
-      effect: 'Plex'
+     - service: light.turn_on
+       data:
+         entity_id: light.livingroom_ceiling_light_ambilight
+         effect: 'Plex'
+     - service: light.turn_off
+       data:
+         entity_id: light.livingroom_ceiling_light
