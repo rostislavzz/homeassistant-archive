@@ -1,0 +1,7 @@
+platform: scrape
+name: leroymerlin_plintus
+resource: https://kirov.leroymerlin.ru/product/plintus-napolnyy-dub-veronskiy-81973052/
+select: "div[data-js-realtime-stock-item]"
+attribute: data-value
+unit_of_measurement: 'шт.'
+scan_interval: 3600

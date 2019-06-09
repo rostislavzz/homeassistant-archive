@@ -1,0 +1,3 @@
+name: telegram_rost
+platform: telegram
+chat_id: !secret telegram_bot_chat_rost
