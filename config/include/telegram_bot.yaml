@@ -1,0 +1,5 @@
+platform: polling
+api_key: !secret telegram_bot_api_key
+proxy_url: socks5://10.0.0.62:9050
+allowed_chat_ids:
+  - !secret telegram_bot_chat_rost

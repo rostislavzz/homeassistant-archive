@@ -46,6 +46,7 @@ shell_command:
 sun:
 system_health:
 switch: !include_dir_list include/switch/
+telegram_bot: !include include/telegram_bot.yaml
 transmission: !include include/transmission.yaml
 updater:
 vacuum: !include_dir_list include/vacuum/
