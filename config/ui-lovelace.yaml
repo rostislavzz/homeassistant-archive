@@ -38,7 +38,7 @@ views:
           - entity: binary_sensor.0x00158d0001ab1e55
             name: 'Дверь'
           - binary_sensor.0x00158d0001db8a6a
-          - entity: cover.curtain_158d0001ef4b95
+          - entity: cover.0x00158d0001ef4b95_cover
             tap_action:
               action: toggle
           - entity: switch.wall_switch_left_158d0001715c96
@@ -154,7 +154,7 @@ views:
             icon: mdi:lightbulb-on
           - light.livingroom_nightlight
           - switch.wall_switch_right_158d0001715c96
-          - cover.curtain_158d0001ef4b95
+          - cover.0x00158d0001ef4b95_cover
       - type: media-control
         entity: media_player.livingroom_tv
       - type: horizontal-stack

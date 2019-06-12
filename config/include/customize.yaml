@@ -75,7 +75,7 @@ light.livingroom_nightlight:
 switch.wall_switch_right_158d0001715c96:
   friendly_name: 'Светильники'
   icon: mdi:track-light
-cover.curtain_158d0001ef4b95:
+cover.0x00158d0001ef4b95_cover:
   friendly_name: 'Шторы'
 binary_sensor.0x00158d0001db8a6a:
   friendly_name: 'Датчик дыма'
