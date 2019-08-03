@@ -12,10 +12,6 @@ kitchen:
     - sensor.kitchensensor_temperature
     - sensor.kitchensensor_humidity
     - sensor.illumination_34ce00fb7404
-    - sensor.illumination_158d0001a24e62
-    - binary_sensor.motion_sensor_158d0001a24e62
-    - sensor.illumination_158d0002236dfb
-    - binary_sensor.motion_sensor_158d0002236dfb
     - binary_sensor.kitchen_motion_sensor
     - light.kitchen_rgb_lightstrip
     - light.gateway_light_34ce00fb7404
@@ -61,8 +57,8 @@ kitchen_motion_sensor:
   name: 'Движение'
   icon: mdi:walk
   entities:
-    - binary_sensor.motion_sensor_158d0001a24e62
-    - binary_sensor.motion_sensor_158d0002236dfb
+    - binary_sensor.0x00158d0002236dfb_occupancy
+    - binary_sensor.0x00158d0001a24e62_occupancy
 
 server:
   name: 'Автоматическое включение/выключение'

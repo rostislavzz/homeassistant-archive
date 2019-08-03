@@ -286,8 +286,8 @@ views:
         show_header_toggle: false
         entities:
          - sensor.kitchen_sensor_battery
-         - sensor.kitchen_motion_sensor_battery
-         - sensor.kitchen_motion_sensor2_battery
+         - sensor.0x00158d0002236dfb_battery
+         - sensor.0x00158d0001a24e62_battery
       - type: entities
         title: 'Гостинная'
         show_header_toggle: false

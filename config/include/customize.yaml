@@ -19,16 +19,16 @@ sensor.0x00158d0001700c18_temperature:
   friendly_name: 'Температура'
 sensor.0x00158d0001700c18_humidity:
   friendly_name: 'Влажность'
-sensor.illumination_158d0001a24e62:
+sensor.0x00158d0001a24e62_illuminance:
   hidden: true
   friendly_name: 'Освещенность'
-binary_sensor.motion_sensor_158d0001a24e62:
+binary_sensor.0x00158d0001a24e62_occupancy:
   hidden: true
   friendly_name: 'Движение на кухне'
-sensor.illumination_158d0002236dfb:
+sensor.0x00158d0002236dfb_illuminance:
   hidden: true
   friendly_name: 'Освещенность у раковины'
-binary_sensor.motion_sensor_158d0002236dfb:
+binary_sensor.0x00158d0002236dfb_occupancy:
   hidden: true
   friendly_name: 'Движение у раковины'
 binary_sensor.kitchen_motion_sensor:
