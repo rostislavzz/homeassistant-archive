@@ -18,7 +18,6 @@ kitchen:
     - binary_sensor.motion_sensor_158d0002236dfb
     - binary_sensor.kitchen_motion_sensor
     - light.kitchen_rgb_lightstrip
-    - switch.plug_158d00019ccab8
     - light.gateway_light_34ce00fb7404
     - media_player.kitchen_ue32f6510
 

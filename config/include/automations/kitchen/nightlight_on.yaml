@@ -11,7 +11,7 @@
       before: sunrise
       before_offset: +01:00:00
     - condition: state
-      entity_id: switch.plug_158d00019ccab8
+      entity_id: switch.0x00158d00019ccab8_switch
       state: 'off'
     - condition: state
       entity_id: group.person

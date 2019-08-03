@@ -24,7 +24,7 @@ views:
         title: 'Кухня'
         entities:
           - group.kitchen_motion_sensor
-          - entity: switch.plug_158d00019ccab8
+          - entity: switch.0x00158d00019ccab8_switch
             tap_action:
               action: toggle
           - entity: light.kitchen_rgb_lightstrip
@@ -98,6 +98,8 @@ views:
             name: 'Прихожая'
           - entity: sensor.0x00158d0001700c18_temperature
             name: 'Кухня'
+          - entity: sensor.kitchen_temperature_filter
+            name: 'Кухня (фильтр)'
           - entity: sensor.0x00158d0002b518b9_temperature
             name: 'Гостинная'
       - type: sensor
@@ -111,6 +113,8 @@ views:
             name: 'Прихожая'
           - entity: sensor.0x00158d0001700c18_humidity
             name: 'Кухня'
+          - entity: sensor.kitchen_humidity_filter
+            name: 'Кухня'
           - entity: sensor.0x00158d0002b518b9_humidity
             name: 'Гостинная'
 
@@ -123,7 +127,7 @@ views:
           - type: entities
             title: 'Свет'
             entities:
-              - entity: switch.plug_158d00019ccab8
+              - entity: switch.0x00158d00019ccab8_switch
               - entity: light.kitchen_rgb_lightstrip
                 name: 'Ночник'
           - type: entities

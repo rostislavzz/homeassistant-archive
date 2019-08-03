@@ -6,7 +6,7 @@ filter:
    - sensor.0x00158d0001b8d3ca_temperature
    - sensor.0x00158d0001b8d3ca_humidity
    # кухня
-   - switch.plug_158d00019ccab8
+   - switch.0x00158d00019ccab8_switch
    - sensor.kitchensensor_humidity
    - sensor.kitchensensor_temperature
    - light.kitchen_rgb_lightstrip

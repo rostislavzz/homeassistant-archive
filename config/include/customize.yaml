@@ -35,7 +35,7 @@ binary_sensor.kitchen_motion_sensor:
   friendly_name: 'Движение'
 light.kitchen_rgb_lightstrip:
   friendly_name: 'Ночник Кухня'
-switch.plug_158d00019ccab8:
+switch.0x00158d00019ccab8_switch:
   friendly_name: 'Свет'
   icon: mdi:ceiling-light
 media_player.kitchen_tv:
