@@ -35,7 +35,8 @@ views:
       - type: glance
         title: 'Детская'
         entities:
-          - entity: switch.wall_switch_right_158d0002235b38
+          - entity: binary_sensor.0x00158d0001e42e65_contact
+          - entity: switch.0x00158d0002235b38_switch_right
             tap_action:
               action: toggle
           - entity: light.kidsroom_ceiling_light
@@ -44,7 +45,7 @@ views:
           - entity: light.kidsroom_ceiling_light_ambilight
             tap_action:
               action: toggle
-          - entity: switch.wall_switch_left_158d0002235b38
+          - entity: switch.0x00158d0002235b38_switch_left
             tap_action:
               action: toggle
       - type: glance
@@ -162,14 +163,16 @@ views:
     cards:
       - type: entities
         entities:
-          - entity: switch.wall_switch_right_158d0002235b38
+          - entity: binary_sensor.0x00158d0001e42e65_contact
+            name: 'Дверь'
+          - entity: switch.0x00158d0002235b38_switch_right
             tap_action:
               action: toggle
           - entity: light.kidsroom_ceiling_light
             tap_action:
               action: toggle
           - entity: light.kidsroom_ceiling_light_ambilight
-          - entity: switch.wall_switch_left_158d0002235b38
+          - entity: switch.0x00158d0002235b38_switch_left
             tap_action:
               action: toggle
 
@@ -288,6 +291,11 @@ views:
          - sensor.kitchen_sensor_battery
          - sensor.0x00158d0002236dfb_battery
          - sensor.0x00158d0001a24e62_battery
+      - type: entities
+        title: 'Детская'
+        show_header_toggle: false
+        entities:
+          - sensor.0x00158d0001e42e65_battery
       - type: entities
         title: 'Гостинная'
         show_header_toggle: false
