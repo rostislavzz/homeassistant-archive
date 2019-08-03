@@ -76,16 +76,16 @@ light.kidsroom_ceiling_light_ambilight:
 # гостиная
 sensor.livingroom_sensor_battery:
   friendly_name: 'Датчик температуры и влажности'
-switch.wall_switch_left_158d0001715c96:
-  friendly_name: 'Свет'
-  icon: mdi:ceiling-light
+switch.0x00158d0001715c96_switch_left:
+  friendly_name: 'Выключатель'
+  icon: mdi:light-switch
 light.livingroom_ceiling_light:
   friendly_name: 'Свет'
   icon: mdi:ceiling-light
 light.livingroom_nightlight:
   friendly_name: 'Ночник'
   icon: mdi:lamp
-switch.wall_switch_right_158d0001715c96:
+switch.0x00158d0001715c96_switch_right:
   friendly_name: 'Светильники'
   icon: mdi:track-light
 cover.0x00158d0001ef4b95_cover:

@@ -35,10 +35,8 @@ kitchen_tv:
 livingroom:
   name: 'Гостиная'
   entities:
-    - switch.wall_switch_left_158d0001715c96
     - light.livingroom_ceiling_light
     - light.livingroom_nightlight
-    - switch.wall_switch_right_158d0001715c96
     - binary_sensor.0x00158d0001db8a6a
     - vacuum.xiaomi_vacuum_cleaner
     - binary_sensor.cube_158d00010ed5cf

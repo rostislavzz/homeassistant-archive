@@ -56,10 +56,10 @@ views:
           - entity: cover.0x00158d0001ef4b95_cover
             tap_action:
               action: toggle
-          - entity: switch.wall_switch_left_158d0001715c96
+          - entity: switch.0x00158d0001715c96_switch_left
             tap_action:
               action: toggle
-          - entity: switch.wall_switch_right_158d0001715c96
+          - entity: switch.0x00158d0001715c96_switch_right
             icon: mdi:track-light
             tap_action:
               action: toggle
@@ -175,9 +175,7 @@ views:
     cards:
       - type: entities
         entities:
-          - entity: switch.wall_switch_left_158d0001715c96
-            name: 'Выключатель'
-            icon: mdi:light-switch
+          - switch.0x00158d0001715c96_switch_left
           - entity: light.livingroom_ceiling_light
             name: 'Свет'
             icon: mdi:ceiling-light
@@ -185,7 +183,7 @@ views:
             name: 'Фоновый свет'
             icon: mdi:lightbulb-on
           - light.livingroom_nightlight
-          - switch.wall_switch_right_158d0001715c96
+          - switch.0x00158d0001715c96_switch_right
           - cover.0x00158d0001ef4b95_cover
       - type: media-control
         entity: media_player.livingroom_tv
