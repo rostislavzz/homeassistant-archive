@@ -49,7 +49,7 @@ views:
             tap_action:
               action: toggle
       - type: glance
-        title: 'Гостинная'
+        title: 'Гостиная'
         entities:
           - entity: binary_sensor.0x00158d0001ab1e55
             name: 'Дверь'
@@ -102,7 +102,7 @@ views:
           - entity: sensor.kitchen_temperature_filter
             name: 'Кухня (фильтр)'
           - entity: sensor.0x00158d0002b518b9_temperature
-            name: 'Гостинная'
+            name: 'Гостиная'
       - type: sensor
         name: 'Давление'
         entity: sensor.0x00158d0002b518b9_pressure
@@ -117,7 +117,7 @@ views:
           - entity: sensor.kitchen_humidity_filter
             name: 'Кухня'
           - entity: sensor.0x00158d0002b518b9_humidity
-            name: 'Гостинная'
+            name: 'Гостиная'
 
   - title: 'Кухня'
     icon: mdi:silverware-fork-knife
@@ -165,7 +165,7 @@ views:
             tap_action:
               action: toggle
 
-  - title: 'Гостинная'
+  - title: 'Гостиная'
     icon: mdi:sofa
     path: livingroom
     cards:
@@ -286,7 +286,7 @@ views:
         entities:
           - sensor.0x00158d0001e42e65_battery
       - type: entities
-        title: 'Гостинная'
+        title: 'Гостиная'
         show_header_toggle: false
         entities:
          - sensor.livingroom_door_battery
