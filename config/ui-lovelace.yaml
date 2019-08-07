@@ -131,19 +131,8 @@ views:
               - entity: switch.0x00158d00019ccab8_switch
               - entity: light.kitchen_rgb_lightstrip
                 name: 'Ночник'
-          - type: entities
-            title: 'Автоматизации'
-            show_header_toggle: true
-            entities:
-              - entity: switch.kitchen_automations_light
-                name: 'Свет'
-                icon: mdi:ceiling-light
-              - entity: switch.kitchen_automations_nightlight
-                name: 'Ночник'
-                icon: mdi:lightbulb
-              - entity: switch.flux
-                name: 'Ночной режим света'
-                icon: mdi:theme-light-dark
+              - entity: switch.kitchen_automations
+                name: 'Автоматизации'
       - type: horizontal-stack
         cards:
           - type: sensor

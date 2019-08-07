@@ -10,8 +10,7 @@ filter:
    - sensor.kitchensensor_humidity
    - sensor.kitchensensor_temperature
    - light.kitchen_rgb_lightstrip
-   - switch.kitchen_automations_light
-   - switch.kitchen_automations_nightlight
+   - switch.kitchen_automations
    # детская
    - switch.0x00158d0002235b38_switch_right
    - switch.0x00158d0002235b38_switch_left
@@ -19,6 +18,7 @@ filter:
    # гостиная
    - switch.0x00158d0001715c96_switch_left
    - switch.0x00158d0001715c96_switch_right
+   - light.livingroom_ceiling_light_ambilight
    - light.livingroom_nightlight
    - cover.0x00158d0001ef4b95_cover
    - binary_sensor.0x00158d0001db8a6a
@@ -41,13 +41,23 @@ entity_config:
     name: Свет
   switch.0x00158d0002235b38_switch_left:
     name: Светильники
-  binary_sensor.0x00158d0001db8a6a:
-    name: Датчик дыма
-    linked_battery_sensor: sensor.livingroom_smoke_battery
   binary_sensor.0x00158d0001bb87d2:
     name: Датчик протечки
     linked_battery_sensor: sensor.bathroom_water_leak_battery
     low_battery_threshold: 5
+  # кухня
+  switch.kitchen_automations:
+    name: Автоматизации
+  # гостиная
+  switch.0x00158d0001715c96_switch_left:
+    name: Свет
+  switch.0x00158d0001715c96_switch_right:
+    name: Светильники
+  light.livingroom_ceiling_light_ambilight:
+    name: Фоновый свет
+  binary_sensor.0x00158d0001db8a6a:
+    name: Датчик дыма
+    linked_battery_sensor: sensor.livingroom_smoke_battery
   media_player.livingroom_tv:
     feature_list:
       - feature: on_off
