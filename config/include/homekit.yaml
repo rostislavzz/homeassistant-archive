@@ -15,6 +15,7 @@ filter:
    - switch.0x00158d0002235b38_switch_right
    - switch.0x00158d0002235b38_switch_left
    - light.kidsroom_ceiling_light_ambilight
+   - light.kidsroom_nightlight
    # гостиная
    - switch.0x00158d0001715c96_switch_left
    - switch.0x00158d0001715c96_switch_right
@@ -37,10 +38,6 @@ entity_config:
     name: Влажность
     low_battery_threshold: 5
     linked_battery_sensor: sensor.hall_sensor_battery
-  switch.0x00158d0002235b38_switch_right:
-    name: Свет
-  switch.0x00158d0002235b38_switch_left:
-    name: Светильники
   binary_sensor.0x00158d0001bb87d2:
     name: Датчик протечки
     linked_battery_sensor: sensor.bathroom_water_leak_battery
@@ -48,6 +45,13 @@ entity_config:
   # кухня
   switch.kitchen_automations:
     name: Автоматизации
+  # детская
+  switch.0x00158d0002235b38_switch_right:
+    name: Свет
+  switch.0x00158d0002235b38_switch_left:
+    name: Светильники
+  light.kidsroom_nightlight:
+    name: Ночник
   # гостиная
   switch.0x00158d0001715c96_switch_left:
     name: Свет

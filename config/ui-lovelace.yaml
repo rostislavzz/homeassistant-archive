@@ -36,13 +36,10 @@ views:
         title: 'Детская'
         entities:
           - entity: binary_sensor.0x00158d0001e42e65_contact
+            name: Дверь
           - entity: switch.0x00158d0002235b38_switch_right
-            tap_action:
-              action: toggle
-          - entity: light.kidsroom_ceiling_light
-            tap_action:
-              action: toggle
-          - entity: light.kidsroom_ceiling_light_ambilight
+            name: Свет
+            icon: mdi:ceiling-light
             tap_action:
               action: toggle
           - entity: switch.0x00158d0002235b38_switch_left
@@ -58,6 +55,8 @@ views:
             tap_action:
               action: toggle
           - entity: switch.0x00158d0001715c96_switch_left
+            name: Свет
+            icon: mdi:ceiling-light
             tap_action:
               action: toggle
           - entity: switch.0x00158d0001715c96_switch_right
@@ -161,6 +160,10 @@ views:
             tap_action:
               action: toggle
           - entity: light.kidsroom_ceiling_light_ambilight
+          - entity: light.kidsroom_nightlight
+            name: Ночник
+            tap_action:
+              action: toggle
           - entity: switch.0x00158d0002235b38_switch_left
             tap_action:
               action: toggle
@@ -178,7 +181,8 @@ views:
           - entity: light.livingroom_ceiling_light_ambilight
             name: 'Фоновый свет'
             icon: mdi:lightbulb-on
-          - light.livingroom_nightlight
+          - entity: light.livingroom_nightlight
+            name: 'Ночник'
           - switch.0x00158d0001715c96_switch_right
           - cover.0x00158d0001ef4b95_cover
       - type: media-control

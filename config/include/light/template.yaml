@@ -1,40 +1,29 @@
 platform: template
 lights:
 
-  bedroom_daylight:
-    friendly_name: 'Свет'
+  kidsroom_nightlight:
+    friendly_name: 'Ночник в детской'
     value_template: >
-      {% if is_state('light.bedroom_mono', 'on') %}
-        on
-      {% else %}
+      {% if is_state('light.kidsroom_ceiling_light', 'unavailable') %}
         off
-      {% endif %}
-    turn_on:
-    - service: scene.turn_on
-      entity_id: scene.bedroom_daylight
-    turn_off:
-    - service: light.turn_off
-      entity_id: group.bedroom_light
-
-  bedroom_nightlight:
-    friendly_name: 'Ночник'
-    value_template: >
-      {% if is_state('light.bedroom_color', 'off') or is_state('light.bedroom_color', '') %}
+      {% elif is_state('light.kidsroom_ceiling_light', 'off') %}
         off
-      {% elif is_state_attr('light.bedroom_color', 'brightness', 255) %}
+      {% elif is_state('light.kidsroom_ceiling_light', 'on') and (states.light.kidsroom_ceiling_light.attributes.color_temp is defined) %}
         off
       {% else %}
         on
       {% endif %}
     turn_on:
-     - service: scene.turn_on
-       entity_id: scene.bedroom_nightlight
+      - service: yeelight.set_mode
+        data:
+          entity_id: light.kidsroom_ceiling_light
+          mode: 'moonlight'
     turn_off:
-    - service: light.turn_off
-      entity_id: group.bedroom_light
+      - service: light.turn_off
+        entity_id: light.kidsroom_ceiling_light
 
   livingroom_nightlight:
-    friendly_name: 'Ночник'
+    friendly_name: 'Ночник в гостиной'
     value_template: >
       {% if is_state('light.livingroom_ceiling_light', 'unavailable') %}
         off
@@ -53,3 +42,35 @@ lights:
     turn_off:
       - service: light.turn_off
         entity_id: light.livingroom_ceiling_light
+
+  bedroom_daylight:
+    friendly_name: 'Свет'
+    value_template: >
+      {% if is_state('light.bedroom_mono', 'on') %}
+        on
+      {% else %}
+        off
+      {% endif %}
+    turn_on:
+      - service: scene.turn_on
+        entity_id: scene.bedroom_daylight
+    turn_off:
+      - service: light.turn_off
+        entity_id: group.bedroom_light
+
+  bedroom_nightlight:
+    friendly_name: 'Ночник'
+    value_template: >
+      {% if is_state('light.bedroom_color', 'off') or is_state('light.bedroom_color', '') %}
+        off
+      {% elif is_state_attr('light.bedroom_color', 'brightness', 255) %}
+        off
+      {% else %}
+        on
+      {% endif %}
+    turn_on:
+      - service: scene.turn_on
+        entity_id: scene.bedroom_nightlight
+    turn_off:
+      - service: light.turn_off
+        entity_id: group.bedroom_light

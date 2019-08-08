@@ -74,6 +74,9 @@ light.kidsroom_ceiling_light:
   icon: mdi:ceiling-light
 light.kidsroom_ceiling_light_ambilight:
   friendly_name: 'Фоновый свет'
+light.kidsroom_nightlight:
+  friendly_name: 'Ночник в детской'
+  icon: mdi:lamp
 sensor.0x00158d0001e42e65_battery:
   friendly_name: 'Датчик двери'
 
