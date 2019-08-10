@@ -14,8 +14,6 @@ kitchen:
     - sensor.illumination_34ce00fb7404
     - binary_sensor.kitchen_motion_sensor
     - light.kitchen_rgb_lightstrip
-    - light.gateway_light_34ce00fb7404
-    - media_player.kitchen_ue32f6510
 
 kitchen_tv:
   name: 'Телевизор на кухне'

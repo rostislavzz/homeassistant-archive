@@ -38,15 +38,10 @@ light.kitchen_rgb_lightstrip:
 switch.0x00158d00019ccab8_switch:
   friendly_name: 'Свет'
   icon: mdi:ceiling-light
-media_player.kitchen_tv:
-  friendly_name: 'Телевизор Кухня'
+media_player.kitchen_tv_universal:
+  friendly_name: 'Телевизор на кухне'
 
 # кухня телевизор
-group.kitchen_tv:
-  order: 3
-switch.kitchen_tv_power:
-  friendly_name: 'Power'
-  icon: mdi:power
 script.smart_hub:
   friendly_name: 'Smart Hub'
   icon: mdi:cube

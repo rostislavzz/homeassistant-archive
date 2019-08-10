@@ -125,7 +125,6 @@ views:
       - type: vertical-stack
         cards:
           - type: entities
-            title: 'Свет'
             entities:
               - entity: switch.0x00158d00019ccab8_switch
               - entity: light.kitchen_rgb_lightstrip
@@ -143,7 +142,7 @@ views:
             name: 'Влажность'
             graph: line
       - type: media-control
-        entity: media_player.kitchen_tv
+        entity: media_player.kitchen_tv_universal
 
   - title: 'Детская'
     icon: mdi:baby-buggy
