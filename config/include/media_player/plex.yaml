@@ -1,3 +1,2 @@
 platform: plex
 entity_namespace: 'plex'
-use_custom_entity_ids: true
