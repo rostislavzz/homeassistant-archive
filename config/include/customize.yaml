@@ -34,6 +34,7 @@ switch.0x00158d00019ccab8_switch:
   icon: mdi:ceiling-light
 media_player.kitchen_tv_universal:
   friendly_name: 'Телевизор на кухне'
+  device_class: tv
 
 # кухня телевизор
 script.smart_hub:
