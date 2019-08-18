@@ -4,16 +4,13 @@ views:
     icon: mdi:home
     path: home
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: picture-entity
-            entity: person.rostislav
-            image: '/local/rostislav.jpg'
-            show_name: false
-          - type: picture-entity
-            entity: person.iana
-            image: '/local/jana.jpg'
-            show_name: false
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: person.rostislav
+            icon: mdi:human-male
+          - entity: person.iana
+            icon: mdi:human-female
       - type: picture-glance
         title: Прихожая
         entities:
