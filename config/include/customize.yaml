@@ -13,12 +13,6 @@ light.yeelight_white_34ce00882e95:
   friendly_name: 'Верхний свет'
 
 # кухня
-sensor.kitchen_sensor_battery:
-  friendly_name: 'Датчик температуры и влажности'
-sensor.0x00158d0001700c18_temperature:
-  friendly_name: 'Температура'
-sensor.0x00158d0001700c18_humidity:
-  friendly_name: 'Влажность'
 sensor.0x00158d0001a24e62_illuminance:
   hidden: true
   friendly_name: 'Освещенность'
@@ -56,6 +50,12 @@ script.right:
   icon: mdi:arrow-right-bold
 
 # детская
+sensor.kitchen_sensor_battery:
+  friendly_name: 'Датчик температуры и влажности'
+sensor.0x00158d0001700c18_temperature:
+  friendly_name: 'Температура'
+sensor.0x00158d0001700c18_humidity:
+  friendly_name: 'Влажность'
 binary_sensor.0x00158d0001e42e65_contact:
   friendly_name: 'Дверь в детскую'
 switch.0x00158d0002235b38_switch_right:
@@ -150,5 +150,5 @@ device_tracker.iphonejanahome:
 
 person.rostislav:
   friendly_name: 'Рост'
-person.jana:
+person.iana:
   friendly_name: 'Яна'
