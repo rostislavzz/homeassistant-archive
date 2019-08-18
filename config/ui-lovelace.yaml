@@ -301,13 +301,13 @@ views:
           - sensor.bedroom_switch_battery
           - sensor.bedroom_button_battery
 
-  - title: 'Магазины'
-    icon: mdi:store
+  - title: 'Zigbee2mqtt'
+    icon: mdi:zigbee
     path: store
     cards:
     - type: entities
-      title: 'Leroy Merlin'
       show_header_toggle: false
       entities:
-        - entity: sensor.leroymerlin_plintus
-          name: 'Плинтус'
+        - entity: sensor.zigbee2mqtt_bridge_state
+        - entity: sensor.zigbee2mqtt_version
+        - entity: sensor.zigbee_coordinator_version

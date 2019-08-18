@@ -1,9 +1,0 @@
-- alias: 'leroymerlin_plintus'
-  trigger:
-    platform: state
-    entity_id: sensor.leroymerlin_plintus
-  action:
-    service: notify.telegram_rost
-    data:
-      title: 'Leroy Merlin'
-      message: "Остаток *{{ states ('sensor.leroymerlin_plintus') }}* шт."
