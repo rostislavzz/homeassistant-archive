@@ -52,5 +52,4 @@ updater:
 vacuum: !include_dir_list include/vacuum/
 wake_on_lan:
 weather: !include_dir_list include/weather/
-xiaomi_aqara: !include include/xiaomi_aqara.yaml
 yeelight: !include include/yeelight.yaml
