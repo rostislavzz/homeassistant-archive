@@ -38,7 +38,7 @@ plant: !include include/plant.yaml
 recorder: !include include/recorder.yaml
 scene: !include_dir_list include/scene/
 script: !include include/scripts.yaml
-sensor: !include_dir_list include/sensors/
+sensor: !include_dir_list include/sensor/
 
 shell_command:
   turn_off_server: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@10.0.0.213 sudo pm-suspend'

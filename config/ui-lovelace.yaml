@@ -97,9 +97,7 @@ views:
           - entity: sensor.0x00158d0001b8d3ca_temperature
             name: 'Прихожая'
           - entity: sensor.0x00158d0001700c18_temperature
-            name: 'Кухня'
-          - entity: sensor.kitchen_temperature_filter
-            name: 'Кухня (фильтр)'
+            name: 'Детская'
           - entity: sensor.0x00158d0002b518b9_temperature
             name: 'Гостиная'
       - type: sensor
@@ -112,9 +110,7 @@ views:
           - entity: sensor.0x00158d0001b8d3ca_humidity
             name: 'Прихожая'
           - entity: sensor.0x00158d0001700c18_humidity
-            name: 'Кухня'
-          - entity: sensor.kitchen_humidity_filter
-            name: 'Кухня'
+            name: 'Детская'
           - entity: sensor.0x00158d0002b518b9_humidity
             name: 'Гостиная'
 
@@ -131,16 +127,6 @@ views:
                 name: 'Ночник'
               - entity: switch.kitchen_automations
                 name: 'Автоматизации'
-      - type: horizontal-stack
-        cards:
-          - type: sensor
-            entity: sensor.0x00158d0001700c18_temperature
-            name: 'Температура'
-            graph: line
-          - type: sensor
-            entity: sensor.0x00158d0001700c18_humidity
-            name: 'Влажность'
-            graph: line
       - type: media-control
         entity: media_player.kitchen_tv_universal
 
@@ -166,6 +152,16 @@ views:
           - entity: switch.0x00158d0002235b38_switch_left
             tap_action:
               action: toggle
+      - type: horizontal-stack
+        cards:
+        - type: sensor
+          entity: sensor.0x00158d0001700c18_temperature
+          name: 'Температура'
+          graph: line
+        - type: sensor
+          entity: sensor.0x00158d0001700c18_humidity
+          name: 'Влажность'
+          graph: line
 
   - title: 'Гостиная'
     icon: mdi:sofa
@@ -274,39 +270,39 @@ views:
         title: 'Прихожая'
         show_header_toggle: false
         entities:
-         - sensor.hall_door_battery
-         - sensor.hall_sensor_battery
+          - sensor.hall_door_battery
+          - sensor.hall_sensor_battery
       - type: entities
         title: 'Кухня'
         show_header_toggle: false
         entities:
-         - sensor.kitchen_sensor_battery
-         - sensor.0x00158d0002236dfb_battery
-         - sensor.0x00158d0001a24e62_battery
+          - sensor.0x00158d0002236dfb_battery
+          - sensor.0x00158d0001a24e62_battery
       - type: entities
         title: 'Детская'
         show_header_toggle: false
         entities:
+          - sensor.kitchen_sensor_battery
           - sensor.0x00158d0001e42e65_battery
       - type: entities
         title: 'Гостиная'
         show_header_toggle: false
         entities:
-         - sensor.livingroom_door_battery
-         - sensor.livingroom_sensor_battery
-         - sensor.livingroom_smoke_battery
-         - sensor.livingroom_miflora_battery
+          - sensor.livingroom_door_battery
+          - sensor.livingroom_sensor_battery
+          - sensor.livingroom_smoke_battery
+          - sensor.livingroom_miflora_battery
       - type: entities
         title: 'Ванная'
         show_header_toggle: false
         entities:
-         - sensor.bathroom_water_leak_battery
+          - sensor.bathroom_water_leak_battery
       - type: entities
         title: 'Спальня'
         show_header_toggle: false
         entities:
-         - sensor.bedroom_switch_battery
-         - sensor.bedroom_button_battery
+          - sensor.bedroom_switch_battery
+          - sensor.bedroom_button_battery
 
   - title: 'Магазины'
     icon: mdi:store
