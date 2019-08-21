@@ -303,11 +303,21 @@ views:
 
   - title: 'Zigbee2mqtt'
     icon: mdi:zigbee
-    path: store
+    path: zigbee2mqtt
     cards:
-    - type: entities
-      show_header_toggle: false
-      entities:
-        - entity: sensor.zigbee2mqtt_bridge_state
-        - entity: sensor.zigbee2mqtt_version
-        - entity: sensor.zigbee_coordinator_version
+      - type: entities
+        title: 'Zigbee2mqtt'
+        show_header_toggle: false
+        entities:
+          - entity: sensor.zigbee2mqtt_version
+            name: 'Версия'
+            icon: mdi:information-outline
+          - entity: sensor.zigbee2mqtt_bridge_state
+            name: 'Статус'
+          - entity: sensor.zigbee_coordinator_version
+            name: 'Прошивка координатора'
+          - entity: switch.zigbee2mqtt_permit_join
+            name: 'Разрешить подключение новых устройств'
+            icon: mdi:access-point
+          - entity: timer.zigbee2mqtt_permit_join
+            name: 'Оставшееся время'

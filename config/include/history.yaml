@@ -1,6 +1,14 @@
 exclude:
   domains:
-  - script
+    - script
   entities:
-  - light.gateway_light_34ce00fb7404
-  - sensor.public_transport_stop_324
+    - sensor.zigbee2mqtt_bridge_state
+    - sensor.zigbee2mqtt_version
+    - sensor.zigbee_coordinator_version
+    - switch.zigbee2mqtt_permit_join
+    - switch.kitchen_tv_power
+    - switch.samsung_tv_left
+    - switch.samsung_tv_right
+    - switch.samsung_tv_power
+    - switch.samsung_tv_select
+    - switch.samsung_tv_smart_hub
