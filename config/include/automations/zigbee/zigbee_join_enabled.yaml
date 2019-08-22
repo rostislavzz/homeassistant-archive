@@ -2,7 +2,7 @@
   hide_entity: true
   trigger:
     platform: state
-    entity_id: switch.zigbee2mqtt_main_join
+    entity_id: switch.zigbee2mqtt_permit_join
     to: "on"
   action:
     service: timer.start
