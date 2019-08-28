@@ -12,7 +12,12 @@ views:
           - entity: person.iana
             icon: mdi:human-female
       - type: picture-glance
-        title: Прихожая
+        title: 'Подъезд'
+        entities:
+          - camera.entrance
+        camera_image: camera.entrance
+      - type: picture-glance
+        title: 'Прихожая'
         entities:
           - camera.hall
           - binary_sensor.0x00158d0001b14504
