@@ -11,17 +11,19 @@ views:
             icon: mdi:human-male
           - entity: person.iana
             icon: mdi:human-female
-      - type: picture-glance
-        title: 'Подъезд'
-        entities:
-          - camera.entrance
-        camera_image: camera.entrance
-      - type: picture-glance
-        title: 'Прихожая'
-        entities:
-          - camera.hall
-          - binary_sensor.0x00158d0001b14504
-        camera_image: camera.hall
+      - type: vertical-stack
+        cards:
+          - type: picture-glance
+            title: 'Подъезд'
+            entities:
+              - camera.entrance
+            camera_image: camera.entrance
+          - type: picture-glance
+            title: 'Прихожая'
+            entities:
+              - camera.hall
+              - binary_sensor.0x00158d0001b14504
+            camera_image: camera.hall
       - type: glance
         title: 'Кухня'
         entities:
@@ -76,11 +78,9 @@ views:
             icon: mdi:lamp
             tap_action:
                 action: toggle
-      - type: media-control
-        entity: media_player.livingroom_tv
 
   - title: 'Погода'
-    icon: mdi:weather-partlycloudy
+    icon: mdi:weather-partly-cloudy
     path: weather
     cards:
       - type: weather-forecast
@@ -133,7 +133,7 @@ views:
         entity: media_player.kitchen_tv_universal
 
   - title: 'Детская'
-    icon: mdi:baby-buggy
+    icon: mdi:baby-carriage
     path: kidsroom
     cards:
       - type: entities
