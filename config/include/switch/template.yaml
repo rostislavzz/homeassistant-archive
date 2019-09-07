@@ -2,12 +2,7 @@ platform: template
 switches:
 
   kitchen_tv_power:
-    value_template: >
-      {% if is_state('media_player.kitchen_tv', 'on') %}
-        true
-      {% else %}
-        false
-      {% endif %}
+    value_template: "{{ is_state('media_player.kitchen_tv', 'on') }}"
     turn_on:
       service: switch.turn_on
       data:
@@ -19,12 +14,7 @@ switches:
 
   kitchen_automations:
     friendly_name: 'Автоматизации на кухне'
-    value_template: >
-      {% if is_state('group.kitchen_automations', 'off') and is_state('switch.flux', 'off') %}
-        false
-      {% else %}
-        true
-      {% endif %}
+    value_template: "{{ is_state('group.kitchen_automations', 'off') and is_state('switch.flux', 'off') }}"
     turn_on:
       - service: switch.turn_on
         data:
@@ -42,12 +32,7 @@ switches:
 
   server_automation:
     friendly_name: 'Автоматическое включение/выключение'
-    value_template: >
-      {% if is_state('group.server', 'off') %}
-        false
-      {% else %}
-        true
-      {% endif %}
+    value_template: "{{ is_state('group.server', 'off') }}"
     turn_on:
       service: automation.turn_on
       data:
@@ -56,3 +41,55 @@ switches:
       service: automation.turn_off
       data:
         entity_id: group.server
+
+  vacuum_hall:
+    friendly_name: 'Прихожая'
+    icon_template: mdi:door-closed
+    value_template: "{{ is_state('input_boolean.vacuum_hall', 'on') }}"
+    turn_on:
+      service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.vacuum_hall
+    turn_off:
+      service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacuum_hall
+
+  vacuum_kitchen:
+    friendly_name: 'Кухня'
+    icon_template: mdi:silverware-fork-knife
+    value_template: "{{ is_state('input_boolean.vacuum_kitchen', 'on') }}"
+    turn_on:
+      service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.vacuum_kitchen
+    turn_off:
+      service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacuum_kitchen
+
+  vacuum_kidsroom:
+    friendly_name: 'Детская'
+    icon_template: mdi:baby-buggy
+    value_template: "{{ is_state('input_boolean.vacuum_kidsroom', 'on') }}"
+    turn_on:
+      service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.vacuum_kidsroom
+    turn_off:
+      service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacuum_kidsroom
+
+  vacuum_livingroom:
+    friendly_name: 'Гостиная'
+    icon_template: mdi:sofa
+    value_template: "{{ is_state('input_boolean.vacuum_livingroom', 'on') }}"
+    turn_on:
+      service: input_boolean.turn_on
+      data:
+        entity_id: input_boolean.vacuum_livingroom
+    turn_off:
+      service: input_boolean.turn_off
+      data:
+        entity_id: input_boolean.vacuum_livingroom

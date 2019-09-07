@@ -1,0 +1,17 @@
+- alias: 'vacuum set xiaomi fan speed'
+  trigger:
+    platform: state
+    entity_id: input_select.vacuum_fan_speed
+  action:
+    service: vacuum.set_fan_speed
+    data_template:
+      fan_speed: >
+        {% if is_state('input_select.vacuum_fan_speed', 'Тихий') %}
+          Quiet
+        {% elif is_state('input_select.vacuum_fan_speed', 'Сбалансированный') %}
+          Balanced
+        {% elif is_state('input_select.vacuum_fan_speed', 'Турбо') %}
+          Turbo
+        {% elif is_state('input_select.vacuum_fan_speed', 'Максимальный') %}
+          Max
+        {% endif %}

@@ -102,7 +102,7 @@ binary_sensor.cube_158d00010ed5cf:
   icon: mdi:cube-outline
 vacuum.xiaomi_vacuum_cleaner:
   friendly_name: 'Пылесос'
-  icon: mdi:roomba
+  icon: mdi:robot-vacuum
 binary_sensor.0x00158d0001ab1e55:
   friendly_name: 'Гостинная Дверь'
 sensor.livingroom_door_battery:

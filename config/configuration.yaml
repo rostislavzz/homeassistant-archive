@@ -24,6 +24,8 @@ homekit: !include include/homekit.yaml
 http:
 influxdb: !include include/influxdb.yaml
 input_boolean: !include include/input_boolean.yaml
+input_number: !include include/input_number.yaml
+input_select: !include include/input_select.yaml
 light: !include_dir_list include/light/
 logbook:
 
@@ -38,6 +40,7 @@ plant: !include include/plant.yaml
 recorder: !include include/recorder.yaml
 scene: !include_dir_list include/scene/
 script: !include include/scripts.yaml
+stream:
 sensor: !include_dir_list include/sensor/
 
 shell_command:

@@ -1,7 +1,18 @@
 exclude:
   domains:
+    - input_number
     - script
+    - timer
+    - updater
   entities:
+    - camera.hall
+    - camera.entrance
+    - input_boolean.vacuum_hall
+    - input_boolean.vacuum_kitchen
+    - input_boolean.vacuum_kidsroom
+    - input_boolean.vacuum_livingroom
+    - sensor.sun_sunrise
+    - sensor.sun_sunset
     - sensor.zigbee2mqtt_bridge_state
     - sensor.zigbee2mqtt_version
     - sensor.zigbee_coordinator_version
@@ -12,3 +23,7 @@ exclude:
     - switch.samsung_tv_power
     - switch.samsung_tv_select
     - switch.samsung_tv_smart_hub
+    - switch.vacuum_hall
+    - switch.vacuum_kitchen
+    - switch.vacuum_kidsroom
+    - switch.vacuum_livingroom
