@@ -46,7 +46,6 @@ shell_command:
 sun:
 system_health:
 switch: !include_dir_list include/switch/
-telegram_bot: !include include/telegram_bot.yaml
 timer: !include_dir_named include/timer/
 transmission: !include include/transmission.yaml
 updater:
