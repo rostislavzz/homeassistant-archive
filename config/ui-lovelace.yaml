@@ -373,3 +373,11 @@ views:
             icon: mdi:access-point
           - entity: timer.zigbee2mqtt_permit_join
             name: 'Оставшееся время'
+      - type: entities
+        title: 'Выключатель в гостиной'
+        show_header_toggle: false
+        entities:
+          - sensor.livingroom_switch_state_left
+          - input_select.livingroom_switch_mode_left
+          - sensor.livingroom_switch_state_right
+          - input_select.livingroom_switch_mode_right

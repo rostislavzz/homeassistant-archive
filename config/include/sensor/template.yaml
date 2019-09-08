@@ -1,5 +1,6 @@
 platform: template
 sensors:
+
   livingroom_miflora_battery:
     friendly_name: 'Датчик растений'
     value_template: >
@@ -27,3 +28,13 @@ sensors:
   sun_sunset:
     friendly_name: Закат
     value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%H:%M") }}'
+
+  livingroom_switch_state_left:
+    icon_template: mdi:information-outline
+    friendly_name: 'Статус левого выключателя'
+    value_template: "{{ state_attr('sensor.0x00158d0001715c96_click', 'state_left') }}"
+
+  livingroom_switch_state_right:
+    icon_template: mdi:information-outline
+    friendly_name: 'Статус правого выключателя'
+    value_template: "{{ state_attr('sensor.0x00158d0001715c96_click', 'state_right') }}"

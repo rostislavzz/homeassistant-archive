@@ -7,3 +7,21 @@ vacuum_fan_speed:
   - Турбо
   - Максимальный
   initial: Максимальный
+
+livingroom_switch_mode_left:
+  name: 'Режим работы левой клавиши'
+  icon: mdi:light-switch
+  options:
+  - 'Управление левым реле'
+  - 'Управление правым реле'
+  - 'Отделённый'
+  initial: 'Управление левым реле'
+
+livingroom_switch_mode_right:
+  name: 'Режим работы правой клавиши'
+  icon: mdi:light-switch
+  options:
+  - 'Управление левым реле'
+  - 'Управление правым реле'
+  - 'Отделённый'
+  initial: 'Управление правым реле'

@@ -1,0 +1,23 @@
+- alias: 'livingroom_switch_get_operation_mode_right'
+  trigger:
+    platform: state
+    entity_id: input_select.livingroom_switch_mode_right
+  action:
+    service: mqtt.publish
+    data:
+      topic: 'zigbee2mqtt/0x00158d0001715c96/system/set'
+      payload_template: >-
+        {
+          "operation_mode": {
+            "button": "right",
+            "state": "
+              {%- if is_state('input_select.livingroom_switch_mode_right', 'Управление левым реле') -%}
+                control_left_relay
+              {%- elif is_state('input_select.livingroom_switch_mode_right', 'Управление правым реле') -%}
+                control_right_relay
+              {%- elif is_state('input_select.livingroom_switch_mode_right', 'Отделенный') -%}
+                decoupled
+              {%- endif -%}
+            "
+          }
+        }
