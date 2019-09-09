@@ -86,7 +86,6 @@ light.livingroom_ceiling_light:
   friendly_name: 'Свет'
   icon: mdi:ceiling-light
 light.livingroom_nightlight:
-  friendly_name: 'Ночник'
   icon: mdi:lamp
 switch.0x00158d0001715c96_switch_right:
   friendly_name: 'Светильники'
