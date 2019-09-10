@@ -21,6 +21,10 @@ sensors:
       {% endif %}
     unit_of_measurement: '%'
 
+  livingroom_tv_source:
+    friendly_name: 'Источник для телевизора в гостиной'
+    value_template: "{{ state_attr('media_player.livingroom_tv', 'source') }}"
+
   sun_sunrise:
     friendly_name: Восход
     value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%H:%M") }}'
