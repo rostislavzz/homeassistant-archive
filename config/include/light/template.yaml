@@ -5,25 +5,37 @@ lights:
     friendly_name: 'Ночник в детской'
     value_template: "{{ state_attr('light.kidsroom_ceiling_light', 'color_temp')|int > 0 }}"
     turn_on:
-    - service: yeelight.set_mode
-      data:
-        entity_id: light.kidsroom_ceiling_light
-        mode: 'moonlight'
+      - service: yeelight.set_mode
+        data:
+          entity_id: light.kidsroom_ceiling_light
+          mode: 'moonlight'
     turn_off:
-    - service: light.turn_off
-      entity_id: light.kidsroom_ceiling_light
+      - service: light.turn_off
+        entity_id: light.kidsroom_ceiling_light
+
+  livingroom_light:
+    friendly_name: 'Свет в гостиной'
+    value_template: "{{ is_state('binary_sensor.livingroom_ceiling_light_nightlight', 'off') and is_state('light.livingroom_ceiling_light', 'on') }}"
+    turn_on:
+      - service: yeelight.set_mode
+        data:
+          entity_id: light.livingroom_ceiling_light
+          mode: 'normal'
+    turn_off:
+      - service: light.turn_off
+        entity_id: light.livingroom_ceiling_light
 
   livingroom_nightlight:
     friendly_name: 'Ночник в гостиной'
-    value_template: "{{ state_attr('light.livingroom_ceiling_light', 'color_temp')|int > 0 }}"
+    value_template: "{{ is_state('binary_sensor.livingroom_ceiling_light_nightlight', 'on') and is_state('light.livingroom_ceiling_light', 'on') }}"
     turn_on:
-    - service: yeelight.set_mode
-      data:
-        entity_id: light.livingroom_ceiling_light
-        mode: 'moonlight'
+      - service: yeelight.set_mode
+        data:
+          entity_id: light.livingroom_ceiling_light
+          mode: 'moonlight'
     turn_off:
-    - service: light.turn_off
-      entity_id: light.livingroom_ceiling_light
+      - service: light.turn_off
+        entity_id: light.livingroom_ceiling_light
 
   bedroom_daylight:
     friendly_name: 'Свет в спальне'

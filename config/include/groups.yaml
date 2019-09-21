@@ -25,16 +25,6 @@ kitchen_tv:
     - script.left
     - script.right
 
-livingroom:
-  name: 'Гостиная'
-  entities:
-    - light.livingroom_ceiling_light
-    - light.livingroom_nightlight
-    - binary_sensor.0x00158d0001db8a6a
-    - vacuum.xiaomi_vacuum_cleaner
-    - binary_sensor.cube_158d00010ed5cf
-    - binary_sensor.0x00158d0001ab1e55
-
 bathroom:
   name: 'Ванная'
   entities:

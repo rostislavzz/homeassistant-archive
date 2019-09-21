@@ -41,12 +41,12 @@ views:
         entities:
           - entity: binary_sensor.0x00158d0001e42e65_contact
             name: Дверь
-          - entity: switch.0x00158d0002235b38_switch_right
+          - entity: switch.0x00158d0003551125_switch_right
             name: Свет
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
-          - entity: switch.0x00158d0002235b38_switch_left
+          - entity: switch.0x00158d0003551125_switch_left
             tap_action:
               action: toggle
       - type: glance
@@ -58,11 +58,7 @@ views:
           - entity: cover.0x00158d0001ef4b95_cover
             tap_action:
               action: toggle
-          - entity: switch.0x00158d0001715c96_switch_left
-            name: Свет
-            icon: mdi:ceiling-light
-            tap_action:
-              action: toggle
+          - switch.0x00158d0001715c96_switch_left
           - entity: switch.0x00158d0001715c96_switch_right
             icon: mdi:track-light
             tap_action:
@@ -172,14 +168,14 @@ views:
       - type: entities
         entities:
           - switch.0x00158d0001715c96_switch_left
-          - entity: light.livingroom_ceiling_light
+          - entity: light.livingroom_light
             name: 'Свет'
             icon: mdi:ceiling-light
+          - entity: light.livingroom_nightlight
+            name: 'Ночник'
           - entity: light.livingroom_ceiling_light_ambilight
             name: 'Фоновый свет'
             icon: mdi:lightbulb-on
-          - entity: light.livingroom_nightlight
-            name: 'Ночник'
           - switch.0x00158d0001715c96_switch_right
           - cover.0x00158d0001ef4b95_cover
       - type: media-control

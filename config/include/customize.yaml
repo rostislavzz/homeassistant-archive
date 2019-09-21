@@ -60,10 +60,10 @@ sensor.0x00158d0001700c18_humidity:
 binary_sensor.0x00158d0001e42e65_contact:
   friendly_name: 'Дверь в детскую'
 switch.0x00158d0002235b38_switch_right:
-  friendly_name: 'Выключатель'
+  friendly_name: 'Выключатель в детской'
   icon: mdi:light-switch
 switch.0x00158d0002235b38_switch_left:
-  friendly_name: 'Светильники'
+  friendly_name: 'Светильники в детской'
   icon: mdi:track-light
 light.kidsroom_ceiling_light:
   friendly_name: 'Свет'
@@ -82,11 +82,6 @@ sensor.livingroom_sensor_battery:
 switch.0x00158d0001715c96_switch_left:
   friendly_name: 'Выключатель'
   icon: mdi:light-switch
-light.livingroom_ceiling_light:
-  friendly_name: 'Свет'
-  icon: mdi:ceiling-light
-light.livingroom_nightlight:
-  icon: mdi:lamp
 switch.0x00158d0001715c96_switch_right:
   friendly_name: 'Светильники'
   icon: mdi:track-light
@@ -103,9 +98,7 @@ vacuum.xiaomi_vacuum_cleaner:
   friendly_name: 'Пылесос'
   icon: mdi:robot-vacuum
 binary_sensor.0x00158d0001ab1e55:
-  friendly_name: 'Гостинная Дверь'
-sensor.livingroom_door_battery:
-  friendly_name: 'Гостинная Дверь'
+  friendly_name: 'Дверь в гостиную'
 media_player.livingroom_tv:
   friendly_name: 'Телевизор'
   device_class: tv

@@ -58,6 +58,8 @@ entity_config:
     name: Свет
   switch.0x00158d0001715c96_switch_right:
     name: Светильники
+  light.livingroom_nightlight:
+    name: Ночник
   light.livingroom_ceiling_light_ambilight:
     name: Фоновый свет
   binary_sensor.0x00158d0001db8a6a:
