@@ -9,3 +9,7 @@
   device_trackers:
     - device_tracker.jana_phone
     - device_tracker.jana_laptop
+- name: nina
+  id: nina
+  device_trackers:
+    - device_tracker.nina_phone

@@ -40,6 +40,7 @@ person:
   entities:
     - person.rostislav
     - person.iana
+    - person.nina
 
 kitchen_automations:
   name: 'Автоматизации на кухне'

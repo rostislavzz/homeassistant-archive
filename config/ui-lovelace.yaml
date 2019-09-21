@@ -11,6 +11,8 @@ views:
             icon: mdi:human-male
           - entity: person.iana
             icon: mdi:human-female
+          - entity: person.nina
+            icon: mdi:human-female
       - type: vertical-stack
         cards:
           - type: picture-glance
