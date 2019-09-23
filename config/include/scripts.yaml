@@ -41,3 +41,36 @@ vacuum_zoned_cleanup:
             {{ comma() }}[22127, 22835, 27127, 25135, {{ repeats }}]
           {%- endif -%}
           ]
+
+aqara_switch_set_operation_mode:
+  description: 'Настройка режима работы проводного выключателя Aqara'
+  fields:
+    switch_id:
+      description: 'Идентификатор выключателя'
+      example: '0x00158d0001715c96'
+    button:
+      description: 'Клавиша'
+      example: 'single | left | right'
+    operation_mode:
+      description: 'Режим работы'
+      example: 'control_left_relay | control_right_relay | decoupled'
+  sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: "zigbee2mqtt/{{ switch_id }}/system/set"
+        payload: >-
+          {
+            "operation_mode": {
+              "button": "{{ button }}",
+              "state": "{{ operation_mode }}"
+            }
+          }
+    - service: mqtt.publish
+      data:
+        topic: "zigbee2mqtt/{{ switch_id }}/system/get"
+        payload: >-
+          {
+            "operation_mode": {
+              "button": "left"
+            }
+          }
