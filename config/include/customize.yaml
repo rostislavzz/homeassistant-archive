@@ -79,12 +79,6 @@ sensor.0x00158d0001e42e65_battery:
 # гостиная
 sensor.livingroom_sensor_battery:
   friendly_name: 'Датчик температуры и влажности'
-switch.0x00158d0001715c96_switch_left:
-  friendly_name: 'Выключатель'
-  icon: mdi:light-switch
-switch.0x00158d0001715c96_switch_right:
-  friendly_name: 'Светильники'
-  icon: mdi:track-light
 cover.0x00158d0001ef4b95_cover:
   friendly_name: 'Шторы'
 binary_sensor.0x00158d0001db8a6a:

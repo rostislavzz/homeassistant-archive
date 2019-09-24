@@ -1,0 +1,114 @@
+input_select:
+  livingroom_wall_switch_mode_left:
+    name: 'Режим работы левой клавиши'
+    icon: mdi:light-switch
+    options:
+    - control_left_relay
+    - control_right_relay
+    - decoupled
+    initial: control_left_relay
+  livingroom_wall_switch_mode_right:
+    name: 'Режим работы правой клавиши'
+    icon: mdi:light-switch
+    options:
+    - control_left_relay
+    - control_right_relay
+    - decoupled
+    initial: control_right_relay
+
+automation:
+  - alias: 'livingroom_switch_get_operation_mode'
+    initial_state: 'on'
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: script.wall_switch_get_operation_mode
+        data_template:
+          switch_id: '0x00158d0001715c96'
+          button: left
+      - service: script.wall_switch_get_operation_mode
+        data_template:
+          switch_id: '0x00158d0001715c96'
+          button: right
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.livingroom_wall_switch_mode_left
+          option: "{{ state_attr('sensor.0x00158d0001715c96_click', 'operation_mode_left') }}"
+      - service: input_select.select_option
+        data_template:
+          entity_id: input_select.livingroom_wall_switch_mode_right
+          option: "{{ state_attr('sensor.0x00158d0001715c96_click', 'operation_mode_right') }}"
+
+  - alias: 'livingroom_wall_switch_left_set_operation_mode'
+    trigger:
+      platform: state
+      entity_id: input_select.livingroom_wall_switch_mode_left
+    action:
+      service: script.wall_switch_set_operation_mode
+      data_template:
+        switch_id: '0x00158d0001715c96'
+        button: left
+        operation_mode: "{{ trigger.to_state.state }}"
+
+  - alias: 'livingroom_wall_switch_right_set_operation_mode'
+    trigger:
+      platform: state
+      entity_id: input_select.livingroom_wall_switch_mode_right
+    action:
+      service: script.wall_switch_set_operation_mode
+      data_template:
+        switch_id: '0x00158d0001715c96'
+        button: right
+        operation_mode: "{{ trigger.to_state.state }}"
+
+script:
+  wall_switch_get_operation_mode:
+    description: 'Получение режима работы проводного выключателя Aqara'
+    fields:
+      switch_id:
+        description: 'Идентификатор выключателя'
+        example: '0x00158d0001715c96'
+      button:
+        description: 'Клавиша'
+        example: 'single | left | right'
+    sequence:
+      service: mqtt.publish
+      data_template:
+        topic: 'zigbee2mqtt/{{ switch_id }}/system/get'
+        payload: >-
+          {
+            "operation_mode": {
+              "button": "{{ button }}"
+            }
+          }
+
+  wall_switch_set_operation_mode:
+    description: 'Установка режима работы проводного выключателя Aqara'
+    fields:
+      switch_id:
+        description: 'Идентификатор выключателя'
+        example: '0x00158d0001715c96'
+      button:
+        description: 'Клавиша'
+        example: 'single | left | right'
+      operation_mode:
+        description: 'Режим работы'
+        example: 'control_relay | control_left_relay | control_right_relay | decoupled'
+    sequence:
+      - service: mqtt.publish
+        data_template:
+          topic: 'zigbee2mqtt/{{ switch_id }}/system/set'
+          payload: >-
+            {
+              "operation_mode": {
+                "button": "{{ button }}",
+                "state": "{{ operation_mode }}"
+              }
+            }
+      - delay:
+          seconds: 1
+      - service: script.wall_switch_get_operation_mode
+        data_template:
+          switch_id: '{{ switch_id }}'
+          button: '{{ button }}'

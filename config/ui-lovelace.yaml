@@ -60,8 +60,11 @@ views:
           - entity: cover.0x00158d0001ef4b95_cover
             tap_action:
               action: toggle
-          - switch.0x00158d0001715c96_switch_left
+          - entity: switch.0x00158d0001715c96_switch_left
+            name: 'Выключатель'
+            icon: mdi:light-switch
           - entity: switch.0x00158d0001715c96_switch_right
+            name: 'Светильники'
             icon: mdi:track-light
             tap_action:
               action: toggle
@@ -169,7 +172,9 @@ views:
     cards:
       - type: entities
         entities:
-          - switch.0x00158d0001715c96_switch_left
+          - entity: switch.0x00158d0001715c96_switch_left
+            name: 'Выключатель'
+            icon: mdi:light-switch
           - entity: light.livingroom_light
             name: 'Свет'
             icon: mdi:ceiling-light
@@ -178,7 +183,9 @@ views:
           - entity: light.livingroom_ceiling_light_ambilight
             name: 'Фоновый свет'
             icon: mdi:lightbulb-on
-          - switch.0x00158d0001715c96_switch_right
+          - entity: switch.0x00158d0001715c96_switch_right
+            name: 'Светильники'
+            icon: mdi:track-light
           - cover.0x00158d0001ef4b95_cover
       - type: media-control
         entity: media_player.livingroom_tv
@@ -375,7 +382,9 @@ views:
         title: 'Выключатель в гостиной'
         show_header_toggle: false
         entities:
-          - sensor.livingroom_switch_state_left
-          - input_select.livingroom_switch_mode_left
-          - sensor.livingroom_switch_state_right
-          - input_select.livingroom_switch_mode_right
+          - entity: switch.0x00158d0001715c96_switch_left
+            name: 'Левое реле'
+          - input_select.livingroom_wall_switch_mode_left
+          - entity: switch.0x00158d0001715c96_switch_right
+            name: 'Правое реле'
+          - input_select.livingroom_wall_switch_mode_right
