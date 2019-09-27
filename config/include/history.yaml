@@ -1,18 +1,19 @@
 exclude:
   domains:
+    - input_boolean
     - input_number
+    - input_select
     - script
     - timer
     - updater
   entities:
+    - binary_sensor.kidsroom_ceiling_light_nightlight
+    - binary_sensor.livingroom_ceiling_light_nightlight
     - camera.hall
     - camera.entrance
-    - input_boolean.vacuum_hall
-    - input_boolean.vacuum_kitchen
-    - input_boolean.vacuum_kidsroom
-    - input_boolean.vacuum_livingroom
     - sensor.sun_sunrise
     - sensor.sun_sunset
+    - sensor.0x00158d0001715c96_click
     - sensor.zigbee2mqtt_bridge_state
     - sensor.zigbee2mqtt_version
     - sensor.zigbee_coordinator_version

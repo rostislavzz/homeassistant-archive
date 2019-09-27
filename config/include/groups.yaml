@@ -31,7 +31,7 @@ bathroom:
     - binary_sensor.0x00158d0001bb87d2
 
 bedroom_light:
-  name: 'Спальня Свет'
+  name: 'Группа ламп в спальне'
   entities:
     - light.bedroom_color
     - light.bedroom_mono

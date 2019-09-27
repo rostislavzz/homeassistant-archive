@@ -9,8 +9,6 @@ binary_sensor.0x00158d0001b14504:
   friendly_name: 'Прихожая Дверь'
 sensor.hall_door_battery:
   friendly_name: 'Прихожая Дверь'
-light.yeelight_white_34ce00882e95:
-  friendly_name: 'Верхний свет'
 
 # кухня
 sensor.0x00158d0001a24e62_illuminance:
@@ -30,7 +28,7 @@ binary_sensor.kitchen_motion_sensor:
 light.kitchen_rgb_lightstrip:
   friendly_name: 'Ночник на кухне'
 switch.0x00158d00019ccab8_switch:
-  friendly_name: 'Свет'
+  friendly_name: 'Свет на кухне'
   icon: mdi:ceiling-light
 media_player.kitchen_tv_universal:
   friendly_name: 'Телевизор на кухне'
@@ -66,7 +64,7 @@ switch.0x00158d0002235b38_switch_left:
   friendly_name: 'Светильники в детской'
   icon: mdi:track-light
 light.kidsroom_ceiling_light:
-  friendly_name: 'Свет'
+  friendly_name: 'Свет в детской'
   icon: mdi:ceiling-light
 light.kidsroom_ceiling_light_ambilight:
   friendly_name: 'Фоновый свет'
@@ -92,7 +90,7 @@ vacuum.xiaomi_vacuum_cleaner:
   friendly_name: 'Пылесос'
   icon: mdi:robot-vacuum
 binary_sensor.0x00158d0001ab1e55:
-  friendly_name: 'Дверь в гостиную'
+  friendly_name: 'Дверь в Гостиную'
 media_player.livingroom_tv:
   friendly_name: 'Телевизор'
   device_class: tv
@@ -109,7 +107,7 @@ sensor.bathroom_water_leak_battery:
 
 # спальня
 light.bedroom_daylight:
-  friendly_name: 'Свет'
+  friendly_name: 'Свет в спальне'
 light.bedroom_nightlight:
   friendly_name: 'Ночник'
 sensor.bedroom_button_battery:

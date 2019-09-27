@@ -7,49 +7,6 @@
     - service: switch.turn_on
       entity_id: switch.flux
 
-- id: '7'
-  alias: Закрыть шторы при включении света
-  initial_state: 'off'
-  trigger:
-  - platform: state
-    entity_id: switch.wall_switch_left_158d0001715c96
-    to: 'on'
-  - platform: state
-    entity_id: switch.wall_switch_right_158d0001715c96
-    to: 'on'
-  condition:
-    condition: and
-    conditions:
-    - condition: sun
-      after: sunset
-      after_offset: -00:30:00
-    - condition: state
-      entity_id: cover.curtain_158d0001ef4b95
-      state: open
-  action:
-    service: cover.close_cover
-    entity_id: cover.curtain_158d0001ef4b95
-
-- id: '8'
-  alias: Закрыть шторы перед заходом солнца
-  initial_state: 'off'
-  trigger:
-    platform: sun
-    event: sunset
-    offset: -00:30:00
-  condition:
-    condition: or
-    conditions:
-    - condition: state
-      entity_id: switch.wall_switch_left_158d0001715c96
-      state: 'on'
-    - condition: state
-      entity_id: switch.wall_switch_right_158d0001715c96
-      state: 'on'
-  action:
-    service: cover.close_cover
-    entity_id: cover.curtain_158d0001ef4b95
-
 - id: '9'
   alias: Включение телевизора на кухне
   initial_state: 'off'
