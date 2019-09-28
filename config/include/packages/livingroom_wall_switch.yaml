@@ -29,19 +29,20 @@ automation:
         - condition: template
           value_template: "{{ is_state_attr(trigger.entity_id, 'operation_mode_left', 'decoupled') }}"
     action:
-      - service: light.toggle
-        data:
-          entity_id: light.livingroom_light
+      service: light.toggle
+      entity_id: light.livingroom_light
 
-  - alias: 'livingroom_wall_switch_left_set_operation_mode_on_start'
+  - alias: 'livingroom_wall_switch_left_button_set_decoupled_mode'
     trigger:
-      platform: homeassistant
-      event: start
+      - platform: homeassistant
+        event: start
+      - platform: state
+        entity_id: switch.0x00158d0001715c96_switch_left
     condition:
       condition: and
       conditions:
         - condition: template
-          value_template: "{{ is_state_attr('sensor.0x00158d0001715c96_click', 'operation_mode_left', 'control_left_relay') }}"
+          value_template: "{{ state_attr('sensor.0x00158d0001715c96_click', 'operation_mode_left') != 'decoupled' }}"
         - condition: state
           entity_id: switch.0x00158d0001715c96_switch_left
           state: 'on'
@@ -52,7 +53,7 @@ automation:
         button: 'left'
         operation_mode: 'decoupled'
 
-  - alias: 'livingroom_wall_switch_left_set_operation_mode_on_shutdown'
+  - alias: 'livingroom_wall_switch_left_button_set_relay_mode'
     trigger:
       platform: homeassistant
       event: shutdown
@@ -109,6 +110,10 @@ script:
                 "state": "{{ operation_mode }}"
               }
             }
+      - service: logbook.log
+        data_template:
+          name: 'Script:'
+          message: 'switch "{{ switch_id }}" button "{{ button }}" changed to "{{ operation_mode }}" mode'
       - delay: '00:00:01'
       - service: mqtt.publish
         data_template:
