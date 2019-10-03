@@ -60,9 +60,9 @@ views:
           - entity: cover.0x00158d0001ef4b95_cover
             tap_action:
               action: toggle
-          - entity: switch.0x00158d0001715c96_switch_left
-            name: 'Выключатель'
-            icon: mdi:light-switch
+          - entity: light.livingroom_light
+            name: 'Свет'
+            icon: mdi:ceiling-light
           - entity: switch.0x00158d0001715c96_switch_right
             name: 'Светильники'
             icon: mdi:track-light
@@ -172,9 +172,6 @@ views:
     cards:
       - type: entities
         entities:
-          - entity: switch.0x00158d0001715c96_switch_left
-            name: 'Выключатель'
-            icon: mdi:light-switch
           - entity: light.livingroom_light
             name: 'Свет'
             icon: mdi:ceiling-light
@@ -384,7 +381,9 @@ views:
         entities:
           - entity: switch.0x00158d0001715c96_switch_left
             name: 'Левое реле'
+            icon: mdi:light-switch
           - input_select.livingroom_wall_switch_mode_left
           - entity: switch.0x00158d0001715c96_switch_right
             name: 'Правое реле'
+            icon: mdi:light-switch
           - input_select.livingroom_wall_switch_mode_right
