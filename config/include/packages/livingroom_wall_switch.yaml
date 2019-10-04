@@ -21,11 +21,7 @@ automation:
     trigger:
       platform: state
       entity_id: sensor.0x00158d0001715c96_click
-    condition:
-      condition: and
-      conditions:
-        - condition: template
-          value_template: "{{ trigger.to_state.state == 'left' }}"
+      to: 'left'
     action:
       - service: light.toggle
         entity_id: light.livingroom_light
@@ -45,6 +41,7 @@ automation:
         event: start
       - platform: state
         entity_id: switch.0x00158d0001715c96_switch_left
+        to: 'on'
     condition:
       condition: and
       conditions:
