@@ -1,0 +1,112 @@
+yeelight:
+  devices:
+    10.0.0.152:
+      name: kitchen_rgb_lightstrip
+      model: strip1
+      use_music_mode: true
+      save_on_change: false
+
+binary_sensor:
+  platform: template
+  sensors:
+    daniil_is_sleeping:
+      friendly_name: 'Даниил спит'
+      value_template: "{{ is_state('light.kidsroom_nightlight', 'on') and is_state('sun.sun', 'below_horizon') }}"
+
+switch:
+  platform: template
+  switches:
+    kitchen_automations:
+      friendly_name: 'Автоматизации на кухне'
+      value_template: "{{ is_state('group.kitchen_automations', 'on') and is_state('switch.flux', 'on') }}"
+      turn_on:
+        - service: switch.turn_on
+          entity_id: switch.flux
+        - service: automation.turn_on
+          data:
+            entity_id: group.kitchen_automations
+      turn_off:
+        - service: switch.turn_off
+          entity_id: switch.flux
+        - service: automation.turn_off
+          data:
+            entity_id: group.kitchen_automations
+
+automation:
+  - alias: 'kitchen_light_on'
+    trigger:
+      platform: state
+      entity_id: group.kitchen_motion_sensor
+      to: 'on'
+    condition:
+      - condition: state
+        entity_id: switch.0x00158d00019ccab8_switch
+        state: 'off'
+      - condition: state
+        entity_id: group.person
+        state: 'home'
+      - condition: sun
+        after: sunset
+        after_offset: '-01:00:00'
+      - condition: state
+        entity_id: binary_sensor.daniil_is_sleeping
+        state: 'off'
+    action:
+      service: switch.turn_on
+      entity_id: switch.0x00158d00019ccab8_switch
+
+  - alias: 'kitchen_nightlight_on'
+    trigger:
+      platform: state
+      entity_id: group.kitchen_motion_sensor
+      to: 'on'
+    condition:
+      - condition: state
+        entity_id: light.kitchen_rgb_lightstrip
+        state: 'off'
+      - condition: state
+        entity_id: group.person
+        state: 'home'
+      - condition: or
+        conditions:
+          - condition: sun
+            before: sunrise
+            before_offset: '+01:00:00'
+          - condition: state
+            entity_id: binary_sensor.daniil_is_sleeping
+            state: 'on'
+    action:
+      service: light.turn_on
+      entity_id: light.kitchen_rgb_lightstrip
+
+  - alias: 'kitchen_light_and_nightlight_off'
+    trigger:
+      platform: state
+      entity_id: group.kitchen_motion_sensor
+      to: 'off'
+      for: '00:03:00'
+    condition:
+      condition: state
+      entity_id: media_player.kitchen_tv
+      state: 'off'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.0x00158d00019ccab8_switch
+      - service: light.turn_off
+        entity_id: light.kitchen_rgb_lightstrip
+
+group:
+  kitchen_motion_sensor:
+    name: 'Движение на кухне'
+    icon: mdi:walk
+    entities:
+      - binary_sensor.0x00158d0002236dfb_occupancy
+      - binary_sensor.0x00158d0001a24e62_occupancy
+
+  kitchen_automations:
+    name: 'Автоматизации на кухне'
+    entities:
+      - automation.kitchen_light_on
+      - automation.kitchen_light_off
+      - automation.kitchen_nightlight_on
+      - automation.kitchen_nightlight_off

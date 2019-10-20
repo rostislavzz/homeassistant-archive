@@ -6,15 +6,6 @@ hall:
     - binary_sensor.0x00158d0001b14504
     - light.yeelight_white_34ce00882e95
 
-kitchen:
-  name: 'Кухня'
-  entities:
-    - sensor.kitchensensor_temperature
-    - sensor.kitchensensor_humidity
-    - sensor.illumination_34ce00fb7404
-    - binary_sensor.kitchen_motion_sensor
-    - light.kitchen_rgb_lightstrip
-
 kitchen_tv:
   name: 'Телевизор на кухне'
   control: hidden
@@ -41,21 +32,6 @@ person:
     - person.rostislav
     - person.iana
     - person.nina
-
-kitchen_automations:
-  name: 'Автоматизации на кухне'
-  entities:
-    - automation.kitchen_light_on
-    - automation.kitchen_light_off
-    - automation.kitchen_nightlight_on
-    - automation.kitchen_nightlight_off
-
-kitchen_motion_sensor:
-  name: 'Движение'
-  icon: mdi:walk
-  entities:
-    - binary_sensor.0x00158d0002236dfb_occupancy
-    - binary_sensor.0x00158d0001a24e62_occupancy
 
 server:
   name: 'Автоматическое включение/выключение'

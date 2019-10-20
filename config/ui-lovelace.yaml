@@ -29,8 +29,10 @@ views:
       - type: glance
         title: 'Кухня'
         entities:
-          - group.kitchen_motion_sensor
+          - entity: group.kitchen_motion_sensor
+            name: 'Движение'
           - entity: switch.0x00158d00019ccab8_switch
+            name: 'Свет'
             tap_action:
               action: toggle
           - entity: light.kitchen_rgb_lightstrip
@@ -124,6 +126,7 @@ views:
           - type: entities
             entities:
               - entity: switch.0x00158d00019ccab8_switch
+                name: 'Свет'
               - entity: light.kitchen_rgb_lightstrip
                 name: 'Ночник'
               - entity: switch.kitchen_automations
