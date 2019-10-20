@@ -3,18 +3,30 @@ input_select:
     name: 'Режим работы левой клавиши'
     icon: mdi:light-switch
     options:
-    - control_left_relay
-    - control_right_relay
-    - decoupled
+      - control_left_relay
+      - control_right_relay
+      - decoupled
     initial: control_left_relay
   livingroom_wall_switch_mode_right:
     name: 'Режим работы правой клавиши'
     icon: mdi:light-switch
     options:
-    - control_left_relay
-    - control_right_relay
-    - decoupled
+      - control_left_relay
+      - control_right_relay
+      - decoupled
     initial: control_right_relay
+
+switch:
+  platform: template
+  switches:
+    livingroom_wall_switch_left_button:
+      value_template: "{{ is_state('light.livingroom_ceiling_light', 'on') }}"
+      turn_on:
+        service: light.turn_on
+        entity_id: light.livingroom_light
+      turn_off:
+        service: light.turn_off
+        entity_id: light.livingroom_ceiling_light, light.livingroom_ceiling_light_ambilight
 
 automation:
   - alias: 'livingroom_wall_switch_left_button_click'
@@ -23,8 +35,8 @@ automation:
       entity_id: sensor.0x00158d0001715c96_click
       to: 'left'
     action:
-      - service: light.toggle
-        entity_id: light.livingroom_light
+      - service: switch.toggle
+        entity_id: switch.livingroom_wall_switch_left_button
       - condition: and
         conditions:
           - condition: template
