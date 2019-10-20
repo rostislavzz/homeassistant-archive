@@ -41,8 +41,6 @@ views:
       - type: glance
         title: 'Детская'
         entities:
-          - entity: binary_sensor.0x00158d0001e42e65_contact
-            name: Дверь
           - entity: switch.0x00158d0003551125_switch_right
             name: Свет
             icon: mdi:ceiling-light
@@ -139,8 +137,6 @@ views:
     cards:
       - type: entities
         entities:
-          - entity: binary_sensor.0x00158d0001e42e65_contact
-            name: 'Дверь'
           - entity: switch.0x00158d0003551125_switch_right
             tap_action:
               action: toggle
@@ -334,7 +330,6 @@ views:
         show_header_toggle: false
         entities:
           - sensor.kitchen_sensor_battery
-          - sensor.0x00158d0001e42e65_battery
       - type: entities
         title: 'Гостиная'
         show_header_toggle: false
