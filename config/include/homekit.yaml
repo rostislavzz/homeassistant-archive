@@ -44,6 +44,8 @@ entity_config:
     linked_battery_sensor: sensor.bathroom_water_leak_battery
     low_battery_threshold: 5
   # кухня
+  switch.0x00158d00019ccab8_switch:
+    name: Свет
   switch.kitchen_automations:
     name: Автоматизации
   # детская
@@ -54,12 +56,12 @@ entity_config:
   light.kidsroom_nightlight:
     name: Ночник
   # гостиная
-  switch.livingroom_light:
+  light.livingroom_light:
     name: Свет
-  switch.0x00158d0001715c96_switch_right:
-    name: Светильники
   light.livingroom_nightlight:
     name: Ночник
+  switch.0x00158d0001715c96_switch_right:
+    name: Светильники
   light.livingroom_ceiling_light_ambilight:
     name: Фоновый свет
   binary_sensor.0x00158d0001db8a6a:
