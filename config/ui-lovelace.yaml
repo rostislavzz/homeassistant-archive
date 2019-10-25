@@ -312,6 +312,30 @@ views:
           - entity: switch.server_automation
             icon: mdi:power
 
+  - title: 'Роутеры'
+    icon: mdi:router-wireless
+    path: routers
+    cards:
+      - type: entities
+        title: 'ASUS RT-AC68U'
+        show_header_toggle: false
+        entities:
+        - entity: sensor.rt_ac68u_uptime
+          icon: mdi:clock-outline
+          name: 'Время работы'
+        - entity: sensor.rt_ac68u_cpu_temp
+          name: 'Процессор'
+        - entity: sensor.rt_ac68u_24ghz_temp
+          name: '2.4 Ггц'
+        - entity: sensor.rt_ac68u_5ghz_temp
+          name: '5 Ггц'
+        - entity: sensor.rt_ac68u_memory_used
+          icon: mdi:memory
+          name: 'Использование оперативной памяти'
+        - entity: sensor.rt_ac68u_partition_jffs
+          icon: mdi:memory
+          name: 'Использование раздела /jffs'
+
   - title: 'Батарейки'
     icon: mdi:battery
     path: batteries

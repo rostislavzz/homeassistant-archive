@@ -1,0 +1,60 @@
+sensor:
+  - platform: snmp
+    host: 10.0.0.167
+    baseoid: 1.3.6.1.2.1.25.1.8.3.1.1.4.116.101.109.112
+    name: rt_ac68u_cpu_temp
+    accept_errors: true
+    default_value: 0
+    value_template: '{{ value | float | round (0) }}'
+    version: 2c
+    unit_of_measurement: '°C'
+
+  - platform: snmp
+    host: 10.0.0.167
+    baseoid: 1.3.6.1.2.1.25.1.11.3.1.1.5.99.104.105.112.49
+    name: rt_ac68u_24ghz_temp
+    accept_errors: true
+    default_value: 0
+    value_template: '{{ value | float | round (0) }}'
+    version: 2c
+    unit_of_measurement: '°C'
+
+  - platform: snmp
+    host: 10.0.0.167
+    baseoid: 1.3.6.1.2.1.25.1.12.3.1.1.5.99.104.105.112.50
+    name: rt_ac68u_5ghz_temp
+    accept_errors: true
+    default_value: 0
+    value_template: '{{ value | float | round (0) }}'
+    version: 2c
+    unit_of_measurement: '°C'
+
+  - platform: snmp
+    host: 10.0.0.167
+    baseoid: 1.3.6.1.2.1.25.1.13.3.1.1.3.109.101.109
+    name: rt_ac68u_memory_used
+    accept_errors: true
+    default_value: 0
+    value_template: '{{ ((value | replace("K","") | float ) / 5000 | float) | round (0) }}'
+    version: 2c
+    unit_of_measurement: '%'
+
+  - platform: snmp
+    host: 10.0.0.167
+    baseoid: 1.3.6.1.2.1.25.1.15.3.1.1.6.117.112.116.105.109.101
+    name: rt_ac68u_uptime
+    accept_errors: true
+    default_value: 0
+    value_template: '{{ value | trim }}'
+    version: 2c
+    unit_of_measurement: ' '
+
+  - platform: snmp
+    host: 10.0.0.167
+    baseoid: 1.3.6.1.2.1.25.1.16.3.1.1.4.106.102.102.115
+    name: rt_ac68u_partition_jffs
+    accept_errors: true
+    default_value: 0
+    value_template: '{{ (value | replace("%","")) | float | round (0) }}'
+    version: 2c
+    unit_of_measurement: '%'
