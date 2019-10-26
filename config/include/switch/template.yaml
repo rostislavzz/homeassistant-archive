@@ -52,7 +52,7 @@ switches:
 
   vacuum_kidsroom:
     friendly_name: 'Детская'
-    icon_template: mdi:baby-buggy
+    icon_template: mdi:baby-carriage
     value_template: "{{ is_state('input_boolean.vacuum_kidsroom', 'on') }}"
     turn_on:
       service: input_boolean.turn_on
