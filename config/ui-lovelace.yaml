@@ -311,13 +311,8 @@ views:
             icon: mdi:server
           - entity: switch.server_automation
             icon: mdi:power
-
-  - title: 'Роутеры'
-    icon: mdi:router-wireless
-    path: routers
-    cards:
       - type: entities
-        title: 'ASUS RT-AC68U'
+        title: 'Роутер'
         show_header_toggle: false
         entities:
         - entity: sensor.rt_ac68u_uptime
