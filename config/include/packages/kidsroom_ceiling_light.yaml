@@ -9,6 +9,25 @@ yeelight:
 light:
   platform: template
   lights:
+    kidsroom_light:
+      friendly_name: 'Свет в детской'
+      value_template: "{{ is_state('binary_sensor.kidsroom_ceiling_light_nightlight', 'off') and is_state('light.kidsroom_ceiling_light', 'on') }}"
+      turn_on:
+        - service: yeelight.set_mode
+          data:
+            entity_id: light.kidsroom_ceiling_light
+            mode: 'normal'
+        - service: light.turn_off
+          entity_id: light.kidsroom_ceiling_light_ambilight
+      turn_off:
+        service: light.turn_off
+        entity_id: light.kidsroom_ceiling_light, light.kidsroom_ceiling_light_ambilight
+      set_level:
+        service: light.turn_on
+        data_template:
+          entity_id: light.kidsroom_ceiling_light
+          brightness: "{{ brightness }}"
+
     kidsroom_nightlight:
       friendly_name: 'Ночник в детской'
       value_template: "{{ is_state('binary_sensor.kidsroom_ceiling_light_nightlight', 'on') and is_state('light.kidsroom_ceiling_light', 'on') }}"

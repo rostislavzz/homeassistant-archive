@@ -43,12 +43,19 @@ views:
       - type: glance
         title: 'Детская'
         entities:
-          - entity: switch.0x00158d0003551125_switch_right
-            name: Свет
+          - entity: light.kidsroom_light
+            name: 'Свет'
+            icon: mdi:ceiling-light
+            tap_action:
+              action: toggle
+          - entity: light.kidsroom_nightlight
+            name: 'Ночник'
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
           - entity: switch.0x00158d0003551125_switch_left
+            name: 'Светильники'
+            icon: mdi:track-light
             tap_action:
               action: toggle
       - type: glance
@@ -73,6 +80,7 @@ views:
         entities:
           - entity: light.bedroom_daylight
             icon: mdi:ceiling-light
+            name: 'Свет'
             tap_action:
                 action: toggle
           - entity: light.bedroom_nightlight
@@ -140,20 +148,16 @@ views:
     cards:
       - type: entities
         entities:
-          - entity: switch.0x00158d0003551125_switch_right
-            tap_action:
-              action: toggle
-          - entity: light.kidsroom_ceiling_light
-            tap_action:
-              action: toggle
-          - entity: light.kidsroom_ceiling_light_ambilight
+          - entity: light.kidsroom_light
+            icon: mdi:ceiling-light
+            name: 'Свет'
           - entity: light.kidsroom_nightlight
-            name: Ночник
-            tap_action:
-              action: toggle
+            name: 'Ночник'
+          - entity: light.kidsroom_ceiling_light_ambilight
+            icon: mdi:lightbulb-on
           - entity: switch.0x00158d0003551125_switch_left
-            tap_action:
-              action: toggle
+            name: 'Светильники'
+            icon: mdi:track-light
       - type: horizontal-stack
         cards:
         - type: sensor
