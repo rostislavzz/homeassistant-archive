@@ -1,0 +1,15 @@
+transmission:
+  host: 10.0.0.213
+  port: 9091
+  username: !secret transmission_username
+  password: !secret transmission_password
+
+automation:
+  - alias: 'transmission_downloaded_torrent'
+    trigger:
+      platform: event
+      event_type: transmission_downloaded_torrent
+    action:
+      service: notify.livingroom_tv
+      data_template:
+        message: 'Скачивание завершено: {{ trigger.event.data.name }}'

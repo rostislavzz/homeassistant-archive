@@ -1,9 +1,0 @@
-- alias: 'transmission downloaded torrent'
-  initial_state: 'on'
-  trigger:
-  - platform: event
-    event_type: transmission_downloaded_torrent
-  action:
-    service: notify.transmission_downloaded_torrent
-    data:
-      message: ''

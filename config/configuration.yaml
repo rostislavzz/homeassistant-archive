@@ -51,7 +51,6 @@ sun:
 system_health:
 switch: !include_dir_list include/switch/
 timer: !include_dir_named include/timer/
-transmission: !include include/transmission.yaml
 updater:
 vacuum: !include_dir_list include/vacuum/
 wake_on_lan:
