@@ -113,9 +113,6 @@ sensor.bedroom_switch_battery:
 # сервер
 switch.server:
   friendly_name: 'Сервер'
-switch.transmission:
-  friendly_name: 'Ограничение скорости'
-  icon: mdi:speedometer
 
 switch.socket_switch:
   friendly_name: 'Розетка'

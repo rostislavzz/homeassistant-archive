@@ -288,7 +288,9 @@ views:
                 graph: line
           - type: entities
             entities:
-              - entity: switch.transmission
+              - entity: switch.transmission_turtle_mode
+                name: 'Ограничение скорости'
+                icon: mdi:speedometer
               - entity: sensor.transmission_status
                 name: 'Статус'
               - entity: sensor.transmission_total_torrents
