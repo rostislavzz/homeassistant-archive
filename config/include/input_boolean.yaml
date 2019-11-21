@@ -1,15 +1,3 @@
 notify_livingroom_tv_eat:
   name: 'Уведомление о запрете еды в гостиной'
   icon: mdi:food-off
-
-vacuum_hall:
-  name: 'Прихожая'
-
-vacuum_kitchen:
-  name: 'Кухня'
-
-vacuum_kidsroom:
-  name: 'Детская'
-
-vacuum_livingroom:
-  name: 'Гостиная'

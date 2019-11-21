@@ -1,0 +1,66 @@
+input_boolean:
+  vacuum_hall:
+    name: 'Прихожая'
+  vacuum_kitchen:
+    name: 'Кухня'
+  vacuum_kidsroom:
+    name: 'Детская'
+  vacuum_livingroom:
+    name: 'Гостиная'
+
+input_select:
+  vacuum_fan_speed:
+    name: 'Режим уборки'
+    icon: mdi:fan
+    options:
+      - Тихий
+      - Сбалансированный
+      - Турбо
+      - Максимальный
+    initial: Максимальный
+
+script:
+  vacuum_zoned_cleanup:
+    sequence:
+      - condition: template
+        value_template: "{{ is_state('input_boolean.vacuum_hall', 'on') or is_state('input_boolean.vacuum_kitchen', 'on') or is_state('input_boolean.vacuum_kidsroom', 'on') or is_state('input_boolean.vacuum_livingroom', 'on') }}"
+      - service: vacuum.send_command
+        data_template:
+          entity_id: vacuum.rockrobo
+          command: zoned_cleanup
+          params: >
+            'zone_ids': [
+            {%- set comma = joiner(',') -%}
+            {%- if is_state('input_boolean.vacuum_hall', 'on') -%}
+              {{ comma() }}'hall'
+            {%- endif -%}
+            {%- if is_state('input_boolean.vacuum_kitchen', 'on') -%}
+              {{ comma() }}'kitchen'
+            {%- endif -%}
+            {%- if is_state('input_boolean.vacuum_kidsroom', 'on') -%}
+              {{ comma() }}'kidsroom'
+            {%- endif -%}
+            {%- if is_state('input_boolean.vacuum_livingroom', 'on') -%}
+              {{ comma() }}'livingroom'
+            {%- endif -%}
+            ]
+
+automation:
+  - alias: 'vacuum_set_rockrobo_fan_speed'
+    trigger:
+      platform: state
+      entity_id: input_select.vacuum_fan_speed
+    action:
+      service: vacuum.set_fan_speed
+      data_template:
+        entity_id: vacuum.rockrobo
+        fan_speed: >
+          {% if is_state('input_select.vacuum_fan_speed', 'Тихий') %}
+            min
+          {% elif is_state('input_select.vacuum_fan_speed', 'Сбалансированный') %}
+            medium
+          {% elif is_state('input_select.vacuum_fan_speed', 'Турбо') %}
+            high
+          {% elif is_state('input_select.vacuum_fan_speed', 'Максимальный') %}
+            max
+          {% endif %}

@@ -223,48 +223,47 @@ views:
     icon: mdi:robot-vacuum
     path: vacuum
     cards:
-    - type: vertical-stack
-      cards:
-        - type: glance
-          show_name: false
-          entities:
-          - entity: vacuum.xiaomi_vacuum_cleaner
-        - type: entities
-          show_header_toggle: false
-          entities:
-          - switch.vacuum_hall
-          - switch.vacuum_kitchen
-          - switch.vacuum_kidsroom
-          - switch.vacuum_livingroom
-          - input_select.vacuum_fan_speed
-          - input_number.vacuum_cleaning_repeats
-        - type: glance
-          show_state: false
-          entities:
-          - entity: vacuum.xiaomi_vacuum_cleaner
-            name: 'Начать уборку'
-            icon: mdi:broom
-            tap_action:
-              action: call-service
-              service: script.turn_on
-              service_data:
-                entity_id: script.vacuum_zoned_cleanup
-          - entity: vacuum.xiaomi_vacuum_cleaner
-            name: 'Пауза'
-            icon: mdi:pause
-            tap_action:
-              action: call-service
-              service: vacuum.pause
-              service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
-          - entity: vacuum.xiaomi_vacuum_cleaner
-            name: 'Вернуться на базу'
-            icon: mdi:home
-            tap_action:
-              action: call-service
-              service: vacuum.return_to_base
-              service_data:
-                entity_id: vacuum.xiaomi_vacuum_cleaner
+      - type: vertical-stack
+        cards:
+          - type: glance
+            show_name: false
+            entities:
+              - vacuum.rockrobo
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - switch.vacuum_hall
+              - switch.vacuum_kitchen
+              - switch.vacuum_kidsroom
+              - switch.vacuum_livingroom
+              - input_select.vacuum_fan_speed
+          - type: glance
+            show_state: false
+            entities:
+              - entity: vacuum.rockrobo
+                name: 'Начать уборку'
+                icon: mdi:broom
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  service_data:
+                    entity_id: script.vacuum_zoned_cleanup
+              - entity: vacuum.rockrobo
+                name: 'Пауза'
+                icon: mdi:pause
+                tap_action:
+                  action: call-service
+                  service: vacuum.pause
+                  service_data:
+                    entity_id: vacuum.rockrobo
+              - entity: vacuum.rockrobo
+                name: 'Вернуться на базу'
+                icon: mdi:home
+                tap_action:
+                  action: call-service
+                  service: vacuum.return_to_base
+                  service_data:
+                    entity_id: vacuum.rockrobo
 
   - title: 'Сервер'
     icon: mdi:server

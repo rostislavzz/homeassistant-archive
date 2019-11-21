@@ -1,9 +1,0 @@
-vacuum_fan_speed:
-  name: 'Режим уборки'
-  icon: mdi:broom
-  options:
-  - Тихий
-  - Сбалансированный
-  - Турбо
-  - Максимальный
-  initial: Максимальный

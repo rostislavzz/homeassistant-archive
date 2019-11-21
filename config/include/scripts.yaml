@@ -17,27 +17,3 @@ right:
   sequence:
     - service: switch.turn_on
       entity_id: switch.right
-
-vacuum_zoned_cleanup:
-  sequence:
-    - service: vacuum.send_command
-      data_template:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
-        command: app_zoned_clean
-        params: >
-          [
-          {%- set comma = joiner(',') -%}
-          {%- set repeats = states('input_number.vacuum_cleaning_repeats')|int -%}
-          {%- if is_state('input_boolean.vacuum_hall', 'on') -%}
-            {{ comma() }}[28161, 22317, 30561, 25317, {{ repeats }}]
-          {%- endif -%}
-          {%- if is_state('input_boolean.vacuum_kitchen', 'on') -%}
-            {{ comma() }}[22124, 29187, 26074, 30937, {{ repeats }}]
-          {%- endif -%}
-          {%- if is_state('input_boolean.vacuum_kidsroom', 'on') -%}
-            {{ comma() }}[23219, 26493, 27119, 28993, {{ repeats }}]
-          {%- endif -%}
-          {%- if is_state('input_boolean.vacuum_livingroom', 'on') -%}
-            {{ comma() }}[22127, 22835, 27127, 25135, {{ repeats }}]
-          {%- endif -%}
-          ]

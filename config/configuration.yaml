@@ -52,7 +52,6 @@ system_health:
 switch: !include_dir_list include/switch/
 timer: !include_dir_named include/timer/
 updater:
-vacuum: !include_dir_list include/vacuum/
 wake_on_lan:
 weather: !include_dir_list include/weather/
 yeelight: !include include/yeelight.yaml

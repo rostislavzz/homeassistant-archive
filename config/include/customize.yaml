@@ -82,9 +82,8 @@ sensor.livingroom_smoke_battery:
 binary_sensor.cube_158d00010ed5cf:
   friendly_name: 'Куб'
   icon: mdi:cube-outline
-vacuum.xiaomi_vacuum_cleaner:
+vacuum.rockrobo:
   friendly_name: 'Пылесос'
-  icon: mdi:robot-vacuum
 binary_sensor.0x00158d0001ab1e55:
   friendly_name: 'Дверь в Гостиную'
 media_player.livingroom_tv:
