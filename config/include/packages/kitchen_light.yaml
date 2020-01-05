@@ -11,7 +11,7 @@ binary_sensor:
   sensors:
     daniil_is_sleeping:
       friendly_name: 'Даниил спит'
-      value_template: "{{ is_state('light.kidsroom_nightlight', 'on') and is_state('sun.sun', 'below_horizon') }}"
+      value_template: "{{ is_state('sun.sun', 'below_horizon') and states('light.kidsroom_ceiling_light') != 'on' }}"
 
 switch:
   platform: template
@@ -45,12 +45,22 @@ automation:
       - condition: state
         entity_id: group.person
         state: 'home'
-      - condition: sun
-        after: sunset
-        after_offset: '-01:00:00'
       - condition: state
         entity_id: binary_sensor.daniil_is_sleeping
         state: 'off'
+      - condition: or
+        conditions:
+          - condition: sun
+            after: sunset
+            after_offset: '-01:00:00'
+          - condition: and
+            conditions:
+             - condition: sun
+               after: sunrise
+               after_offset: '+01:00:00'
+             - condition: state
+               entity_id: weather.dark_sky
+               state: 'cloudy'
     action:
       service: switch.turn_on
       entity_id: switch.0x00158d00019ccab8_switch
@@ -67,14 +77,12 @@ automation:
       - condition: state
         entity_id: group.person
         state: 'home'
-      - condition: or
-        conditions:
-          - condition: sun
-            before: sunrise
-            before_offset: '+01:00:00'
-          - condition: state
-            entity_id: binary_sensor.daniil_is_sleeping
-            state: 'on'
+      - condition: sun
+        before: sunrise
+        before_offset: '+01:00:00'
+      - condition: state
+        entity_id: binary_sensor.daniil_is_sleeping
+        state: 'off'
     action:
       service: light.turn_on
       entity_id: light.kitchen_rgb_lightstrip
@@ -86,9 +94,8 @@ automation:
       to: 'off'
       for: '00:03:00'
     condition:
-      condition: state
-      entity_id: media_player.kitchen_tv
-      state: 'off'
+      condition: template
+      value_template: "{{ states('media_player.kitchen_tv') != 'on' }}"
     action:
       - service: switch.turn_off
         entity_id: switch.0x00158d00019ccab8_switch
@@ -107,6 +114,5 @@ group:
     name: 'Автоматизации на кухне'
     entities:
       - automation.kitchen_light_on
-      - automation.kitchen_light_off
       - automation.kitchen_nightlight_on
-      - automation.kitchen_nightlight_off
+      - automation.kitchen_light_and_nightlight_off
