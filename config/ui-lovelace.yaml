@@ -13,19 +13,18 @@ views:
             icon: mdi:human-female
           - entity: person.nina
             icon: mdi:human-female
-      - type: vertical-stack
-        cards:
-          - type: picture-glance
-            title: 'Подъезд'
-            entities:
-              - camera.entrance
-            camera_image: camera.entrance
-          - type: picture-glance
-            title: 'Прихожая'
-            entities:
-              - camera.hall
-              - binary_sensor.0x00158d0001b14504
-            camera_image: camera.hall
+      - type: entities
+        title: 'Домофон'
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.incoming_call
+            name: 'Входящий звонок'
+          - entity: switch.auto_open
+            name: 'Открывать автоматически'
+          - entity: switch.auto_open_once
+            name: 'Открыть один раз'
+          - entity: switch.auto_reject
+            name: 'Отменять все'
       - type: glance
         title: 'Кухня'
         entities:
@@ -87,6 +86,22 @@ views:
             icon: mdi:lamp
             tap_action:
                 action: toggle
+
+  - title: 'Камеры'
+    icon: mdi:cctv
+    path: cctv
+    cards:
+      - type: picture-glance
+        title: 'Подъезд'
+        entities:
+        - camera.entrance
+        camera_image: camera.entrance
+      - type: picture-glance
+        title: 'Прихожая'
+        entities:
+        - camera.hall
+        - binary_sensor.0x00158d0001b14504
+        camera_image: camera.hall
 
   - title: 'Погода'
     icon: mdi:weather-partly-cloudy
