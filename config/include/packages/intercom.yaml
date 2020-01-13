@@ -1,0 +1,121 @@
+timer:
+  intercom_auto_open:
+    name: 'Таймер автооткрытия домофона'
+    duration: '00:15:00'
+
+input_boolean:
+  intercom_notification_omitted:
+    name: 'Уведомление от домофона пропущено'
+    initial: off
+
+automation:
+  - alias: 'intercom_start_timer_for_auto_open'
+    trigger:
+      platform: state
+      entity_id: device_tracker.rost_iphone, device_tracker.jana_iphone
+      to: 'home'
+    action:
+      service: timer.start
+      entity_id: timer.intercom_auto_open
+
+  - alias: 'intercom_on_incoming_call'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.incoming_call
+      to: 'on'
+    action:
+      - service: automation.turn_on
+        entity_id: automation.intercom_notify_repeatedly
+      - service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.intercom_notification_omitted
+      - condition: state
+        entity_id: timer.intercom_auto_open
+        state: 'active'
+      - service: esphome.intercom_open_door
+
+  - alias: 'intercom_notify_repeatedly'
+    initial_state: 'off'
+    trigger:
+      platform: time_pattern
+      seconds: '/3'
+    condition:
+      condition: state
+      entity_id: binary_sensor.incoming_call
+      state: 'on'
+    action:
+      service: notify.INTERCOM_ALL_DEVICES
+      data:
+        message: "\ud83d\udd14 Домофон"
+
+  - alias: 'intercom_notify_repeatedly_turn_off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.incoming_call
+      to: 'off'
+    action:
+      - service: automation.turn_off
+        entity_id: automation.intercom_notify_repeatedly
+      - condition: state
+        entity_id: input_boolean.intercom_notification_omitted
+        state: 'on'
+      - service: notify.INTERCOM_ALL_DEVICES
+        data:
+          message: "\ud83d\udd14 Домофон: пропущен звонок"
+
+  - alias: 'intercom_notification_action_open_door'
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: OPEN_DOOR
+    action:
+      - service: esphome.intercom_open_door
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.intercom_notification_omitted
+
+  - alias: 'intercom_notification_action_reject_call'
+    trigger:
+      platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: REJECT_CALL
+    action:
+      - service: esphome.intercom_reject_call
+      - service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.intercom_notification_omitted
+
+notify:
+  - name: INTERCOM_ALL_DEVICES
+    platform: group
+    services:
+      - service: mobile_app_rost_iphone
+      - service: mobile_app_jana_iphone
+    data:
+      data:
+        push:
+          sound: default
+          category: 'intercom'
+          thread-id: 'intercom-notification-group'
+        presentation_options:
+          - alert
+          - sound
+        apns_headers:
+          'apns-collapse-id': 'intercom-incoming-call'
+
+ios:
+  push:
+    categories:
+      - name: 'Домофон'
+        identifier: 'intercom'
+        actions:
+          - identifier: 'OPEN_DOOR'
+            title: 'Открыть'
+            authenticationRequired: true
+            destructive: false
+          - identifier: 'REJECT_CALL'
+            title: 'Отклонить'
+            authenticationRequired: true
+            destructive: true
