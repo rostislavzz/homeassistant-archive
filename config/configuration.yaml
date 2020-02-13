@@ -37,20 +37,15 @@ mqtt: !include include/mqtt.yaml
 notify: !include_dir_list include/notify/
 person: !include include/person.yaml
 plant: !include include/plant.yaml
+plex: !include include/plex.yaml
 recorder: !include include/recorder.yaml
 scene: !include_dir_list include/scene/
-script: !include include/scripts.yaml
 stream:
 sensor: !include_dir_list include/sensor/
-
-shell_command:
-  turn_off_server: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@10.0.0.213 sudo pm-suspend'
-
 sun:
 system_health:
 switch: !include_dir_list include/switch/
 timer: !include_dir_named include/timer/
 updater:
-wake_on_lan:
 weather: !include_dir_list include/weather/
 yeelight: !include include/yeelight.yaml

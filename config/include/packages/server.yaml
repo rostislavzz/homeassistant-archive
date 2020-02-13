@@ -1,0 +1,81 @@
+wake_on_lan:
+
+shell_command:
+  server_suspend: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa homeassistant@10.0.0.213 sudo pm-suspend'
+
+switch:
+  - platform: wake_on_lan
+    mac: !secret server_mac
+    name: 'server'
+    host: '10.0.0.213'
+    turn_off:
+      service: shell_command.server_suspend
+
+  - platform: template
+    switches:
+      server_automation:
+        friendly_name: 'Автоматическое включение/выключение'
+        value_template: "{{ is_state('group.server_automation', 'on') }}"
+        turn_on:
+          service: automation.turn_on
+          data:
+            entity_id: group.server_automation
+        turn_off:
+          service: automation.turn_off
+          data:
+            entity_id: group.server_automation
+
+automation:
+  - alias: 'server_turn_off'
+    trigger:
+      platform: state
+      entity_id: group.person
+      to: not_home
+      for: '00:15:00'
+    condition:
+      - condition: state
+        entity_id: media_player.kitchen_tv
+        state: 'off'
+      - condition: state
+        entity_id: media_player.livingroom_tv
+        state: 'off'
+    action:
+      service: switch.turn_off
+      entity_id: switch.server
+
+  - alias: 'server_turn_on_when_someone_comes'
+    trigger:
+      platform: state
+      entity_id: group.person
+      to: home
+    condition:
+      condition: state
+      entity_id: switch.server
+      state: 'off'
+    action:
+      service: switch.turn_on
+      entity_id: switch.server
+
+  - alias: 'server_turn_on_when_tv_on'
+    trigger:
+      - platform: state
+        entity_id: media_player.livingroom_tv
+        to: 'playing'
+      - platform: state
+        entity_id: media_player.kitchen_tv
+        to: 'on'
+    condition:
+      condition: state
+      entity_id: switch.server
+      state: 'off'
+    action:
+      service: switch.turn_on
+      entity_id: switch.server
+
+group:
+  server_automation:
+    name: 'Автоматическое включение/выключение'
+    entities:
+      - automation.server_turn_off
+      - automation.server_turn_on_when_tv_on
+      - automation.server_turn_on_when_someone_comes
