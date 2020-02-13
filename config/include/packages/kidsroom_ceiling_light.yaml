@@ -44,17 +44,3 @@ light:
         data_template:
           entity_id: light.kidsroom_ceiling_light
           brightness: "{{ brightness }}"
-
-automation:
-  - alias: 'kidsroom_nightlight_turn_off_after_sunrise'
-    trigger:
-      platform: sun
-      event: sunrise
-      offset: '+02:00:00'
-    condition:
-      condition: state
-      entity_id: light.kidsroom_nightlight
-      state: 'on'
-    action:
-      service: light.turn_off
-      entity_id: light.kidsroom_nightlight
