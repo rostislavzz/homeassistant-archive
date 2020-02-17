@@ -21,7 +21,6 @@ discovery:
 frontend:
 group: !include include/groups.yaml
 history: !include include/history.yaml
-homekit: !include include/homekit.yaml
 http:
 influxdb: !include include/influxdb.yaml
 input_boolean: !include include/input_boolean.yaml
