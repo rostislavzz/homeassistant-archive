@@ -1,7 +1,10 @@
+shell_command:
+  rt_ac68u_reboot: 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i /config/.ssh/id_rsa admin@10.0.0.167 reboot'
+
 sensor:
   - platform: snmp
     host: 10.0.0.167
-    baseoid: 1.3.6.1.2.1.25.1.8.3.1.1.4.116.101.109.112
+    baseoid: 1.3.6.1.2.1.25.1.8.3.1.1.8.99.112.117.95.116.101.109.112
     name: rt_ac68u_cpu_temp
     accept_errors: true
     default_value: 0
@@ -11,7 +14,7 @@ sensor:
 
   - platform: snmp
     host: 10.0.0.167
-    baseoid: 1.3.6.1.2.1.25.1.11.3.1.1.5.99.104.105.112.49
+    baseoid: 1.3.6.1.2.1.25.1.11.3.1.1.10.50.52.103.104.122.95.116.101.109.112
     name: rt_ac68u_24ghz_temp
     accept_errors: true
     default_value: 0
@@ -21,7 +24,7 @@ sensor:
 
   - platform: snmp
     host: 10.0.0.167
-    baseoid: 1.3.6.1.2.1.25.1.12.3.1.1.5.99.104.105.112.50
+    baseoid: 1.3.6.1.2.1.25.1.12.3.1.1.9.53.103.104.122.95.116.101.109.112
     name: rt_ac68u_5ghz_temp
     accept_errors: true
     default_value: 0

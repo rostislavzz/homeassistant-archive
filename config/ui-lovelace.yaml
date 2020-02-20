@@ -62,8 +62,8 @@ views:
         entities:
           - entity: binary_sensor.0x00158d0001ab1e55
             name: 'Дверь'
-          - binary_sensor.0x00158d0001db8a6a
-          - entity: cover.0x00158d0001ef4b95_cover
+          - entity: binary_sensor.0x00158d0001db8a6a
+          - entity: cover.livingroom_curtain_cover
             tap_action:
               action: toggle
           - entity: light.livingroom_light
@@ -201,7 +201,7 @@ views:
           - entity: switch.0x00158d0001715c96_switch_right
             name: 'Светильники'
             icon: mdi:track-light
-          - cover.0x00158d0001ef4b95_cover
+          - cover.livingroom_curtain_cover
       - type: media-control
         entity: media_player.livingroom_tv
       - type: horizontal-stack
@@ -335,21 +335,26 @@ views:
         title: 'Роутер'
         show_header_toggle: false
         entities:
-        - entity: sensor.rt_ac68u_uptime
-          icon: mdi:clock-outline
-          name: 'Время работы'
-        - entity: sensor.rt_ac68u_cpu_temp
-          name: 'Процессор'
-        - entity: sensor.rt_ac68u_24ghz_temp
-          name: '2.4 Ггц'
-        - entity: sensor.rt_ac68u_5ghz_temp
-          name: '5 Ггц'
-        - entity: sensor.rt_ac68u_memory_used
-          icon: mdi:memory
-          name: 'Использование оперативной памяти'
-        - entity: sensor.rt_ac68u_partition_jffs
-          icon: mdi:memory
-          name: 'Использование раздела /jffs'
+          - entity: sensor.rt_ac68u_uptime
+            icon: mdi:clock-outline
+            name: 'Время работы'
+          - entity: sensor.rt_ac68u_cpu_temp
+            name: 'Процессор'
+          - entity: sensor.rt_ac68u_24ghz_temp
+            name: '2.4 Ггц'
+          - entity: sensor.rt_ac68u_5ghz_temp
+            name: '5 Ггц'
+          - entity: sensor.rt_ac68u_memory_used
+            icon: mdi:memory
+            name: 'Использование оперативной памяти'
+          - entity: sensor.rt_ac68u_partition_jffs
+            icon: mdi:memory
+            name: 'Использование раздела /jffs'
+          - type: call-service
+            icon: mdi:restart
+            service: shell_command.rt_ac68u_reboot
+            name: 'Перезагрузка'
+            action_name: 'Перезагрузить'
 
   - title: 'Батарейки'
     icon: mdi:battery
