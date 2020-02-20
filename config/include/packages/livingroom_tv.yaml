@@ -1,5 +1,4 @@
-media_player:
-  platform: webostv
+webostv:
   host: 10.0.0.162
   name: livingroom_tv
   turn_on_action:
@@ -8,9 +7,9 @@ media_player:
       mac: !secret webost_tv_mac
   customize:
     sources:
-    - Plex
-    - YouTube
-    - Apple TV
+      - Plex
+      - YouTube
+      - Apple TV
 
 automation:
   - alias: 'livingroom_tv_turn_off_on_plex_idle'
