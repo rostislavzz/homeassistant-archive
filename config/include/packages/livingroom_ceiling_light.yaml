@@ -70,7 +70,7 @@ automation:
         - condition: sun
           before: sunrise
         - condition: template
-          value_template: "{{ is_state_attr('sensor.0x00158d0001ef4b95_cover', 'state', 'CLOSE') }}"
+          value_template: "{{ is_state_attr('sensor.livingroom_curtain_cover', 'state', 'CLOSE') }}"
     action:
       service: script.livingroom_ceiling_light_ambilight
       data_template:

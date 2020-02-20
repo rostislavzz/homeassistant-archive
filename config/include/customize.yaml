@@ -73,7 +73,7 @@ light.kidsroom_nightlight:
 # гостиная
 sensor.livingroom_sensor_battery:
   friendly_name: 'Датчик температуры и влажности'
-cover.0x00158d0001ef4b95_cover:
+cover.livingroom_curtain_cover:
   friendly_name: 'Шторы'
 binary_sensor.0x00158d0001db8a6a:
   friendly_name: 'Датчик дыма'
