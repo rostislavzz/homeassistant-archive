@@ -1,5 +1,4 @@
 - alias: 'zigbee_join_disabled'
-  hide_entity: true
   trigger:
     - platform: event
       event_type: timer.finished

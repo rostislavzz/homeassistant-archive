@@ -1,6 +1,5 @@
 - alias: 'bedroom nightlight'
   initial_state: 'on'
-  hide_entity: true
   trigger:
   - platform: mqtt
     topic: 'zigbee2mqtt/bedroom/button'

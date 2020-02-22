@@ -1,6 +1,5 @@
 - alias: 'bathroom_notify_water_leak'
   initial_state: 'on'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: alert.bathroom_water_leak

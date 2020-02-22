@@ -10,7 +10,6 @@
 - id: '9'
   alias: Включение телевизора на кухне
   initial_state: 'off'
-  hide_entity: true
   trigger:
   - platform: event
     event_type: cube_action

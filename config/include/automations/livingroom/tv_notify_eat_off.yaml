@@ -1,6 +1,5 @@
 - alias: 'livingroom_tv_notify_eat_off'
   initial_state: 'off'
-  hide_entity: true
   trigger:
   - platform: state
     entity_id: binary_sensor.kitchen_motion_sensor
