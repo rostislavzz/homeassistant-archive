@@ -5,22 +5,18 @@ sensor.0x00158d0001b8d3ca_temperature:
   friendly_name: 'Прихожая Температура'
 sensor.0x00158d0001b8d3ca_humidity:
   friendly_name: 'Прихожая Влажность'
-binary_sensor.0x00158d0001b14504:
-  friendly_name: 'Прихожая Дверь'
-sensor.hall_door_battery:
-  friendly_name: 'Прихожая Дверь'
 
 # кухня
-sensor.0x00158d0001a24e62_illuminance:
+sensor.kitchen_motion2_illuminance:
   hidden: true
   friendly_name: 'Освещенность'
-binary_sensor.0x00158d0001a24e62_occupancy:
+binary_sensor.kitchen_motion2_occupancy:
   hidden: true
   friendly_name: 'Движение на кухне'
-sensor.0x00158d0002236dfb_illuminance:
+sensor.kitchen_motion_illuminance:
   hidden: true
   friendly_name: 'Освещенность у раковины'
-binary_sensor.0x00158d0002236dfb_occupancy:
+binary_sensor.kitchen_motion_occupancy:
   hidden: true
   friendly_name: 'Движение у раковины'
 binary_sensor.kitchen_motion_sensor:
@@ -84,8 +80,6 @@ binary_sensor.cube_158d00010ed5cf:
   icon: mdi:cube-outline
 vacuum.rockrobo:
   friendly_name: 'Пылесос'
-binary_sensor.0x00158d0001ab1e55:
-  friendly_name: 'Дверь в Гостиную'
 media_player.livingroom_tv:
   friendly_name: 'Телевизор'
   device_class: tv

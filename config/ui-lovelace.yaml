@@ -60,8 +60,6 @@ views:
       - type: glance
         title: 'Гостиная'
         entities:
-          - entity: binary_sensor.0x00158d0001ab1e55
-            name: 'Дверь'
           - entity: binary_sensor.0x00158d0001db8a6a
           - entity: cover.livingroom_curtain_cover
             tap_action:
@@ -148,6 +146,9 @@ views:
         cards:
           - type: entities
             entities:
+              - entity: group.kitchen_motion_sensor
+                name: 'Движение'
+                secondary_info: last-changed
               - entity: switch.0x00158d00019ccab8_switch
                 name: 'Свет'
               - entity: light.kitchen_rgb_lightstrip
@@ -370,8 +371,8 @@ views:
         title: 'Кухня'
         show_header_toggle: false
         entities:
-          - sensor.0x00158d0002236dfb_battery
-          - sensor.0x00158d0001a24e62_battery
+          - sensor.kitchen_motion_battery
+          - sensor.kitchen_motion2_battery
       - type: entities
         title: 'Детская'
         show_header_toggle: false
@@ -381,7 +382,6 @@ views:
         title: 'Гостиная'
         show_header_toggle: false
         entities:
-          - sensor.livingroom_door_battery
           - sensor.livingroom_sensor_battery
           - sensor.livingroom_smoke_battery
           - sensor.livingroom_miflora_battery

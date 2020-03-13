@@ -107,8 +107,8 @@ group:
     name: 'Движение на кухне'
     icon: mdi:walk
     entities:
-      - binary_sensor.0x00158d0002236dfb_occupancy
-      - binary_sensor.0x00158d0001a24e62_occupancy
+      - binary_sensor.kitchen_motion_occupancy
+      - binary_sensor.kitchen_motion2_occupancy
 
   kitchen_automations:
     name: 'Автоматизации на кухне'
