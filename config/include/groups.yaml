@@ -8,7 +8,6 @@ hall:
 
 kitchen_tv:
   name: 'Телевизор на кухне'
-  control: hidden
   entities:
     - switch.kitchen_tv_power
     - script.smart_hub
