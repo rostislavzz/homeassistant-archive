@@ -11,7 +11,7 @@ binary_sensor:
   sensors:
     daniil_is_sleeping:
       friendly_name: 'Даниил спит'
-      value_template: "{{ is_state('sun.sun', 'below_horizon') and states('light.kidsroom_ceiling_light') != 'on' }}"
+      value_template: "{{ is_state('binary_sensor.kidsroom_curtain_contact', 'off') }}"
 
 switch:
   platform: template
@@ -92,7 +92,7 @@ automation:
       platform: state
       entity_id: group.kitchen_motion_sensor
       to: 'off'
-      for: '00:03:00'
+      for: '00:03:10'
     condition:
       condition: template
       value_template: "{{ states('media_player.kitchen_tv') != 'on' }}"
