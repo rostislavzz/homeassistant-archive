@@ -137,6 +137,36 @@ views:
             name: 'Детская'
           - entity: sensor.0x00158d0002b518b9_humidity
             name: 'Гостиная'
+      - type: glance
+        title: 'COVID-19: Мир'
+        entities:
+          - entity: sensor.worldwide_confirmed
+            name: Подтвержденно
+            icon: mdi:emoticon-neutral-outline
+          - entity: sensor.worldwide_current
+            name: Болеет
+            icon: mdi:emoticon-frown-outline
+          - entity: sensor.worldwide_recovered
+            name: Выздоровело
+            icon: mdi:emoticon-happy-outline
+          - entity: sensor.worldwide_deaths
+            name: Смертей
+            icon: mdi:emoticon-dead-outline
+      - type: glance
+        title: 'COVID-19: Россия'
+        entities:
+          - entity: sensor.russia_confirmed
+            name: Подтвержденно
+            icon: mdi:emoticon-neutral-outline
+          - entity: sensor.russia_current
+            name: Болеет
+            icon: mdi:emoticon-frown-outline
+          - entity: sensor.russia_recovered
+            name: Выздоровело
+            icon: mdi:emoticon-happy-outline
+          - entity: sensor.russia_deaths
+            name: Смертей
+            icon: mdi:emoticon-dead-outline
 
   - title: 'Кухня'
     icon: mdi:silverware-fork-knife
