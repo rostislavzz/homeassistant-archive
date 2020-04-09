@@ -26,12 +26,32 @@ switch:
             entity_id: group.server_automation
 
 automation:
+  - alias: 'server_turn_on'
+    trigger:
+      - platform: time
+        at: '00:30:00'
+      - platform: state
+        entity_id: media_player.livingroom_tv
+        to: 'on'
+      - platform: state
+        entity_id: media_player.kitchen_tv
+        to: 'on'
+    condition:
+      condition: state
+      entity_id: switch.server
+      state: 'off'
+    action:
+      service: switch.turn_on
+      entity_id: switch.server
+
   - alias: 'server_turn_off'
     trigger:
-      platform: state
-      entity_id: group.person
-      to: not_home
-      for: '00:15:00'
+      - platform: time
+        at: '05:30:00'
+      - platform: state
+        entity_id: group.person
+        to: not_home
+        for: '00:15:00'
     condition:
       - condition: state
         entity_id: media_player.kitchen_tv
@@ -49,22 +69,6 @@ automation:
       platform: state
       entity_id: group.person
       to: home
-    condition:
-      condition: state
-      entity_id: switch.server
-      state: 'off'
-    action:
-      service: switch.turn_on
-      entity_id: switch.server
-
-  - alias: 'server_turn_on_when_tv_on'
-    trigger:
-      - platform: state
-        entity_id: media_player.livingroom_tv
-        to: 'on'
-      - platform: state
-        entity_id: media_player.kitchen_tv
-        to: 'on'
     condition:
       condition: state
       entity_id: switch.server
