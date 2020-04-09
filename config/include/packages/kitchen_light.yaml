@@ -6,13 +6,6 @@ yeelight:
       use_music_mode: true
       save_on_change: false
 
-binary_sensor:
-  platform: template
-  sensors:
-    daniil_is_sleeping:
-      friendly_name: 'Даниил спит'
-      value_template: "{{ is_state('binary_sensor.kidsroom_curtain_contact', 'off') }}"
-
 switch:
   platform: template
   switches:
@@ -45,9 +38,6 @@ automation:
       - condition: state
         entity_id: group.person
         state: 'home'
-      - condition: state
-        entity_id: binary_sensor.daniil_is_sleeping
-        state: 'off'
       - condition: or
         conditions:
           - condition: sun
@@ -80,9 +70,6 @@ automation:
       - condition: sun
         before: sunrise
         before_offset: '+01:00:00'
-      - condition: state
-        entity_id: binary_sensor.daniil_is_sleeping
-        state: 'off'
     action:
       service: light.turn_on
       entity_id: light.kitchen_rgb_lightstrip
