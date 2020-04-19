@@ -26,8 +26,10 @@ views:
             name: 'Свет'
           - entity: light.hall_ceiling_light_nightlight
             name: 'Ночник'
+          - entity: binary_sensor.0x00158d0001b14504
+            name: 'Дверь'
           - entity: binary_sensor.0x00158d00041d5e14_contact
-            name: 'Шкаф'
+            name: 'Дверь шкафа'
             icon: mdi:cupboard-outline
       - type: entities
         title: 'Домофон'
