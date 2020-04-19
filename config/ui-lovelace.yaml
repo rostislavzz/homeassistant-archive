@@ -14,6 +14,22 @@ views:
           - entity: person.nina
             icon: mdi:human-female
       - type: entities
+        title: 'Прихожая'
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.0x00158d0001e523ab_occupancy
+            name: 'Движение'
+            secondary_info: last-changed
+          - entity: sensor.0x00158d0001e523ab_illuminance
+            name: 'Освещенность'
+          - entity: light.hall_ceiling_light
+            name: 'Свет'
+          - entity: light.hall_ceiling_light_nightlight
+            name: 'Ночник'
+          - entity: binary_sensor.0x00158d00041d5e14_contact
+            name: 'Шкаф'
+            icon: mdi:cupboard-outline
+      - type: entities
         title: 'Домофон'
         show_header_toggle: false
         entities:
