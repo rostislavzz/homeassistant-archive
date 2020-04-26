@@ -12,7 +12,6 @@ alert: !include include/alert.yaml
 automation: !include_dir_merge_list include/automations/
 camera: !include include/camera.yaml
 config:
-device_tracker: !include_dir_list include/device_tracker/
 
 discovery:
   ignore:
@@ -34,7 +33,6 @@ media_player: !include_dir_list include/media_player/
 mobile_app:
 mqtt: !include include/mqtt.yaml
 notify: !include_dir_list include/notify/
-person: !include include/person.yaml
 plant: !include include/plant.yaml
 plex: !include include/plex.yaml
 recorder: !include include/recorder.yaml
