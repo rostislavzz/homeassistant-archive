@@ -48,9 +48,14 @@ automation:
              - condition: sun
                after: sunrise
                after_offset: '+01:00:00'
-             - condition: state
-               entity_id: weather.dark_sky
-               state: 'cloudy'
+             - condition: or
+               conditions:
+                - condition: state
+                  entity_id: weather.dark_sky
+                  state: 'cloudy'
+                - condition: state
+                  entity_id: weather.dark_sky
+                  state: 'snowy'
     action:
       service: switch.turn_on
       entity_id: switch.0x00158d00019ccab8_switch
