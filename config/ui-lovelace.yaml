@@ -1,6 +1,6 @@
-title: 'Дом'
+title: "Дом"
 views:
-  - title: 'Дом'
+  - title: "Дом"
     icon: mdi:home
     path: home
     cards:
@@ -14,119 +14,119 @@ views:
           - entity: person.nina
             icon: mdi:human-female
       - type: entities
-        title: 'Прихожая'
+        title: "Прихожая"
         show_header_toggle: false
         entities:
           - entity: binary_sensor.0x00158d0001e523ab_occupancy
-            name: 'Движение'
+            name: "Движение"
             secondary_info: last-changed
           - entity: sensor.0x00158d0001e523ab_illuminance
-            name: 'Освещенность'
+            name: "Освещенность"
           - entity: light.hall_ceiling_light
-            name: 'Свет'
+            name: "Свет"
           - entity: light.hall_ceiling_light_nightlight
-            name: 'Ночник'
+            name: "Ночник"
           - entity: binary_sensor.0x00158d0001b14504
-            name: 'Дверь'
+            name: "Дверь"
           - entity: binary_sensor.0x00158d00041d5e14_contact
-            name: 'Дверь шкафа'
+            name: "Дверь шкафа"
             icon: mdi:cupboard-outline
       - type: entities
-        title: 'Домофон'
+        title: "Домофон"
         show_header_toggle: false
         entities:
           - entity: binary_sensor.incoming_call
-            name: 'Входящий звонок'
+            name: "Входящий звонок"
           - entity: switch.auto_open
-            name: 'Открывать автоматически'
+            name: "Открывать автоматически"
           - entity: switch.auto_open_once
-            name: 'Открыть один раз'
+            name: "Открыть один раз"
           - entity: switch.auto_reject
-            name: 'Отменять все'
+            name: "Отменять все"
       - type: glance
-        title: 'Кухня'
+        title: "Кухня"
         entities:
           - entity: group.kitchen_motion_sensor
-            name: 'Движение'
+            name: "Движение"
           - entity: switch.0x00158d00019ccab8_switch
-            name: 'Свет'
+            name: "Свет"
             tap_action:
               action: toggle
           - entity: light.kitchen_rgb_lightstrip
-            name: 'Ночник'
+            name: "Ночник"
             icon: mdi:lamp
             tap_action:
               action: toggle
       - type: glance
-        title: 'Детская'
+        title: "Детская"
         entities:
           - entity: light.kidsroom_light
-            name: 'Свет'
+            name: "Свет"
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
           - entity: light.kidsroom_nightlight
-            name: 'Ночник'
+            name: "Ночник"
             icon: mdi:ceiling-light
             tap_action:
               action: toggle
           - entity: switch.0x00158d0003551125_switch_left
-            name: 'Светильники'
+            name: "Светильники"
             icon: mdi:track-light
             tap_action:
               action: toggle
       - type: glance
-        title: 'Гостиная'
+        title: "Гостиная"
         entities:
           - entity: binary_sensor.0x00158d0001db8a6a
           - entity: cover.livingroom_curtain_cover
             tap_action:
               action: toggle
           - entity: light.livingroom_light
-            name: 'Свет'
+            name: "Свет"
             icon: mdi:ceiling-light
           - entity: switch.0x00158d0001715c96_switch_right
-            name: 'Светильники'
+            name: "Светильники"
             icon: mdi:track-light
             tap_action:
               action: toggle
       - type: glance
-        title: 'Спальня'
+        title: "Спальня"
         entities:
           - entity: light.bedroom_daylight
             icon: mdi:ceiling-light
-            name: 'Свет'
+            name: "Свет"
             tap_action:
-                action: toggle
+              action: toggle
           - entity: light.bedroom_nightlight
             icon: mdi:lamp
             tap_action:
-                action: toggle
+              action: toggle
 
-  - title: 'Камеры'
+  - title: "Камеры"
     icon: mdi:cctv
     path: cctv
     cards:
       - type: picture-glance
-        title: 'Подъезд'
+        title: "Подъезд"
         entities:
-        - camera.entrance
+          - camera.entrance
         camera_image: camera.entrance
       - type: picture-glance
-        title: 'Прихожая'
+        title: "Прихожая"
         entities:
-        - camera.hall
-        - binary_sensor.0x00158d0001b14504
+          - camera.hall
+          - binary_sensor.0x00158d0001b14504
         camera_image: camera.hall
 
-  - title: 'Погода'
+  - title: "Погода"
     icon: mdi:weather-partly-cloudy
     path: weather
     cards:
       - type: weather-forecast
         entity: weather.dark_sky
       - type: entities
-        title: 'Солнце'
+        title: "Солнце"
         show_header_toggle: false
         entities:
           - entity: sensor.sun_sunrise
@@ -134,29 +134,29 @@ views:
           - entity: sensor.sun_sunset
             icon: mdi:weather-sunset-down
       - type: history-graph
-        title: 'Температура'
+        title: "Температура"
         entities:
           - entity: sensor.0x00158d0001b8d3ca_temperature
-            name: 'Прихожая'
+            name: "Прихожая"
           - entity: sensor.0x00158d0001700c18_temperature
-            name: 'Детская'
+            name: "Детская"
           - entity: sensor.0x00158d0002b518b9_temperature
-            name: 'Гостиная'
+            name: "Гостиная"
       - type: sensor
-        name: 'Давление'
+        name: "Давление"
         entity: sensor.0x00158d0002b518b9_pressure
         graph: line
       - type: history-graph
-        title: 'Влажность'
+        title: "Влажность"
         entities:
           - entity: sensor.0x00158d0001b8d3ca_humidity
-            name: 'Прихожая'
+            name: "Прихожая"
           - entity: sensor.0x00158d0001700c18_humidity
-            name: 'Детская'
+            name: "Детская"
           - entity: sensor.0x00158d0002b518b9_humidity
-            name: 'Гостиная'
+            name: "Гостиная"
 
-  - title: 'Кухня'
+  - title: "Кухня"
     icon: mdi:silverware-fork-knife
     path: kitchen
     cards:
@@ -165,60 +165,64 @@ views:
           - type: entities
             entities:
               - entity: group.kitchen_motion_sensor
-                name: 'Движение'
+                name: "Движение"
                 secondary_info: last-changed
               - entity: switch.0x00158d00019ccab8_switch
-                name: 'Свет'
+                name: "Свет"
               - entity: light.kitchen_rgb_lightstrip
-                name: 'Ночник'
+                name: "Ночник"
               - entity: switch.kitchen_automations
-                name: 'Автоматизации'
+                name: "Автоматизации"
       - type: media-control
         entity: media_player.kitchen_tv_universal
 
-  - title: 'Детская'
+  - title: "Детская"
     icon: mdi:baby-carriage
     path: kidsroom
     cards:
       - type: entities
+        show_header_toggle: false
         entities:
           - entity: light.kidsroom_light
             icon: mdi:ceiling-light
-            name: 'Свет'
+            name: "Свет"
           - entity: light.kidsroom_nightlight
-            name: 'Ночник'
+            name: "Ночник"
           - entity: light.kidsroom_ceiling_light_ambilight
             icon: mdi:lightbulb-on
-          - entity: switch.0x00158d0003551125_switch_left
-            name: 'Светильники'
+          - entity: switch.kidsroom_switch_switch_right
+            name: "Свет"
+            icon: mdi:light-switch
+          - entity: switch.kidsroom_switch_switch_left
+            name: "Светильники"
             icon: mdi:track-light
       - type: horizontal-stack
         cards:
-        - type: sensor
-          entity: sensor.0x00158d0001700c18_temperature
-          name: 'Температура'
-          graph: line
-        - type: sensor
-          entity: sensor.0x00158d0001700c18_humidity
-          name: 'Влажность'
-          graph: line
+          - type: sensor
+            entity: sensor.0x00158d0001700c18_temperature
+            name: "Температура"
+            graph: line
+          - type: sensor
+            entity: sensor.0x00158d0001700c18_humidity
+            name: "Влажность"
+            graph: line
 
-  - title: 'Гостиная'
+  - title: "Гостиная"
     icon: mdi:sofa
     path: livingroom
     cards:
       - type: entities
         entities:
           - entity: light.livingroom_light
-            name: 'Свет'
+            name: "Свет"
             icon: mdi:ceiling-light
           - entity: light.livingroom_nightlight
-            name: 'Ночник'
+            name: "Ночник"
           - entity: light.livingroom_ceiling_light_ambilight
-            name: 'Фоновый свет'
+            name: "Фоновый свет"
             icon: mdi:lightbulb-on
           - entity: switch.0x00158d0001715c96_switch_right
-            name: 'Светильники'
+            name: "Светильники"
             icon: mdi:track-light
           - cover.livingroom_curtain_cover
       - type: media-control
@@ -227,16 +231,16 @@ views:
         cards:
           - type: sensor
             entity: sensor.0x00158d0002b518b9_temperature
-            name: 'Температура'
+            name: "Температура"
             graph: line
           - type: sensor
             entity: sensor.0x00158d0002b518b9_humidity
-            name: 'Влажность'
+            name: "Влажность"
             graph: line
       - type: plant-status
         entity: plant.crassula
 
-  - title: 'Спальня'
+  - title: "Спальня"
     icon: mdi:bed-empty
     path: bedroom
     cards:
@@ -253,7 +257,7 @@ views:
             tap_action:
               action: toggle
 
-  - title: 'Пылесос'
+  - title: "Пылесос"
     icon: mdi:robot-vacuum
     path: vacuum
     cards:
@@ -282,7 +286,7 @@ views:
             show_state: false
             entities:
               - entity: vacuum.rockrobo
-                name: 'Начать уборку'
+                name: "Начать уборку"
                 icon: mdi:broom
                 tap_action:
                   action: call-service
@@ -290,7 +294,7 @@ views:
                   service_data:
                     entity_id: script.vacuum_zoned_cleanup
               - entity: vacuum.rockrobo
-                name: 'Пауза'
+                name: "Пауза"
                 icon: mdi:pause
                 tap_action:
                   action: call-service
@@ -298,7 +302,7 @@ views:
                   service_data:
                     entity_id: vacuum.rockrobo
               - entity: vacuum.rockrobo
-                name: 'Вернуться на базу'
+                name: "Вернуться на базу"
                 icon: mdi:home
                 tap_action:
                   action: call-service
@@ -306,7 +310,7 @@ views:
                   service_data:
                     entity_id: vacuum.rockrobo
 
-  - title: 'Сервер'
+  - title: "Сервер"
     icon: mdi:server
     path: server
     cards:
@@ -319,38 +323,38 @@ views:
             cards:
               - type: sensor
                 entity: sensor.transmission_down_speed
-                name: 'Скачивание'
+                name: "Скачивание"
                 icon: mdi:arrow-down-bold
                 graph: line
               - type: sensor
                 entity: sensor.transmission_up_speed
-                name: 'Загрузка'
+                name: "Загрузка"
                 icon: mdi:arrow-up-bold
                 graph: line
           - type: entities
             entities:
               - entity: switch.transmission_turtle_mode
-                name: 'Ограничение скорости'
+                name: "Ограничение скорости"
                 icon: mdi:speedometer
               - entity: sensor.transmission_status
-                name: 'Статус'
+                name: "Статус"
               - entity: sensor.transmission_total_torrents
-                name: 'Всего'
+                name: "Всего"
                 icon: mdi:sigma
               - entity: sensor.transmission_active_torrents
-                name: 'Активно'
+                name: "Активно"
                 icon: mdi:play
               - entity: sensor.transmission_started_torrents
-                name: 'Скачивается'
+                name: "Скачивается"
                 icon: mdi:arrow-down-bold
               - entity: sensor.transmission_paused_torrents
-                name: 'Приостановлено'
+                name: "Приостановлено"
                 icon: mdi:pause
               - entity: sensor.transmission_completed_torrents
-                name: 'Завершено'
+                name: "Завершено"
                 icon: mdi:flag-checkered
       - type: entities
-        title: 'Сервер'
+        title: "Сервер"
         show_header_toggle: false
         entities:
           - entity: switch.server
@@ -358,99 +362,109 @@ views:
           - entity: switch.server_automation
             icon: mdi:power
       - type: entities
-        title: 'Роутер'
+        title: "Docker"
+        show_header_toggle: false
+        entities:
+          - entity: switch.server_docker_instapy
+            name: "Instapy"
+            icon: mdi:instagram
+          - entity: switch.server_docker_plex
+            name: "Plex"
+            icon: mdi:plex
+      - type: entities
+        title: "Роутер"
         show_header_toggle: false
         entities:
           - entity: sensor.rt_ac68u_uptime
             icon: mdi:clock-outline
-            name: 'Время работы'
+            name: "Время работы"
           - entity: sensor.rt_ac68u_cpu_temp
-            name: 'Процессор'
+            name: "Процессор"
           - entity: sensor.rt_ac68u_24ghz_temp
-            name: '2.4 Ггц'
+            name: "2.4 Ггц"
           - entity: sensor.rt_ac68u_5ghz_temp
-            name: '5 Ггц'
+            name: "5 Ггц"
           - entity: sensor.rt_ac68u_memory_used
             icon: mdi:memory
-            name: 'Использование оперативной памяти'
+            name: "Использование оперативной памяти"
           - entity: sensor.rt_ac68u_partition_jffs
             icon: mdi:memory
-            name: 'Использование раздела /jffs'
+            name: "Использование раздела /jffs"
           - type: call-service
             icon: mdi:restart
             service: shell_command.rt_ac68u_reboot
-            name: 'Перезагрузка'
-            action_name: 'Перезагрузить'
+            name: "Перезагрузка"
+            action_name: "Перезагрузить"
 
-  - title: 'Батарейки'
+  - title: "Батарейки"
     icon: mdi:battery
     path: batteries
     cards:
       - type: entities
-        title: 'Прихожая'
+        title: "Прихожая"
         show_header_toggle: false
         entities:
           - sensor.hall_door_battery
           - sensor.hall_sensor_battery
       - type: entities
-        title: 'Кухня'
+        title: "Кухня"
         show_header_toggle: false
         entities:
           - sensor.kitchen_motion_battery
           - sensor.kitchen_motion2_battery
       - type: entities
-        title: 'Детская'
+        title: "Детская"
         show_header_toggle: false
         entities:
           - sensor.kitchen_sensor_battery
       - type: entities
-        title: 'Гостиная'
+        title: "Гостиная"
         show_header_toggle: false
         entities:
           - sensor.livingroom_sensor_battery
           - sensor.livingroom_smoke_battery
           - sensor.livingroom_miflora_battery
       - type: entities
-        title: 'Ванная'
+        title: "Ванная"
         show_header_toggle: false
         entities:
           - sensor.bathroom_water_leak_battery
       - type: entities
-        title: 'Спальня'
+        title: "Спальня"
         show_header_toggle: false
         entities:
           - sensor.bedroom_switch_battery
           - sensor.bedroom_button_battery
 
-  - title: 'Zigbee2mqtt'
+  - title: "Zigbee2mqtt"
     icon: mdi:zigbee
     path: zigbee2mqtt
     cards:
       - type: entities
-        title: 'Zigbee2mqtt'
+        title: "Zigbee2mqtt"
         show_header_toggle: false
         entities:
           - entity: sensor.zigbee2mqtt_version
-            name: 'Версия'
+            name: "Версия"
             icon: mdi:information-outline
           - entity: sensor.zigbee2mqtt_bridge_state
-            name: 'Статус'
+            name: "Статус"
           - entity: sensor.zigbee_coordinator_version
-            name: 'Прошивка координатора'
+            name: "Прошивка координатора"
           - entity: switch.zigbee2mqtt_permit_join
-            name: 'Разрешить подключение новых устройств'
+            name: "Разрешить подключение новых устройств"
             icon: mdi:access-point
           - entity: timer.zigbee2mqtt_permit_join
-            name: 'Оставшееся время'
+            name: "Оставшееся время"
       - type: entities
-        title: 'Выключатель в гостиной'
+        title: "Выключатель в гостиной"
         show_header_toggle: false
         entities:
           - entity: switch.0x00158d0001715c96_switch_left
-            name: 'Левое реле'
+            name: "Левое реле"
             icon: mdi:light-switch
           - input_select.livingroom_wall_switch_mode_left
           - entity: switch.0x00158d0001715c96_switch_right
-            name: 'Правое реле'
+            name: "Правое реле"
             icon: mdi:light-switch
           - input_select.livingroom_wall_switch_mode_right
