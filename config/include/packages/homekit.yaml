@@ -23,7 +23,7 @@ homekit:
     - light.livingroom_light
     - switch.0x00158d0001715c96_switch_right
     - light.livingroom_ceiling_light_ambilight
-    - light.livingroom_nightlight
+    - light.livingroom_ceiling_light_nightlight
     - cover.livingroom_curtain_cover
     - binary_sensor.0x00158d0001db8a6a
     - media_player.livingroom_tv
@@ -60,7 +60,7 @@ homekit:
     # гостиная
     light.livingroom_light:
       name: Свет
-    light.livingroom_nightlight:
+    light.livingroom_ceiling_light_nightlight:
       name: Ночник
     switch.0x00158d0001715c96_switch_right:
       name: Светильники

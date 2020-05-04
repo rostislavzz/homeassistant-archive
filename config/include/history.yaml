@@ -8,7 +8,6 @@ exclude:
     - updater
   entities:
     - binary_sensor.kidsroom_ceiling_light_nightlight
-    - binary_sensor.livingroom_ceiling_light_nightlight
     - camera.hall
     - camera.entrance
     - sensor.sun_sunrise

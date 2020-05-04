@@ -1,0 +1,35 @@
+title: "Гостиная"
+icon: mdi:sofa
+path: livingroom
+cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: light.livingroom_ceiling_light
+        name: "Свет"
+        icon: mdi:ceiling-light
+      - entity: light.livingroom_ceiling_light_nightlight
+        name: "Ночник"
+      - entity: light.livingroom_ceiling_light_ambilight
+        name: "Фоновый свет"
+        icon: mdi:lightbulb-on
+      - entity: switch.livingroom_switch_switch_right
+        name: "Светильники"
+        icon: mdi:track-light
+      - cover.livingroom_curtain_cover
+  - type: media-control
+    entity: media_player.livingroom_tv
+  - type: media-control
+    entity: media_player.plex_lg_oled55b7v_z
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        entity: sensor.0x00158d0002b518b9_temperature
+        name: "Температура"
+        graph: line
+      - type: sensor
+        entity: sensor.0x00158d0002b518b9_humidity
+        name: "Влажность"
+        graph: line
+  - type: plant-status
+    entity: plant.crassula

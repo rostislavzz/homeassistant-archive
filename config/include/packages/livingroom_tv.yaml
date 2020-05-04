@@ -11,16 +11,24 @@ webostv:
       - YouTube
       - Apple TV
 
+sensor:
+  - platform: template
+    sensors:
+      livingroom_tv_source:
+        friendly_name: "Источник для телевизора в гостиной"
+        value_template: "{{ state_attr('media_player.livingroom_tv', 'source') }}"
+
 automation:
-  - alias: 'livingroom_tv_turn_off_on_plex_idle'
+  - alias: "livingroom_tv_turn_off_on_plex_idle"
     trigger:
       platform: state
-      entity_id: media_player.plex_plex_lg_oled55b7v_z
-      to: 'idle'
-      for: '00:15:00'
+      entity_id: media_player.plex_lg_oled55b7v_z
+      to: "paused"
+      for: "00:15:00"
     condition:
-      condition: template
-      value_template: "{{ is_state_attr('media_player.livingroom_tv', 'source', 'Plex') }}"
+      condition: state
+      entity_id: sensor.livingroom_tv_source
+      state: "Plex"
     action:
       service: media_player.turn_off
       entity_id: media_player.livingroom_tv

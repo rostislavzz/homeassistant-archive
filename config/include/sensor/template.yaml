@@ -1,8 +1,7 @@
 platform: template
 sensors:
-
   livingroom_miflora_battery:
-    friendly_name: 'Датчик растений'
+    friendly_name: "Датчик растений"
     value_template: >
       {% if is_state('sensor.mi_flora_battery', 'unknown') %}
           0
@@ -19,11 +18,7 @@ sensors:
       {% else %}
         mdi:battery-outline
       {% endif %}
-    unit_of_measurement: '%'
-
-  livingroom_tv_source:
-    friendly_name: 'Источник для телевизора в гостиной'
-    value_template: "{{ state_attr('media_player.livingroom_tv', 'source') }}"
+    unit_of_measurement: "%"
 
   sun_sunrise:
     friendly_name: Восход
