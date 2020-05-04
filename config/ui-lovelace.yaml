@@ -176,36 +176,7 @@ views:
       - type: media-control
         entity: media_player.kitchen_tv_universal
 
-  - title: "Детская"
-    icon: mdi:baby-carriage
-    path: kidsroom
-    cards:
-      - type: entities
-        show_header_toggle: false
-        entities:
-          - entity: light.kidsroom_light
-            icon: mdi:ceiling-light
-            name: "Свет"
-          - entity: light.kidsroom_nightlight
-            name: "Ночник"
-          - entity: light.kidsroom_ceiling_light_ambilight
-            icon: mdi:lightbulb-on
-          - entity: switch.kidsroom_switch_switch_right
-            name: "Свет"
-            icon: mdi:light-switch
-          - entity: switch.kidsroom_switch_switch_left
-            name: "Светильники"
-            icon: mdi:track-light
-      - type: horizontal-stack
-        cards:
-          - type: sensor
-            entity: sensor.0x00158d0001700c18_temperature
-            name: "Температура"
-            graph: line
-          - type: sensor
-            entity: sensor.0x00158d0001700c18_humidity
-            name: "Влажность"
-            graph: line
+  - !include lovelace/kidsroom.yaml
 
   - title: "Гостиная"
     icon: mdi:sofa
@@ -460,11 +431,11 @@ views:
         title: "Выключатель в гостиной"
         show_header_toggle: false
         entities:
-          - entity: switch.0x00158d0001715c96_switch_left
+          - entity: switch.livingroom_switch_switch_left
             name: "Левое реле"
             icon: mdi:light-switch
           - input_select.livingroom_wall_switch_mode_left
-          - entity: switch.0x00158d0001715c96_switch_right
+          - entity: switch.livingroom_switch_switch_right
             name: "Правое реле"
             icon: mdi:light-switch
           - input_select.livingroom_wall_switch_mode_right

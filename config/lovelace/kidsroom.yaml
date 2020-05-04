@@ -1,0 +1,33 @@
+title: "Детская"
+icon: mdi:baby-carriage
+path: kidsroom
+cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: binary_sensor.kidsroom_curtain_contact
+        name: "Шторы"
+      - entity: light.kidsroom_light
+        icon: mdi:ceiling-light
+        name: "Свет"
+      - entity: light.kidsroom_nightlight
+        icon: mdi:window-shutter
+        name: "Ночник"
+      - entity: light.kidsroom_ceiling_light_ambilight
+        icon: mdi:lightbulb-on
+      - entity: switch.kidsroom_switch_switch_right
+        name: "Свет"
+        icon: mdi:light-switch
+      - entity: switch.kidsroom_switch_switch_left
+        name: "Светильники"
+        icon: mdi:track-light
+  - type: horizontal-stack
+    cards:
+      - type: sensor
+        entity: sensor.0x00158d0001700c18_temperature
+        name: "Температура"
+        graph: line
+      - type: sensor
+        entity: sensor.0x00158d0001700c18_humidity
+        name: "Влажность"
+        graph: line
