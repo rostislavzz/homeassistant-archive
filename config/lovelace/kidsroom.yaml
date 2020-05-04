@@ -6,12 +6,13 @@ cards:
     show_header_toggle: false
     entities:
       - entity: binary_sensor.kidsroom_curtain_contact
+        icon: mdi:window-shutter
+        secondary_info: last-changed
         name: "Шторы"
       - entity: light.kidsroom_light
         icon: mdi:ceiling-light
         name: "Свет"
       - entity: light.kidsroom_nightlight
-        icon: mdi:window-shutter
         name: "Ночник"
       - entity: light.kidsroom_ceiling_light_ambilight
         icon: mdi:lightbulb-on
@@ -21,7 +22,7 @@ cards:
       - entity: switch.kidsroom_switch_switch_left
         name: "Светильники"
         icon: mdi:track-light
-  - type: horizontal-stack
+  - type: vertical-stack
     cards:
       - type: sensor
         entity: sensor.0x00158d0001700c18_temperature
