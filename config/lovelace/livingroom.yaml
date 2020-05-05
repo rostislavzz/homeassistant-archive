@@ -16,11 +16,16 @@ cards:
       - entity: switch.livingroom_switch_switch_right
         name: "Светильники"
         icon: mdi:track-light
-      - cover.livingroom_curtain_cover
+      - entity: cover.livingroom_curtain_cover
   - type: media-control
     entity: media_player.livingroom_tv
-  - type: media-control
-    entity: media_player.plex_lg_oled55b7v_z
+  - type: conditional
+    conditions:
+      - entity: media_player.plex_lg_oled55b7v_z
+        state_not: "unavailable"
+    card:
+      type: media-control
+      entity: media_player.plex_lg_oled55b7v_z
   - type: horizontal-stack
     cards:
       - type: sensor
