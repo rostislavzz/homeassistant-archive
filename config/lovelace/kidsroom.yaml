@@ -6,7 +6,7 @@ cards:
     show_header_toggle: false
     entities:
       - entity: binary_sensor.kidsroom_curtain_contact
-        icon: mdi:window-shutter
+        icon: mdi:blinds
         secondary_info: last-changed
         name: "Шторы"
       - entity: light.kidsroom_light
