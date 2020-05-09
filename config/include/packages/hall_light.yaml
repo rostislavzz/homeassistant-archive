@@ -1,0 +1,64 @@
+yeelight:
+  devices:
+    10.0.0.183:
+      name: hall_ceiling_light
+      nightlight_switch_type: light
+      use_music_mode: false
+      save_on_change: false
+
+automation:
+  - alias: 'hall_light_on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d00041d5e14_contact
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: group.person
+        state: 'home'
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.hall_ceiling_light
+        brightness: 255
+        kelvin: 4000
+
+  - alias: 'hall_light_off'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d00041d5e14_contact
+        to: 'off'
+      - platform: state
+        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+        to: 'off'
+        for: '00:01:00'
+    action:
+      - service: light.turn_off
+        entity_id: light.hall_ceiling_light
+      - condition: state
+        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+        state: 'on'
+      - service: light.turn_on
+        entity_id: light.hall_ceiling_light_nightlight
+
+  - alias: 'hall_nightlight_on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+        to: 'on'
+    condition:
+      - condition: state
+        entity_id: group.person
+        state: 'home'
+    action:
+      service: light.turn_on
+      entity_id: light.hall_ceiling_light_nightlight
+
+  - alias: 'hall_nightlight_off'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+      to: 'off'
+    action:
+      service: light.turn_off
+      entity_id: light.hall_ceiling_light_nightlight
