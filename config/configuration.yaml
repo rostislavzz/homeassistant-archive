@@ -35,7 +35,6 @@ ios:
 mqtt: !include include/mqtt.yaml
 notify: !include_dir_list include/notify/
 plant: !include include/plant.yaml
-plex: !include include/plex.yaml
 recorder: !include include/recorder.yaml
 scene: !include_dir_list include/scene/
 stream:
