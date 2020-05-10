@@ -17,12 +17,14 @@ person:
       - device_tracker.rost_watch
       - device_tracker.rost_phone
       - device_tracker.rost_laptop
+      - device_tracker.iphone_rost
   - name: Jana
     id: jana
-    user_id: 3ee3843636544399a445855ea06ea724
+    user_id: f0cb3e0d635148f8883d2ab79c92ace0
     device_trackers:
       - device_tracker.jana_phone
       - device_tracker.jana_laptop
+      - device_tracker.iphone_jana
   - name: Nina
     id: nina
     device_trackers:

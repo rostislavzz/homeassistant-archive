@@ -30,6 +30,7 @@ notify:
     platform: group
     services:
       - service: mobile_app_iphone_rost
+      - service: mobile_app_iphone_jana
     data:
       data:
         attachment:
