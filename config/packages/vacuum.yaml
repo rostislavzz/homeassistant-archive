@@ -1,0 +1,123 @@
+input_boolean:
+  vacuum_hall:
+    name: "Прихожая"
+  vacuum_kitchen:
+    name: "Кухня"
+  vacuum_kidsroom:
+    name: "Детская"
+  vacuum_livingroom:
+    name: "Гостиная"
+
+input_select:
+  vacuum_fan_speed:
+    name: "Режим уборки"
+    icon: mdi:fan
+    options:
+      - Тихий
+      - Сбалансированный
+      - Турбо
+      - Максимальный
+    initial: Максимальный
+
+switch:
+  platform: template
+  switches:
+    vacuum_hall:
+      friendly_name: "Прихожая"
+      icon_template: mdi:door-closed
+      value_template: "{{ is_state('input_boolean.vacuum_hall', 'on') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.vacuum_hall
+      turn_off:
+        service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.vacuum_hall
+
+    vacuum_kitchen:
+      friendly_name: "Кухня"
+      icon_template: mdi:silverware-fork-knife
+      value_template: "{{ is_state('input_boolean.vacuum_kitchen', 'on') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.vacuum_kitchen
+      turn_off:
+        service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.vacuum_kitchen
+
+    vacuum_kidsroom:
+      friendly_name: "Детская"
+      icon_template: mdi:baby-carriage
+      value_template: "{{ is_state('input_boolean.vacuum_kidsroom', 'on') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.vacuum_kidsroom
+      turn_off:
+        service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.vacuum_kidsroom
+
+    vacuum_livingroom:
+      friendly_name: "Гостиная"
+      icon_template: mdi:sofa
+      value_template: "{{ is_state('input_boolean.vacuum_livingroom', 'on') }}"
+      turn_on:
+        service: input_boolean.turn_on
+        data:
+          entity_id: input_boolean.vacuum_livingroom
+      turn_off:
+        service: input_boolean.turn_off
+        data:
+          entity_id: input_boolean.vacuum_livingroom
+
+camera:
+  - platform: mqtt
+    topic: valetudo/rockrobo/map
+
+history:
+  exclude:
+    entities:
+      - camera.rockrobo_map
+      - camera.mqtt_camera
+
+script:
+  vacuum_zoned_cleanup:
+    sequence:
+      #      - condition: template
+      #        value_template: "{{ is_state('input_boolean.vacuum_hall', 'on') or is_state('input_boolean.vacuum_kitchen', 'on') or is_state('input_boolean.vacuum_kidsroom', 'on') or is_state('input_boolean.vacuum_livingroom', 'on') }}"
+      - service: mqtt.publish
+        data_template:
+          topic: "valetudo/rockrobo/command"
+          payload: >-
+            {
+              "command": "zoned_cleanup",
+              "params": {
+                "zone_ids": [
+                  "hall"
+                ]
+              }
+            }
+
+automation:
+  - alias: "vacuum_set_rockrobo_fan_speed"
+    trigger:
+      platform: state
+      entity_id: input_select.vacuum_fan_speed
+    action:
+      service: vacuum.set_fan_speed
+      data_template:
+        entity_id: vacuum.rockrobo
+        fan_speed: >
+          {% if is_state('input_select.vacuum_fan_speed', 'Тихий') %}
+            min
+          {% elif is_state('input_select.vacuum_fan_speed', 'Сбалансированный') %}
+            medium
+          {% elif is_state('input_select.vacuum_fan_speed', 'Турбо') %}
+            high
+          {% elif is_state('input_select.vacuum_fan_speed', 'Максимальный') %}
+            max
+          {% endif %}
