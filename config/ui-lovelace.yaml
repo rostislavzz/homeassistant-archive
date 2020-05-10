@@ -13,38 +13,10 @@ views:
             icon: mdi:human-female
           - entity: person.nina
             icon: mdi:human-female
-      - type: entities
-        title: "Прихожая"
-        show_header_toggle: false
-        entities:
-          - entity: binary_sensor.hall_ring_sound
-            name: "Звонок"
-            icon: mdi:bell-ring
-            secondary_info: last-changed
-          - entity: binary_sensor.0x00158d0001e523ab_occupancy
-            name: "Движение"
-            secondary_info: last-changed
-          - entity: light.hall_ceiling_light
-            name: "Свет"
-          - entity: light.hall_ceiling_light_nightlight
-            name: "Ночник"
-          - entity: binary_sensor.0x00158d0001b14504
-            name: "Дверь"
-          - entity: binary_sensor.0x00158d00041d5e14_contact
-            name: "Дверь шкафа"
-            icon: mdi:cupboard-outline
-      - type: entities
-        title: "Домофон"
-        show_header_toggle: false
-        entities:
-          - entity: binary_sensor.incoming_call
-            name: "Входящий звонок"
-          - entity: switch.auto_open
-            name: "Открывать автоматически"
-          - entity: switch.auto_open_once
-            name: "Открыть один раз"
-          - entity: switch.auto_reject
-            name: "Отменять все"
+
+      - !include lovelace/hall/card.yaml
+      #- !include lovelace/hall/card.yaml
+
       - type: glance
         title: "Кухня"
         entities:

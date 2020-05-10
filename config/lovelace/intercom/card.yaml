@@ -1,0 +1,12 @@
+type: entities
+title: "Домофон"
+show_header_toggle: false
+entities:
+  - entity: binary_sensor.incoming_call
+    name: "Входящий звонок"
+  - entity: switch.auto_open
+    name: "Открывать автоматически"
+  - entity: switch.auto_open_once
+    name: "Открыть один раз"
+  - entity: switch.auto_reject
+    name: "Отменять все"
