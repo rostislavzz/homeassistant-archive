@@ -2,8 +2,3 @@
   name: hall
   extra_arguments: -rtsp_transport tcp
   input: rtsp://hall-camera/ch0.h264
-
-- platform: ffmpeg
-  name: entrance
-  extra_arguments: -rtsp_transport tcp
-  input: rtsp://entrance-camera/user=motion_password=8pPzN_channel=1_stream=1.sdp

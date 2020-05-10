@@ -17,11 +17,13 @@ views:
         title: "Прихожая"
         show_header_toggle: false
         entities:
+          - entity: binary_sensor.hall_ring_sound
+            name: "Звонок"
+            icon: mdi:bell-ring
+            secondary_info: last-changed
           - entity: binary_sensor.0x00158d0001e523ab_occupancy
             name: "Движение"
             secondary_info: last-changed
-          - entity: sensor.0x00158d0001e523ab_illuminance
-            name: "Освещенность"
           - entity: light.hall_ceiling_light
             name: "Свет"
           - entity: light.hall_ceiling_light_nightlight
