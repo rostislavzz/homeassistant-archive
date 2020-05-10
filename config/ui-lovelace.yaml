@@ -15,7 +15,7 @@ views:
             icon: mdi:human-female
 
       - !include lovelace/hall/card.yaml
-      #- !include lovelace/hall/card.yaml
+      #- !include lovelace/intercom/card.yaml
 
       - type: glance
         title: "Кухня"
@@ -48,21 +48,7 @@ views:
             tap_action:
               action: toggle
 
-  - title: "Камеры"
-    icon: mdi:cctv
-    path: cctv
-    cards:
-      - type: picture-glance
-        title: "Подъезд"
-        entities:
-          - camera.entrance
-        camera_image: camera.entrance
-      - type: picture-glance
-        title: "Прихожая"
-        entities:
-          - camera.hall
-          - binary_sensor.0x00158d0001b14504
-        camera_image: camera.hall
+  - !include lovelace/cctv/view.yaml
 
   - title: "Погода"
     icon: mdi:weather-partly-cloudy

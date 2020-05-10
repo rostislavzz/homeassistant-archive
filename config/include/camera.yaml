@@ -2,3 +2,8 @@
   name: hall
   extra_arguments: -rtsp_transport tcp
   input: rtsp://hall-camera/ch0.h264
+
+- platform: ffmpeg
+  name: kidsroom
+  extra_arguments: -rtsp_transport tcp
+  input: rtsp://10.0.0.235/ch0_1.h264

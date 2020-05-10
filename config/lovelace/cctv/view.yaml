@@ -1,0 +1,21 @@
+title: "Камеры"
+icon: mdi:cctv
+path: cctv
+cards:
+  - type: picture-glance
+    title: "Подъезд"
+    entities:
+      - camera.entrance
+      - binary_sensor.hall_ring_sound
+    camera_image: camera.entrance
+  - type: picture-glance
+    title: "Прихожая"
+    entities:
+      - camera.hall
+      - binary_sensor.0x00158d0001b14504
+    camera_image: camera.hall
+  - type: picture-glance
+    title: "Детская"
+    entities:
+      - camera.kidsroom
+    camera_image: camera.kidsroom
