@@ -59,39 +59,10 @@ views:
             icon: mdi:lamp
             tap_action:
               action: toggle
-      - type: glance
-        title: "Детская"
-        entities:
-          - entity: light.kidsroom_light
-            name: "Свет"
-            icon: mdi:ceiling-light
-            tap_action:
-              action: toggle
-          - entity: light.kidsroom_nightlight
-            name: "Ночник"
-            icon: mdi:ceiling-light
-            tap_action:
-              action: toggle
-          - entity: switch.0x00158d0003551125_switch_left
-            name: "Светильники"
-            icon: mdi:track-light
-            tap_action:
-              action: toggle
-      - type: glance
-        title: "Гостиная"
-        entities:
-          - entity: binary_sensor.0x00158d0001db8a6a
-          - entity: cover.livingroom_curtain_cover
-            tap_action:
-              action: toggle
-          - entity: light.livingroom_light
-            name: "Свет"
-            icon: mdi:ceiling-light
-          - entity: switch.0x00158d0001715c96_switch_right
-            name: "Светильники"
-            icon: mdi:track-light
-            tap_action:
-              action: toggle
+
+      - !include lovelace/kidsroom/card.yaml
+      - !include lovelace/livingroom/card.yaml
+
       - type: glance
         title: "Спальня"
         entities:
@@ -178,8 +149,8 @@ views:
       - type: media-control
         entity: media_player.kitchen_tv_universal
 
-  - !include lovelace/kidsroom.yaml
-  - !include lovelace/livingroom.yaml
+  - !include lovelace/kidsroom/view.yaml
+  - !include lovelace/livingroom/view.yaml
 
   - title: "Спальня"
     icon: mdi:bed-empty

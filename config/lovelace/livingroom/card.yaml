@@ -1,0 +1,17 @@
+type: glance
+title: "Гостиная"
+entities:
+  - entity: binary_sensor.0x00158d0001db8a6a
+  - entity: cover.livingroom_curtain_cover
+    tap_action:
+      action: toggle
+  - entity: light.livingroom_ceiling_light
+    name: "Свет"
+    icon: mdi:ceiling-light
+    tap_action:
+      action: toggle
+  - entity: switch.livingroom_switch_switch_right
+    name: "Светильники"
+    icon: mdi:track-light
+    tap_action:
+      action: toggle
