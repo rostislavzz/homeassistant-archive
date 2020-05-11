@@ -6,7 +6,7 @@ homeassistant:
   unit_system: metric
   time_zone: Europe/Kirov
   customize: !include include/customize.yaml
-  packages: !include_dir_named packages
+  packages: !include_dir_named packages/
 
 alert: !include include/alert.yaml
 automation: !include_dir_merge_list include/automations/

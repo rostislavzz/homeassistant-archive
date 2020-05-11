@@ -19,6 +19,20 @@ yeelight:
         transitions:
           - RGBTransition: [225, 0, 0, 50, 1]
 
+homekit:
+  filter:
+    include_entities:
+      - light.livingroom_ceiling_light
+      - light.livingroom_ceiling_light_ambilight
+      - light.livingroom_ceiling_light_nightlight
+  entity_config:
+    light.livingroom_ceiling_light:
+      name: Свет
+    light.livingroom_ceiling_light_ambilight:
+      name: Фоновый свет
+    light.livingroom_ceiling_light_nightlight:
+      name: Ночник
+
 automation:
   - alias: "livingroom_ceiling_light_ambilight_tv_source"
     trigger:
@@ -31,8 +45,9 @@ automation:
           after: sunset
         - condition: sun
           before: sunrise
-        - condition: template
-          value_template: "{{ is_state_attr('sensor.livingroom_curtain_cover', 'state', 'CLOSE') }}"
+        - condition: state
+          entity_id: sensor.livingroom_curtain_cover
+          state: "closed"
     action:
       service: script.livingroom_ceiling_light_ambilight
       data_template:
