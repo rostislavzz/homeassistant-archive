@@ -21,8 +21,6 @@ homekit:
       - cover.livingroom_curtain_cover
       - binary_sensor.0x00158d0001db8a6a
       - media_player.livingroom_tv
-      # ванная
-      - binary_sensor.0x00158d0001bb87d2
       # спальня
       - light.bedroom_daylight
       - light.bedroom_nightlight
@@ -35,10 +33,6 @@ homekit:
       name: Влажность
       low_battery_threshold: 20
       linked_battery_sensor: sensor.hall_sensor_battery
-    binary_sensor.0x00158d0001bb87d2:
-      name: Датчик протечки
-      linked_battery_sensor: sensor.bathroom_water_leak_battery
-      low_battery_threshold: 20
     # кухня
     switch.0x00158d00019ccab8_switch:
       name: Свет

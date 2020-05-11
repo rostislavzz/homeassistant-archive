@@ -1,127 +1,121 @@
 # прихожая
 sensor.hall_sensor_battery:
-  friendly_name: 'Датчик температуры и влажности'
+  friendly_name: "Датчик температуры и влажности"
 sensor.0x00158d0001b8d3ca_temperature:
-  friendly_name: 'Прихожая Температура'
+  friendly_name: "Прихожая Температура"
 sensor.0x00158d0001b8d3ca_humidity:
-  friendly_name: 'Прихожая Влажность'
+  friendly_name: "Прихожая Влажность"
 
 # кухня
 sensor.kitchen_motion2_illuminance:
   hidden: true
-  friendly_name: 'Освещенность'
+  friendly_name: "Освещенность"
 binary_sensor.kitchen_motion2_occupancy:
   hidden: true
-  friendly_name: 'Движение на кухне'
+  friendly_name: "Движение на кухне"
 sensor.kitchen_motion_illuminance:
   hidden: true
-  friendly_name: 'Освещенность у раковины'
+  friendly_name: "Освещенность у раковины"
 binary_sensor.kitchen_motion_occupancy:
   hidden: true
-  friendly_name: 'Движение у раковины'
+  friendly_name: "Движение у раковины"
 binary_sensor.kitchen_motion_sensor:
-  friendly_name: 'Движение'
+  friendly_name: "Движение"
 light.kitchen_rgb_lightstrip:
-  friendly_name: 'Ночник на кухне'
+  friendly_name: "Ночник на кухне"
 switch.0x00158d00019ccab8_switch:
-  friendly_name: 'Свет на кухне'
+  friendly_name: "Свет на кухне"
   icon: mdi:ceiling-light
 media_player.kitchen_tv_universal:
-  friendly_name: 'Телевизор на кухне'
+  friendly_name: "Телевизор на кухне"
   device_class: tv
 
 # кухня телевизор
 script.smart_hub:
-  friendly_name: 'Smart Hub'
+  friendly_name: "Smart Hub"
   icon: mdi:cube
 script.select:
-  friendly_name: 'Select'
+  friendly_name: "Select"
   icon: mdi:radiobox-blank
 script.left:
-  friendly_name: 'Left'
+  friendly_name: "Left"
   icon: mdi:arrow-left-bold
 script.right:
-  friendly_name: 'Right'
+  friendly_name: "Right"
   icon: mdi:arrow-right-bold
 
 # детская
 sensor.kitchen_sensor_battery:
-  friendly_name: 'Датчик температуры и влажности'
+  friendly_name: "Датчик температуры и влажности"
 sensor.0x00158d0001700c18_temperature:
-  friendly_name: 'Температура'
+  friendly_name: "Температура"
 sensor.0x00158d0001700c18_humidity:
-  friendly_name: 'Влажность'
+  friendly_name: "Влажность"
 switch.0x00158d0002235b38_switch_right:
-  friendly_name: 'Выключатель в детской'
+  friendly_name: "Выключатель в детской"
   icon: mdi:light-switch
 switch.0x00158d0002235b38_switch_left:
-  friendly_name: 'Светильники в детской'
+  friendly_name: "Светильники в детской"
   icon: mdi:track-light
 light.kidsroom_ceiling_light:
-  friendly_name: 'Свет в детской'
+  friendly_name: "Свет в детской"
   icon: mdi:ceiling-light
 light.kidsroom_ceiling_light_ambilight:
-  friendly_name: 'Фоновый свет'
+  friendly_name: "Фоновый свет"
 light.kidsroom_nightlight:
-  friendly_name: 'Ночник в детской'
+  friendly_name: "Ночник в детской"
   icon: mdi:lamp
 
 # гостиная
 sensor.livingroom_sensor_battery:
-  friendly_name: 'Датчик температуры и влажности'
+  friendly_name: "Датчик температуры и влажности"
 cover.livingroom_curtain_cover:
-  friendly_name: 'Шторы'
+  friendly_name: "Шторы"
 binary_sensor.0x00158d0001db8a6a:
-  friendly_name: 'Датчик дыма'
+  friendly_name: "Датчик дыма"
 sensor.livingroom_smoke_battery:
-  friendly_name: 'Датчик дыма'
+  friendly_name: "Датчик дыма"
 binary_sensor.cube_158d00010ed5cf:
-  friendly_name: 'Куб'
+  friendly_name: "Куб"
   icon: mdi:cube-outline
 vacuum.rockrobo:
-  friendly_name: 'Пылесос'
+  friendly_name: "Пылесос"
 media_player.livingroom_tv:
-  friendly_name: 'Телевизор'
+  friendly_name: "Телевизор"
   device_class: tv
 media_player.apple_tv_4:
-  friendly_name: 'Apple TV'
+  friendly_name: "Apple TV"
 plant.crassula:
-  friendly_name: 'Денежное дерево'
-
-# ванная
-binary_sensor.0x00158d0001bb87d2:
-  friendly_name: 'Датчик протечки'
-sensor.bathroom_water_leak_battery:
-  friendly_name: 'Датчик протечки'
+  friendly_name: "Денежное дерево"
 
 # спальня
 light.bedroom_daylight:
-  friendly_name: 'Свет в спальне'
+  friendly_name: "Свет в спальне"
 light.bedroom_nightlight:
-  friendly_name: 'Ночник'
+  friendly_name: "Ночник"
 sensor.bedroom_button_battery:
-  friendly_name: 'Кнопка'
+  friendly_name: "Кнопка"
 sensor.bedroom_switch_battery:
-  friendly_name: 'Выключатель'
+  friendly_name: "Выключатель"
 
 # сервер
 switch.server:
-  friendly_name: 'Сервер'
+  friendly_name: "Сервер"
 
 switch.socket_switch:
-  friendly_name: 'Розетка'
+  friendly_name: "Розетка"
   icon: mdi:power-socket-au
 sensor.socket_power:
-  friendly_name: 'Розетка'
+  friendly_name: "Розетка"
 
 device_tracker.iphonerosthome:
-  friendly_name: 'iPhone Рост'
+  friendly_name: "iPhone Рост"
 device_tracker.iphonejanahome:
-  friendly_name: 'iPhone Яна'
+  friendly_name: "iPhone Яна"
 
 person.rostislav:
-  friendly_name: 'Рост'
+  friendly_name: "Рост"
 person.iana:
-  friendly_name: 'Яна'
+  friendly_name: "Яна"
 person.nina:
-  friendly_name: 'Бабушка'
+  friendly_name: "Бабушка"

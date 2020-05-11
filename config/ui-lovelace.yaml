@@ -294,11 +294,7 @@ views:
           - sensor.livingroom_sensor_battery
           - sensor.livingroom_smoke_battery
           - sensor.livingroom_miflora_battery
-      - type: entities
-        title: "Ванная"
-        show_header_toggle: false
-        entities:
-          - sensor.bathroom_water_leak_battery
+      - !include lovelace/bathroom/card.yaml
       - type: entities
         title: "Спальня"
         show_header_toggle: false

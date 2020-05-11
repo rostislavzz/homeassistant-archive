@@ -1,0 +1,5 @@
+type: entities
+title: "Ванная"
+show_header_toggle: false
+entities:
+  - sensor.bathroom_water_leak_battery

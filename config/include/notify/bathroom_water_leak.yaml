@@ -1,8 +1,0 @@
-name: bathroom_water_leak
-platform: group
-services:
-- service: livingroom_tv
-  data:
-    message: 'Обнаружена протечка воды в ванной!'
-    data:
-      icon: '/config/images/water_leak.png'

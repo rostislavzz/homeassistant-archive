@@ -1,0 +1,60 @@
+homeassistant:
+  customize:
+    binary_sensor.0x00158d0001bb87d2:
+      friendly_name: "Датчик протечки"
+    sensor.bathroom_water_leak_battery:
+      friendly_name: "Датчик протечки"
+
+yeelight:
+  custom_effects:
+    - name: "Water Leak"
+      flow_params:
+        count: 5
+        transitions:
+          - RGBTransition: [0, 0, 255, 50, 0]
+          - RGBTransition: [0, 0, 255, 250, 100]
+          - RGBTransition: [0, 0, 255, 250, 0]
+          - RGBTransition: [0, 0, 255, 250, 100]
+          - RGBTransition: [0, 0, 255, 250, 0]
+          - SleepTransition: [5000]
+
+notify:
+  name: bathroom_water_leak
+  platform: group
+  services:
+    - service: livingroom_tv
+      data:
+        message: "Обнаружена протечка воды в ванной!"
+        data:
+          icon: "/config/images/water_leak.png"
+
+alert:
+  bathroom_water_leak:
+    name: Обнаружена протечка воды в ванной!
+    done_message: Протечка воды в ванной устранена
+    entity_id: binary_sensor.0x00158d0001bb87d2
+    repeat: 1
+    notifiers:
+      - bathroom_water_leak
+
+homekit:
+  filter:
+    include_entities:
+      - binary_sensor.0x00158d0001bb87d2
+  entity_config:
+    binary_sensor.0x00158d0001bb87d2:
+      name: Датчик протечки
+      linked_battery_sensor: sensor.bathroom_water_leak_battery
+      low_battery_threshold: 20
+
+automation:
+  - alias: "livingroom_ceiling_light_bathroom_water_leak"
+    trigger:
+      platform: state
+      entity_id: alert.bathroom_water_leak
+      to: "on"
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.livingroom_ceiling_light_ambilight
+        effect: "Water Leak"
