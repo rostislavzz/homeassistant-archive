@@ -1,12 +1,12 @@
 type: glance
 title: "Детская"
 entities:
-  - entity: light.kidsroom_light
+  - entity: light.kidsroom_ceiling_light
     name: "Свет"
     icon: mdi:ceiling-light
     tap_action:
       action: toggle
-  - entity: light.kidsroom_nightlight
+  - entity: light.kidsroom_ceiling_light_nightlight
     name: "Ночник"
     tap_action:
       action: toggle

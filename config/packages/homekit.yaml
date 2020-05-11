@@ -15,10 +15,7 @@ homekit:
       - switch.kitchen_automations
       - media_player.kitchen_tv_universal
       # детская
-      - switch.0x00158d0002235b38_switch_right
       - switch.0x00158d0002235b38_switch_left
-      - light.kidsroom_ceiling_light_ambilight
-      - light.kidsroom_nightlight
       # гостиная
       - switch.0x00158d0001715c96_switch_right
       - cover.livingroom_curtain_cover
@@ -48,12 +45,8 @@ homekit:
     switch.kitchen_automations:
       name: Автоматизации
     # детская
-    switch.0x00158d0002235b38_switch_right:
-      name: Свет
     switch.0x00158d0002235b38_switch_left:
       name: Светильники
-    light.kidsroom_nightlight:
-      name: Ночник
     # гостиная
     switch.0x00158d0001715c96_switch_right:
       name: Светильники

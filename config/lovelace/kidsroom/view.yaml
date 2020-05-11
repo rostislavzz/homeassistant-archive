@@ -9,10 +9,10 @@ cards:
         icon: mdi:blinds
         secondary_info: last-changed
         name: "Шторы"
-      - entity: light.kidsroom_light
+      - entity: light.kidsroom_ceiling_light
         icon: mdi:ceiling-light
         name: "Свет"
-      - entity: light.kidsroom_nightlight
+      - entity: light.kidsroom_ceiling_light_nightlight
         name: "Ночник"
       - entity: light.kidsroom_ceiling_light_ambilight
         icon: mdi:lightbulb-on
