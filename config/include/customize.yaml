@@ -27,20 +27,6 @@ switch.0x00158d00019ccab8_switch:
   friendly_name: "Свет на кухне"
   icon: mdi:ceiling-light
 
-# кухня телевизор
-script.smart_hub:
-  friendly_name: "Smart Hub"
-  icon: mdi:cube
-script.select:
-  friendly_name: "Select"
-  icon: mdi:radiobox-blank
-script.left:
-  friendly_name: "Left"
-  icon: mdi:arrow-left-bold
-script.right:
-  friendly_name: "Right"
-  icon: mdi:arrow-right-bold
-
 # детская
 sensor.kitchen_sensor_battery:
   friendly_name: "Датчик температуры и влажности"
@@ -58,9 +44,6 @@ binary_sensor.0x00158d0001db8a6a:
   friendly_name: "Датчик дыма"
 sensor.livingroom_smoke_battery:
   friendly_name: "Датчик дыма"
-binary_sensor.cube_158d00010ed5cf:
-  friendly_name: "Куб"
-  icon: mdi:cube-outline
 vacuum.rockrobo:
   friendly_name: "Пылесос"
 media_player.livingroom_tv:
@@ -68,8 +51,6 @@ media_player.livingroom_tv:
   device_class: tv
 media_player.apple_tv_4:
   friendly_name: "Apple TV"
-plant.crassula:
-  friendly_name: "Денежное дерево"
 
 # сервер
 switch.server:

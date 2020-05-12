@@ -263,7 +263,6 @@ views:
         entities:
           - sensor.livingroom_sensor_battery
           - sensor.livingroom_smoke_battery
-          - sensor.livingroom_miflora_battery
       - !include lovelace/bathroom/batteries.yaml
       - !include lovelace/bedroom/batteries.yaml
 
