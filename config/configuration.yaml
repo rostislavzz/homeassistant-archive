@@ -17,7 +17,6 @@ discovery:
     - yeelight
 
 frontend:
-group: !include include/groups.yaml
 history: !include include/history.yaml
 http:
 influxdb: !include include/influxdb.yaml

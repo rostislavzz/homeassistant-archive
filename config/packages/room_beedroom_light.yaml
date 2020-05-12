@@ -22,6 +22,12 @@ yeelight:
       use_music_mode: false
       save_on_change: false
 
+bedroom_light:
+  name: "Свет в спальне"
+  entities:
+    - light.bedroom_color
+    - light.bedroom_mono
+
 scene:
   - name: "bedroom_daylight"
     entities:

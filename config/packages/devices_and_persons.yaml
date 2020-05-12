@@ -29,3 +29,10 @@ person:
     id: nina
     device_trackers:
       - device_tracker.nina_phone
+
+group:
+  person:
+    entities:
+      - person.rostislav
+      - person.iana
+      - person.nina
