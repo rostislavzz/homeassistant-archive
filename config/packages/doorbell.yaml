@@ -1,12 +1,13 @@
 binary_sensor:
   - platform: template
     sensors:
-      hall_ring_sound:
+      doorbell_sound:
         friendly_name: "Звонок"
         entity_id: binary_sensor.hall_ring_contact
         device_class: sound
         value_template: "{{ is_state('binary_sensor.hall_ring_contact', 'off') }}"
-        availability_template: "{{ state('binary_sensor.hall_ring_contact') != 'unavailable' }}"
+        availability_template: "{{ states('binary_sensor.hall_ring_contact') != 'unavailable' }}"
+        delay_off: 00:01:00
 
 camera:
   - platform: ffmpeg
@@ -14,33 +15,46 @@ camera:
     extra_arguments: -rtsp_transport tcp
     input: !secret camera_entrance_input
 
+notify:
+  - name: doorbell
+    platform: group
+    services:
+      - service: mobile_app_iphone_rost
+        data:
+          data:
+            attachment:
+              content-type: jpeg
+            entity_id: camera.entrance
+            push:
+              sound: default
+              category: camera
+            presentation_options:
+              - alert
+              - sound
+            apns_headers:
+              "apns-collapse-id": "doorbell"
+      - service: mobile_app_iphone_jana
+        data:
+          data:
+            attachment:
+              content-type: jpeg
+            entity_id: camera.entrance
+            push:
+              sound: default
+              category: camera
+            presentation_options:
+              - alert
+              - sound
+            apns_headers:
+              "apns-collapse-id": "doorbell"
+
 automation:
   - alias: "doorbell_notify"
     trigger:
       platform: state
-      entity_id: binary_sensor.hall_ring_sound
+      entity_id: binary_sensor.doorbell_sound
       to: "on"
     action:
-      - service: notify.DOORBELL_ALL_DEVICES
-        data:
-          message: "\ud83d\udd14 Звонок в дверь"
-
-notify:
-  - name: DOORBELL_ALL_DEVICES
-    platform: group
-    services:
-      - service: mobile_app_iphone_rost
-      - service: mobile_app_iphone_jana
-    data:
+      service: notify.doorbell
       data:
-        attachment:
-          content-type: jpeg
-        entity_id: camera.entrance
-        push:
-          sound: default
-          category: camera
-        presentation_options:
-          - alert
-          - sound
-        apns_headers:
-          "apns-collapse-id": "doorbell-incoming-call"
+        message: "\ud83d\udd14 Звонок в дверь"
