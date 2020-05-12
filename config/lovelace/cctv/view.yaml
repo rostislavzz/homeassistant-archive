@@ -6,7 +6,7 @@ cards:
     title: "Подъезд"
     entities:
       - camera.entrance
-      - binary_sensor.hall_ring_sound
+      - binary_sensor.doorbell_sound
     camera_image: camera.entrance
   - type: picture-glance
     title: "Прихожая"

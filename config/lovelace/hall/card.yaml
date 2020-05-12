@@ -2,7 +2,7 @@ type: entities
 title: "Прихожая"
 show_header_toggle: false
 entities:
-  - entity: binary_sensor.hall_ring_sound
+  - entity: binary_sensor.doorbell_sound
     name: "Звонок"
     icon: mdi:bell-ring
   - entity: binary_sensor.0x00158d0001b14504
