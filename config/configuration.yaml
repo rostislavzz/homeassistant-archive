@@ -26,7 +26,21 @@ lovelace:
 
 mobile_app:
 ios:
-mqtt: !include include/mqtt.yaml
+
+mqtt:
+  broker: "10.0.0.62"
+  port: 1883
+  client_id: homeassistant
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  discovery: true
+  birth_message:
+    topic: "hass/status"
+    payload: "online"
+  will_message:
+    topic: "hass/status"
+    payload: "offline"
+
 notify: !include_dir_list include/notify/
 recorder: !include include/recorder.yaml
 stream:
@@ -35,4 +49,7 @@ sun:
 system_health:
 switch: !include_dir_list include/switch/
 updater:
-weather: !include_dir_list include/weather/
+
+weather:
+  platform: darksky
+  api_key: !secret dark_sky_api_key
