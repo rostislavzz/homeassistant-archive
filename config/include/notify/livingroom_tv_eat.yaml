@@ -1,8 +1,0 @@
-name: livingroom_tv_eat
-platform: group
-services:
-  - service: livingroom_tv
-    data:
-      message: 'Есть и пить можно только на кухне!'
-      data:
-        icon: '/config/images/do_not_eat.png'

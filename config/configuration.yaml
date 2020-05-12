@@ -8,7 +8,6 @@ homeassistant:
   customize: !include include/customize.yaml
   packages: !include_dir_named packages/
 
-alert: !include include/alert.yaml
 automation: !include_dir_merge_list include/automations/
 camera: !include include/camera.yaml
 config:
@@ -22,7 +21,6 @@ group: !include include/groups.yaml
 history: !include include/history.yaml
 http:
 influxdb: !include include/influxdb.yaml
-input_boolean: !include include/input_boolean.yaml
 logbook:
 
 lovelace:
