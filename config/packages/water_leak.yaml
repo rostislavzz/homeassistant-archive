@@ -1,0 +1,101 @@
+homeassistant:
+  customize:
+    binary_sensor.0x00158d0001bb87d2:
+      friendly_name: "Датчик протечки в ванной"
+    sensor.bathroom_water_leak_battery:
+      friendly_name: "Датчик протечки в ванной"
+    binary_sensor.0x00158d00021126ee_water_leak:
+      friendly_name: "Датчик протечки в туалете"
+    sensor.0x00158d00021126ee_battery:
+      friendly_name: "Датчик протечки в туалете"
+
+yeelight:
+  custom_effects:
+    - name: "Water Leak"
+      flow_params:
+        count: 5
+        transitions:
+          - RGBTransition: [0, 0, 255, 50, 0]
+          - RGBTransition: [0, 0, 255, 250, 100]
+          - RGBTransition: [0, 0, 255, 250, 0]
+          - RGBTransition: [0, 0, 255, 250, 100]
+          - RGBTransition: [0, 0, 255, 250, 0]
+          - SleepTransition: [5000]
+
+notify:
+  - name: water_leak_livingroom_tv
+    platform: group
+    services:
+      - service: livingroom_tv
+        data:
+          data:
+            icon: "/config/images/water_leak.png"
+  - name: water_leak_mobile_app
+    platform: group
+    services:
+      - service: mobile_app_iphone_rost
+        data:
+          data:
+            push:
+              sound:
+                name: default
+                critical: 1
+                volume: 1.0
+            presentation_options:
+              - alert
+              - sound
+            apns_headers:
+              "apns-collapse-id": "water-leak"
+
+alert:
+  water_leak_bathroom:
+    name: "Обнаружена протечка воды в ванной"
+    message: "Обнаружена протечка воды в ванной!"
+    done_message: "Протечка воды в ванной устранена"
+    entity_id: binary_sensor.0x00158d0001bb87d2
+    repeat: 2
+    notifiers:
+      - water_leak_livingroom_tv
+      - water_leak_mobile_app
+  water_leak_restroom:
+    name: "Обнаружена протечка воды в туалете"
+    message: "Обнаружена протечка воды в туалете!"
+    done_message: "Протечка воды в туалете устранена"
+    entity_id: binary_sensor.0x00158d00021126ee_water_leak
+    repeat: 2
+    notifiers:
+      - water_leak_livingroom_tv
+      - water_leak_mobile_app
+
+homekit:
+  filter:
+    include_entities:
+      - binary_sensor.0x00158d0001bb87d2
+      - binary_sensor.0x00158d00021126ee_water_leak
+  entity_config:
+    binary_sensor.0x00158d0001bb87d2:
+      name: "Датчик протечки"
+      linked_battery_sensor: sensor.bathroom_water_leak_battery
+      low_battery_threshold: 30
+    binary_sensor.0x00158d00021126ee_water_leak:
+      name: "Датчик протечки"
+      linked_battery_sensor: sensor.0x00158d00021126ee_battery
+      low_battery_threshold: 30
+
+automation:
+  - alias: "water_leak_livingroom_ceiling_light"
+    trigger:
+      - platform: state
+        entity_id: alert.water_leak_bathroom
+        to: "on"
+      - platform: state
+        entity_id: alert.water_leak_restroom
+        to: "on"
+    condition:
+      condition: template
+      value_template: "{{ states('light.livingroom_ceiling_light_ambilight') != 'unavailable' }}"
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.livingroom_ceiling_light_ambilight
+        effect: "Water Leak"

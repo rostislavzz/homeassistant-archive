@@ -13,10 +13,8 @@ views:
             icon: mdi:human-female
           - entity: person.nina
             icon: mdi:human-female
-
       - !include lovelace/hall/card.yaml
       #- !include lovelace/intercom/card.yaml
-
       - type: glance
         title: "Кухня"
         entities:
@@ -31,10 +29,8 @@ views:
             icon: mdi:lamp
             tap_action:
               action: toggle
-
       - !include lovelace/kidsroom/card.yaml
       - !include lovelace/livingroom/card.yaml
-
       - type: glance
         title: "Спальня"
         entities:
@@ -47,6 +43,7 @@ views:
             icon: mdi:lamp
             tap_action:
               action: toggle
+      - !include lovelace/bathroom/card.yaml
 
   - !include lovelace/cctv/view.yaml
 
@@ -294,7 +291,7 @@ views:
           - sensor.livingroom_sensor_battery
           - sensor.livingroom_smoke_battery
           - sensor.livingroom_miflora_battery
-      - !include lovelace/bathroom/card.yaml
+      - !include lovelace/bathroom/batteries.yaml
       - type: entities
         title: "Спальня"
         show_header_toggle: false

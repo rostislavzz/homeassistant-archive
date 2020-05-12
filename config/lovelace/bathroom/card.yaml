@@ -1,5 +1,5 @@
-type: entities
-title: "Ванная"
-show_header_toggle: false
+type: glance
+title: "Санузел"
 entities:
-  - sensor.bathroom_water_leak_battery
+  - entity: binary_sensor.0x00158d0001bb87d2
+  - entity: binary_sensor.0x00158d00021126ee_water_leak

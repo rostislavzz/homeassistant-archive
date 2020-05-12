@@ -1,0 +1,6 @@
+type: entities
+title: "Санузел"
+show_header_toggle: false
+entities:
+  - sensor.bathroom_water_leak_battery
+  - sensor.0x00158d00021126ee_battery
