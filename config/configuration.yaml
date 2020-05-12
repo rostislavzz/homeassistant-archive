@@ -8,7 +8,6 @@ homeassistant:
   customize: !include include/customize.yaml
   packages: !include_dir_named packages/
 
-automation: !include_dir_merge_list include/automations/
 camera: !include include/camera.yaml
 config:
 
