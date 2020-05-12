@@ -37,6 +37,5 @@ sensor: !include_dir_list include/sensor/
 sun:
 system_health:
 switch: !include_dir_list include/switch/
-timer: !include_dir_named include/timer/
 updater:
 weather: !include_dir_list include/weather/
