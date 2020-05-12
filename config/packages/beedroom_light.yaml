@@ -1,0 +1,99 @@
+homeassistant:
+  customize:
+    light.bedroom_daylight:
+      friendly_name: "Свет в спальне"
+    light.bedroom_nightlight:
+      friendly_name: "Ночник в спальне"
+    sensor.bedroom_button_battery:
+      friendly_name: "Кнопка"
+    sensor.bedroom_switch_battery:
+      friendly_name: "Выключатель"
+
+yeelight:
+  devices:
+    10.0.0.127:
+      name: bedroom_mono
+      model: mono1
+      use_music_mode: false
+      save_on_change: false
+    10.0.0.15:
+      name: bedroom_color
+      model: color1
+      use_music_mode: false
+      save_on_change: false
+
+scene:
+  - name: "bedroom_daylight"
+    entities:
+      light.bedroom_mono:
+        state: true
+        brightness: 255
+      light.bedroom_color:
+        state: true
+        brightness: 255
+        kelvin: 4000
+  - name: "bedroom_nightlight"
+    entities:
+      light.bedroom_mono:
+        state: false
+      light.bedroom_color:
+        state: true
+        brightness: 1
+        kelvin: 1700
+
+light:
+  platform: template
+  lights:
+    bedroom_daylight:
+      friendly_name: "Свет в спальне"
+      value_template: "{{ is_state('light.bedroom_mono', 'on') }}"
+      turn_on:
+        service: scene.turn_on
+        entity_id: scene.bedroom_daylight
+      turn_off:
+        service: light.turn_off
+        entity_id: group.bedroom_light
+    bedroom_nightlight:
+      friendly_name: "Ночник в спальне"
+      value_template: >
+        {% if is_state('light.bedroom_color', 'off') or is_state('light.bedroom_color', '') %}
+          off
+        {% elif is_state_attr('light.bedroom_color', 'brightness', 255) %}
+          off
+        {% else %}
+          on
+        {% endif %}
+      turn_on:
+        service: scene.turn_on
+        entity_id: scene.bedroom_nightlight
+      turn_off:
+        service: light.turn_off
+        entity_id: group.bedroom_light
+
+automation:
+  - alias: "bedroom_light_daylight"
+    initial_state: "on"
+    trigger:
+      - platform: mqtt
+        topic: "zigbee2mqtt/bedroom/button"
+      - platform: mqtt
+        topic: "zigbee2mqtt/bedroom/switch"
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json.click in ['long', 'right'] }}"
+    action:
+      service: light.toggle
+      entity_id: light.bedroom_daylight
+  - alias: "bedroom_light_nightlight"
+    initial_state: "on"
+    trigger:
+      - platform: mqtt
+        topic: "zigbee2mqtt/bedroom/button"
+      - platform: mqtt
+        topic: "zigbee2mqtt/bedroom/switch"
+    condition:
+      condition: template
+      value_template: "{{ trigger.payload_json.click in ['single', 'left'] }}"
+    action:
+      service: light.toggle
+      entity_id: light.bedroom_nightlight

@@ -23,7 +23,6 @@ history: !include include/history.yaml
 http:
 influxdb: !include include/influxdb.yaml
 input_boolean: !include include/input_boolean.yaml
-light: !include_dir_list include/light/
 logbook:
 
 lovelace:
@@ -36,7 +35,6 @@ mqtt: !include include/mqtt.yaml
 notify: !include_dir_list include/notify/
 plant: !include include/plant.yaml
 recorder: !include include/recorder.yaml
-scene: !include_dir_list include/scene/
 stream:
 sensor: !include_dir_list include/sensor/
 sun:
@@ -45,4 +43,3 @@ switch: !include_dir_list include/switch/
 timer: !include_dir_named include/timer/
 updater:
 weather: !include_dir_list include/weather/
-yeelight: !include include/yeelight.yaml

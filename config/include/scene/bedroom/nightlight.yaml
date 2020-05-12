@@ -1,8 +1,0 @@
-name: 'bedroom_nightlight'
-entities:
-  light.bedroom_mono:
-    state: false
-  light.bedroom_color:
-    state: true
-    brightness: 1
-    kelvin: 1700

@@ -1,0 +1,13 @@
+type: glance
+title: "Спальня"
+entities:
+  - entity: light.bedroom_daylight
+    name: "Свет"
+    icon: mdi:ceiling-light
+    tap_action:
+      action: toggle
+  - entity: light.bedroom_nightlight
+    name: "Ночник"
+    icon: mdi:lamp
+    tap_action:
+      action: toggle

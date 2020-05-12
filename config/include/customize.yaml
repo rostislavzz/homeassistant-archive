@@ -88,16 +88,6 @@ media_player.apple_tv_4:
 plant.crassula:
   friendly_name: "Денежное дерево"
 
-# спальня
-light.bedroom_daylight:
-  friendly_name: "Свет в спальне"
-light.bedroom_nightlight:
-  friendly_name: "Ночник"
-sensor.bedroom_button_battery:
-  friendly_name: "Кнопка"
-sensor.bedroom_switch_battery:
-  friendly_name: "Выключатель"
-
 # сервер
 switch.server:
   friendly_name: "Сервер"

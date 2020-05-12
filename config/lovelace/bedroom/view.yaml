@@ -1,0 +1,13 @@
+title: "Спальня"
+icon: mdi:bed-empty
+path: bedroom
+cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: light.bedroom_daylight
+        name: "Свет"
+        icon: mdi:ceiling-light
+      - entity: light.bedroom_nightlight
+        name: "Ночник"
+        icon: mdi:lamp

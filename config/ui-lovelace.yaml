@@ -31,18 +31,7 @@ views:
               action: toggle
       - !include lovelace/kidsroom/card.yaml
       - !include lovelace/livingroom/card.yaml
-      - type: glance
-        title: "Спальня"
-        entities:
-          - entity: light.bedroom_daylight
-            icon: mdi:ceiling-light
-            name: "Свет"
-            tap_action:
-              action: toggle
-          - entity: light.bedroom_nightlight
-            icon: mdi:lamp
-            tap_action:
-              action: toggle
+      - !include lovelace/bedroom/card.yaml
       - !include lovelace/bathroom/card.yaml
 
   - !include lovelace/cctv/view.yaml
@@ -106,23 +95,7 @@ views:
 
   - !include lovelace/kidsroom/view.yaml
   - !include lovelace/livingroom/view.yaml
-
-  - title: "Спальня"
-    icon: mdi:bed-empty
-    path: bedroom
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: entity-button
-            entity: light.bedroom_daylight
-            icon: mdi:ceiling-light
-            tap_action:
-              action: toggle
-          - type: entity-button
-            entity: light.bedroom_nightlight
-            icon: mdi:lamp
-            tap_action:
-              action: toggle
+  - !include lovelace/bedroom/view.yaml
 
   - title: "Пылесос"
     icon: mdi:robot-vacuum
@@ -292,12 +265,7 @@ views:
           - sensor.livingroom_smoke_battery
           - sensor.livingroom_miflora_battery
       - !include lovelace/bathroom/batteries.yaml
-      - type: entities
-        title: "Спальня"
-        show_header_toggle: false
-        entities:
-          - sensor.bedroom_switch_battery
-          - sensor.bedroom_button_battery
+      - !include lovelace/bedroom/batteries.yaml
 
   - title: "Zigbee2mqtt"
     icon: mdi:zigbee
