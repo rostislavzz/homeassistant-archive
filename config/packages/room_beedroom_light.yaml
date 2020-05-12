@@ -1,14 +1,3 @@
-homeassistant:
-  customize:
-    light.bedroom_daylight:
-      friendly_name: "Свет в спальне"
-    light.bedroom_nightlight:
-      friendly_name: "Ночник в спальне"
-    sensor.bedroom_button_battery:
-      friendly_name: "Кнопка"
-    sensor.bedroom_switch_battery:
-      friendly_name: "Выключатель"
-
 yeelight:
   devices:
     10.0.0.127:
@@ -22,11 +11,12 @@ yeelight:
       use_music_mode: false
       save_on_change: false
 
-bedroom_light:
-  name: "Свет в спальне"
-  entities:
-    - light.bedroom_color
-    - light.bedroom_mono
+group:
+  bedroom_light:
+    name: "Свет в спальне"
+    entities:
+      - light.bedroom_color
+      - light.bedroom_mono
 
 scene:
   - name: "bedroom_daylight"
@@ -75,6 +65,17 @@ light:
       turn_off:
         service: light.turn_off
         entity_id: group.bedroom_light
+
+homeassistant:
+  customize:
+    light.bedroom_daylight:
+      friendly_name: "Свет в спальне"
+    light.bedroom_nightlight:
+      friendly_name: "Ночник в спальне"
+    sensor.bedroom_button_battery:
+      friendly_name: "Кнопка в спальне"
+    sensor.bedroom_switch_battery:
+      friendly_name: "Выключатель в спальне"
 
 automation:
   - alias: "bedroom_light_daylight"

@@ -2,4 +2,6 @@ type: glance
 title: "Санузел"
 entities:
   - entity: binary_sensor.0x00158d0001bb87d2
+    name: "Ванная"
   - entity: binary_sensor.0x00158d00021126ee_water_leak
+    name: "Туалет"

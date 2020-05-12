@@ -15,6 +15,7 @@ cards:
       - entity: light.kidsroom_ceiling_light_nightlight
         name: "Ночник"
       - entity: light.kidsroom_ceiling_light_ambilight
+        name: "Фоновый свет"
         icon: mdi:lightbulb-on
       - entity: switch.kidsroom_switch_switch_right
         name: "Свет"

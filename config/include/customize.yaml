@@ -51,20 +51,6 @@ sensor.0x00158d0001700c18_temperature:
   friendly_name: "Температура"
 sensor.0x00158d0001700c18_humidity:
   friendly_name: "Влажность"
-switch.0x00158d0002235b38_switch_right:
-  friendly_name: "Выключатель в детской"
-  icon: mdi:light-switch
-switch.0x00158d0002235b38_switch_left:
-  friendly_name: "Светильники в детской"
-  icon: mdi:track-light
-light.kidsroom_ceiling_light:
-  friendly_name: "Свет в детской"
-  icon: mdi:ceiling-light
-light.kidsroom_ceiling_light_ambilight:
-  friendly_name: "Фоновый свет"
-light.kidsroom_nightlight:
-  friendly_name: "Ночник в детской"
-  icon: mdi:lamp
 
 # гостиная
 sensor.livingroom_sensor_battery:
