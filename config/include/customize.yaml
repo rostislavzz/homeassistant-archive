@@ -52,10 +52,6 @@ media_player.livingroom_tv:
 media_player.apple_tv_4:
   friendly_name: "Apple TV"
 
-# сервер
-switch.server:
-  friendly_name: "Сервер"
-
 switch.socket_switch:
   friendly_name: "Розетка"
   icon: mdi:power-socket-au
