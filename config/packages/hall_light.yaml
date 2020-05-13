@@ -1,64 +1,105 @@
 yeelight:
   devices:
     10.0.0.183:
-      name: hall_ceiling_light
+      name: hall_light
       nightlight_switch_type: light
       use_music_mode: false
       save_on_change: false
 
+history:
+  exclude:
+    entities:
+      - sensor.0x00158d0001e523ab_battery
+      - sensor.0x00158d00041d5e14_battery
+
+homeassistant:
+  customize:
+    light.hall_light:
+      friendly_name: "Свет в коридоре"
+    light.hall_light_nightlight:
+      friendly_name: "Ночник в коридоре"
+    binary_sensor.0x00158d0001e523ab_occupancy:
+      friendly_name: "Датчик движения в коридоре"
+    sensor.0x00158d0001e523ab_illuminance:
+      friendly_name: "Освещенность в коридоре"
+    binary_sensor.0x00158d00041d5e14_contact:
+      friendly_name: "Дверь шкафа"
+
 automation:
-  - alias: 'hall_light_on'
+  - alias: "hall_light_on"
     trigger:
-      - platform: state
-        entity_id: binary_sensor.0x00158d00041d5e14_contact
-        to: 'on'
+      platform: state
+      entity_id: binary_sensor.0x00158d00041d5e14_contact
+      to: "on"
     condition:
-      - condition: state
-        entity_id: group.person
-        state: 'home'
+      condition: state
+      entity_id: group.person
+      state: "home"
     action:
       service: light.turn_on
       data:
-        entity_id: light.hall_ceiling_light
+        entity_id: light.hall_light
         brightness: 255
         kelvin: 4000
 
-  - alias: 'hall_light_off'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.0x00158d00041d5e14_contact
-        to: 'off'
-      - platform: state
-        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
-        to: 'off'
-        for: '00:01:00'
-    action:
-      - service: light.turn_off
-        entity_id: light.hall_ceiling_light
-      - condition: state
-        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
-        state: 'on'
-      - service: light.turn_on
-        entity_id: light.hall_ceiling_light_nightlight
-
-  - alias: 'hall_nightlight_on'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
-        to: 'on'
-    condition:
-      - condition: state
-        entity_id: group.person
-        state: 'home'
-    action:
-      service: light.turn_on
-      entity_id: light.hall_ceiling_light_nightlight
-
-  - alias: 'hall_nightlight_off'
+  - alias: "hall_light_on_when_cupboard_already_open"
     trigger:
       platform: state
       entity_id: binary_sensor.0x00158d0001e523ab_occupancy
-      to: 'off'
+      to: "on"
+    condition:
+      - condition: state
+        entity_id: group.person
+        state: "home"
+      - condition: state
+        entity_id: binary_sensor.0x00158d00041d5e14_contact
+        state: "on"
+    action:
+      service: light.turn_on
+      data:
+        entity_id: light.hall_light
+        brightness: 255
+        kelvin: 4000
+
+  - alias: "hall_light_off"
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.0x00158d00041d5e14_contact
+        to: "off"
+      - platform: state
+        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+        to: "off"
+        for: "00:01:00"
+    action:
+      - service: light.turn_off
+        entity_id: light.hall_light
+      - condition: state
+        entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+        state: "on"
+      - service: light.turn_on
+        entity_id: light.hall_light_nightlight
+
+  - alias: "hall_nightlight_on"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+      to: "on"
+    condition:
+      - condition: state
+        entity_id: group.person
+        state: "home"
+      - condition: state
+        entity_id: binary_sensor.0x00158d00041d5e14_contact
+        state: "off"
+    action:
+      service: light.turn_on
+      entity_id: light.hall_light_nightlight
+
+  - alias: "hall_nightlight_off"
+    trigger:
+      platform: state
+      entity_id: binary_sensor.0x00158d0001e523ab_occupancy
+      to: "off"
     action:
       service: light.turn_off
-      entity_id: light.hall_ceiling_light_nightlight
+      entity_id: light.hall_light_nightlight

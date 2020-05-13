@@ -11,9 +11,9 @@ entities:
   - entity: binary_sensor.0x00158d0001e523ab_occupancy
     name: "Движение"
     secondary_info: last-changed
-  - entity: light.hall_ceiling_light
+  - entity: light.hall_light
     name: "Свет"
-  - entity: light.hall_ceiling_light_nightlight
+  - entity: light.hall_light_nightlight
     name: "Ночник"
   - entity: binary_sensor.0x00158d00041d5e14_contact
     name: "Дверь шкафа"

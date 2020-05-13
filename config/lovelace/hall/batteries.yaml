@@ -1,0 +1,12 @@
+type: entities
+title: "Прихожая"
+show_header_toggle: false
+entities:
+  - entity: sensor.hall_door_battery
+    name: "Дверь"
+  - entity: sensor.0x00158d0001e523ab_battery
+    name: "Датчик движения"
+  - entity: sensor.0x00158d00041d5e14_battery
+    name: "Дверь шкафа"
+  - entity: sensor.hall_sensor_battery
+    name: "Датчик температуры и влажности"

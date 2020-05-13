@@ -1,6 +1,4 @@
 # прихожая
-sensor.hall_sensor_battery:
-  friendly_name: "Датчик температуры и влажности"
 sensor.0x00158d0001b8d3ca_temperature:
   friendly_name: "Прихожая Температура"
 sensor.0x00158d0001b8d3ca_humidity:

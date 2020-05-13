@@ -240,12 +240,7 @@ views:
     icon: mdi:battery
     path: batteries
     cards:
-      - type: entities
-        title: "Прихожая"
-        show_header_toggle: false
-        entities:
-          - sensor.hall_door_battery
-          - sensor.hall_sensor_battery
+      - !include lovelace/hall/batteries.yaml
       - type: entities
         title: "Кухня"
         show_header_toggle: false
