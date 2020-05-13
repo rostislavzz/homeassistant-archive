@@ -10,6 +10,7 @@ history:
   exclude:
     entities:
       - sensor.0x00158d0001e523ab_battery
+      - sensor.0x00158d0001e523ab_illuminance
       - sensor.0x00158d00041d5e14_battery
 
 homeassistant:
