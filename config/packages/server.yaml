@@ -60,9 +60,8 @@ automation:
         to: not_home
         for: "00:15:00"
     condition:
-      - condition: state
-        entity_id: media_player.livingroom_tv
-        state: "off"
+      condition: template
+      value_template: "{{ states('media_player.livingroom_tv') != 'on' }}"
     action:
       service: switch.turn_off
       entity_id: switch.server
