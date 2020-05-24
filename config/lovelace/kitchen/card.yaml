@@ -1,0 +1,12 @@
+type: glance
+title: "Кухня"
+entities:
+  - entity: group.kitchen_motion
+    name: "Движение"
+  - entity: switch.0x00158d00019ccab8_switch
+    name: "Свет"
+    tap_action:
+      action: toggle
+  - entity: switch.kitchen_automations
+    name: "Автоматизации"
+    icon: mdi:auto-fix

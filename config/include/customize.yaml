@@ -4,27 +4,6 @@ sensor.0x00158d0001b8d3ca_temperature:
 sensor.0x00158d0001b8d3ca_humidity:
   friendly_name: "Прихожая Влажность"
 
-# кухня
-sensor.kitchen_motion2_illuminance:
-  hidden: true
-  friendly_name: "Освещенность"
-binary_sensor.kitchen_motion2_occupancy:
-  hidden: true
-  friendly_name: "Движение на кухне"
-sensor.kitchen_motion_illuminance:
-  hidden: true
-  friendly_name: "Освещенность у раковины"
-binary_sensor.kitchen_motion_occupancy:
-  hidden: true
-  friendly_name: "Движение у раковины"
-binary_sensor.kitchen_motion_sensor:
-  friendly_name: "Движение"
-light.kitchen_rgb_lightstrip:
-  friendly_name: "Ночник на кухне"
-switch.0x00158d00019ccab8_switch:
-  friendly_name: "Свет на кухне"
-  icon: mdi:ceiling-light
-
 # детская
 sensor.kitchen_sensor_battery:
   friendly_name: "Датчик температуры и влажности"

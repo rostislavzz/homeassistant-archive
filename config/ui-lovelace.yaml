@@ -15,20 +15,7 @@ views:
             icon: mdi:human-female
       - !include lovelace/hall/card.yaml
       #- !include lovelace/intercom/card.yaml
-      - type: glance
-        title: "Кухня"
-        entities:
-          - entity: group.kitchen_motion_sensor
-            name: "Движение"
-          - entity: switch.0x00158d00019ccab8_switch
-            name: "Свет"
-            tap_action:
-              action: toggle
-          - entity: light.kitchen_rgb_lightstrip
-            name: "Ночник"
-            icon: mdi:lamp
-            tap_action:
-              action: toggle
+      - !include lovelace/kitchen/card.yaml
       - !include lovelace/kidsroom/card.yaml
       - !include lovelace/livingroom/card.yaml
       - !include lovelace/bedroom/card.yaml
@@ -73,26 +60,7 @@ views:
           - entity: sensor.0x00158d0002b518b9_humidity
             name: "Гостиная"
 
-  - title: "Кухня"
-    icon: mdi:silverware-fork-knife
-    path: kitchen
-    cards:
-      - type: vertical-stack
-        cards:
-          - type: entities
-            entities:
-              - entity: group.kitchen_motion_sensor
-                name: "Движение"
-                secondary_info: last-changed
-              - entity: switch.0x00158d00019ccab8_switch
-                name: "Свет"
-              - entity: light.kitchen_rgb_lightstrip
-                name: "Ночник"
-              - entity: switch.kitchen_automations
-                name: "Автоматизации"
-      - type: media-control
-        entity: media_player.kitchen_tv_universal
-
+  - !include lovelace/kitchen/view.yaml
   - !include lovelace/kidsroom/view.yaml
   - !include lovelace/livingroom/view.yaml
   - !include lovelace/bedroom/view.yaml
@@ -241,12 +209,7 @@ views:
     path: batteries
     cards:
       - !include lovelace/hall/batteries.yaml
-      - type: entities
-        title: "Кухня"
-        show_header_toggle: false
-        entities:
-          - sensor.kitchen_motion_battery
-          - sensor.kitchen_motion2_battery
+      - !include lovelace/kitchen/batteries.yaml
       - type: entities
         title: "Детская"
         show_header_toggle: false

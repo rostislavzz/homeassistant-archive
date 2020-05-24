@@ -1,0 +1,15 @@
+title: "Кухня"
+icon: mdi:silverware-fork-knife
+path: kitchen
+cards:
+  - type: entities
+    show_header_toggle: false
+    entities:
+      - entity: group.kitchen_motion
+        name: "Движение"
+        secondary_info: last-changed
+      - entity: switch.0x00158d00019ccab8_switch
+        name: "Свет"
+      - entity: switch.kitchen_automations
+        name: "Автоматизации"
+        icon: mdi:auto-fix
