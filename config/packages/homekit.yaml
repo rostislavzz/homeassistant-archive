@@ -9,9 +9,6 @@ homekit:
       - cover.livingroom_curtain_cover
       - binary_sensor.0x00158d0001db8a6a
       - media_player.livingroom_tv
-      # спальня
-      - light.bedroom_daylight
-      - light.bedroom_nightlight
   entity_config:
     # гостиная
     switch.0x00158d0001715c96_switch_right:

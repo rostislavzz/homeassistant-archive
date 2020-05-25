@@ -77,6 +77,17 @@ homeassistant:
     sensor.bedroom_switch_battery:
       friendly_name: "Выключатель в спальне"
 
+homekit:
+  filter:
+    include_entities:
+      - light.bedroom_daylight
+      - light.bedroom_nightlight
+  entity_config:
+    light.bedroom_daylight:
+      name: Свет
+    light.bedroom_nightlight:
+      name: Ночник
+
 automation:
   - alias: "bedroom_light_daylight"
     initial_state: "on"
