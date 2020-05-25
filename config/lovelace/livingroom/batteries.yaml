@@ -1,0 +1,8 @@
+type: entities
+title: "Гостиная"
+show_header_toggle: false
+entities:
+  - entity: sensor.livingroom_smoke_battery
+    name: "Датчик дыма"
+  - entity: sensor.livingroom_sensor_battery
+    name: "Датчик температуры и влажности"

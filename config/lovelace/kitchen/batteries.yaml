@@ -2,7 +2,7 @@ type: entities
 title: "Кухня"
 show_header_toggle: false
 entities:
-  - entity: sensor.kitchen_motion_battery
-    name: "Датчик движения у раковины"
   - entity: sensor.kitchen_motion2_battery
     name: "Датчик движения"
+  - entity: sensor.kitchen_motion_battery
+    name: "Датчик движения у раковины"

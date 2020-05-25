@@ -1,0 +1,8 @@
+type: entities
+title: "Детская"
+show_header_toggle: false
+entities:
+  - entity: sensor.kidsroom_curtain_battery
+    name: "Датчик штор"
+  - entity: sensor.kidsroom_sensor_battery
+    name: "Датчик температуры и влажности"

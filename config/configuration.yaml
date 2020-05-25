@@ -18,7 +18,6 @@ discovery:
 frontend:
 history: !include include/history.yaml
 http:
-influxdb: !include include/influxdb.yaml
 logbook:
 
 lovelace:

@@ -1,20 +1,4 @@
-# прихожая
-sensor.0x00158d0001b8d3ca_temperature:
-  friendly_name: "Прихожая Температура"
-sensor.0x00158d0001b8d3ca_humidity:
-  friendly_name: "Прихожая Влажность"
-
-# детская
-sensor.kitchen_sensor_battery:
-  friendly_name: "Датчик температуры и влажности"
-sensor.0x00158d0001700c18_temperature:
-  friendly_name: "Температура"
-sensor.0x00158d0001700c18_humidity:
-  friendly_name: "Влажность"
-
 # гостиная
-sensor.livingroom_sensor_battery:
-  friendly_name: "Датчик температуры и влажности"
 cover.livingroom_curtain_cover:
   friendly_name: "Шторы"
 binary_sensor.0x00158d0001db8a6a:

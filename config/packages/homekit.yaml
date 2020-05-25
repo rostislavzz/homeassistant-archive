@@ -4,8 +4,6 @@ homekit:
     include_entities:
       # основное
       - binary_sensor.0x00158d0001b14504
-      - sensor.0x00158d0001b8d3ca_temperature
-      - sensor.0x00158d0001b8d3ca_humidity
       # гостиная
       - switch.0x00158d0001715c96_switch_right
       - cover.livingroom_curtain_cover
@@ -15,14 +13,6 @@ homekit:
       - light.bedroom_daylight
       - light.bedroom_nightlight
   entity_config:
-    sensor.0x00158d0001b8d3ca_temperature:
-      name: Температура
-      low_battery_threshold: 20
-      linked_battery_sensor: sensor.hall_sensor_battery
-    sensor.0x00158d0001b8d3ca_humidity:
-      name: Влажность
-      low_battery_threshold: 20
-      linked_battery_sensor: sensor.hall_sensor_battery
     # гостиная
     switch.0x00158d0001715c96_switch_right:
       name: Светильники

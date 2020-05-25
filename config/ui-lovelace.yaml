@@ -210,17 +210,8 @@ views:
     cards:
       - !include lovelace/hall/batteries.yaml
       - !include lovelace/kitchen/batteries.yaml
-      - type: entities
-        title: "Детская"
-        show_header_toggle: false
-        entities:
-          - sensor.kitchen_sensor_battery
-      - type: entities
-        title: "Гостиная"
-        show_header_toggle: false
-        entities:
-          - sensor.livingroom_sensor_battery
-          - sensor.livingroom_smoke_battery
+      - !include lovelace/kidsroom/batteries.yaml
+      - !include lovelace/livingroom/batteries.yaml
       - !include lovelace/bathroom/batteries.yaml
       - !include lovelace/bedroom/batteries.yaml
 
