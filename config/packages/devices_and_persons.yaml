@@ -2,22 +2,11 @@ device_tracker:
   platform: nmap_tracker
   home_interval: 30
   hosts:
-    - 10.0.0.5 #rost_laptop
-    - 10.0.0.10 #rost_phone
-    - 10.0.0.56 #rost_watch
     - 10.0.0.158 #nina_phone
     - 10.0.0.201 #jana_laptop
     - 10.0.0.248 #jana_phone
 
 person:
-  - name: Rostislav
-    id: rostislav
-    user_id: 7c6ea3df58824829b8febfaede0223d8
-    device_trackers:
-      - device_tracker.rost_watch
-      - device_tracker.rost_phone
-      - device_tracker.rost_laptop
-      - device_tracker.iphone_rost
   - name: Jana
     id: jana
     user_id: f0cb3e0d635148f8883d2ab79c92ace0

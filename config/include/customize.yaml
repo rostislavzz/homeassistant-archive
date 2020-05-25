@@ -19,13 +19,9 @@ switch.socket_switch:
 sensor.socket_power:
   friendly_name: "Розетка"
 
-device_tracker.iphonerosthome:
-  friendly_name: "iPhone Рост"
 device_tracker.iphonejanahome:
   friendly_name: "iPhone Яна"
 
-person.rostislav:
-  friendly_name: "Рост"
 person.iana:
   friendly_name: "Яна"
 person.nina:

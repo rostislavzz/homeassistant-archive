@@ -1,0 +1,38 @@
+device_tracker:
+  platform: nmap_tracker
+  home_interval: 30
+  hosts:
+    - 10.0.0.5
+    - 10.0.0.10
+    - 10.0.0.56
+
+history:
+  exclude:
+    entities:
+      - sensor.iphone_rost_activity
+      - sensor.iphone_rost_bssid
+      - sensor.iphone_rost_last_update_trigger
+      - sensor.iphone_rost_sim_1
+      - sensor.iphone_rost_ssid
+      - sensor.iphone_rost_average_active_pace
+      - sensor.iphone_rost_distance
+      - sensor.iphone_rost_floors_ascended
+      - sensor.iphone_rost_floors_descended
+      - sensor.iphone_rost_steps
+
+person:
+  - name: Rostislav
+    id: rostislav
+    user_id: 7c6ea3df58824829b8febfaede0223d8
+    device_trackers:
+      - device_tracker.rost_watch
+      - device_tracker.rost_phone
+      - device_tracker.rost_laptop
+      - device_tracker.iphone_rost
+
+homeassistant:
+  customize:
+    device_tracker.iphone_rost:
+      friendly_name: "iPhone Рост"
+    person.rostislav:
+      friendly_name: "Рост"
