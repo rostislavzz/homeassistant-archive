@@ -49,7 +49,3 @@ sun:
 system_health:
 switch: !include_dir_list include/switch/
 updater:
-
-weather:
-  platform: darksky
-  api_key: !secret dark_sky_api_key

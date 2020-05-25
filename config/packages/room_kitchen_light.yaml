@@ -1,3 +1,15 @@
+weather:
+  platform: darksky
+  api_key: !secret dark_sky_api_key
+
+binary_sensor:
+  - platform: template
+    sensors:
+      cloudy:
+        friendly_name: "Облачно"
+        entity_id: weather.dark_sky
+        value_template: "{{ is_state('weather.dark_sky', 'cloudy') or is_state('weather.dark_sky', 'rainy') or is_state('weather.dark_sky', 'snowy')}}"
+
 homeassistant:
   customize:
     switch.0x00158d00019ccab8_switch:
@@ -56,19 +68,9 @@ automation:
           - condition: sun
             after: sunset
             after_offset: "-01:00:00"
-          - condition: and
-            conditions:
-              - condition: sun
-                after: sunrise
-                after_offset: "+01:00:00"
-              - condition: or
-                conditions:
-                  - condition: state
-                    entity_id: weather.dark_sky
-                    state: "cloudy"
-                  - condition: state
-                    entity_id: weather.dark_sky
-                    state: "snowy"
+          - condition: state
+            entity_id: binary_sensor.cloudy
+            state: "on"
     action:
       service: switch.turn_on
       entity_id: switch.0x00158d00019ccab8_switch
