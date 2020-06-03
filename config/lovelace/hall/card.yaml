@@ -18,3 +18,6 @@ entities:
   - entity: binary_sensor.0x00158d00041d5e14_contact
     name: "Дверь шкафа"
     icon: mdi:cupboard-outline
+  - entity: group.hall_light_automations
+    name: "Автоматизации"
+    icon: mdi:auto-fix

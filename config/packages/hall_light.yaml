@@ -104,3 +104,12 @@ automation:
     action:
       service: light.turn_off
       entity_id: light.hall_light_nightlight
+
+group:
+  hall_light_automations:
+    name: "Автоматизации света в коридоре"
+    entities:
+      - automation.hall_light_on
+      - automation.hall_light_on_when_cupboard_already_open
+      - automation.hall_light_off
+      - automation.hall_nightlight_on
