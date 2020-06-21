@@ -46,7 +46,7 @@ automation:
         - condition: sun
           before: sunrise
         - condition: state
-          entity_id: sensor.livingroom_curtain_cover
+          entity_id: cover.livingroom_curtain_cover
           state: "closed"
     action:
       service: script.livingroom_ceiling_light_ambilight

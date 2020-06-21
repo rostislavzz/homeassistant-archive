@@ -8,7 +8,6 @@ homekit:
       - switch.0x00158d0001715c96_switch_right
       - cover.livingroom_curtain_cover
       - binary_sensor.0x00158d0001db8a6a
-      - media_player.livingroom_tv
   entity_config:
     # гостиная
     switch.0x00158d0001715c96_switch_right:
@@ -16,12 +15,6 @@ homekit:
     binary_sensor.0x00158d0001db8a6a:
       name: Датчик дыма
       linked_battery_sensor: sensor.livingroom_smoke_battery
-    media_player.livingroom_tv:
-      feature_list:
-        - feature: on_off
-        - feature: play_pause
-        - feature: play_stop
-        - feature: toggle_mute
 
 automation:
   - alias: "homekit_start"

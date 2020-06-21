@@ -11,6 +11,18 @@ webostv:
       - YouTube
       - Apple TV
 
+homekit:
+  filter:
+    include_entities:
+      - media_player.livingroom_tv
+  entity_config:
+    media_player.livingroom_tv:
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+
 sensor:
   - platform: template
     sensors:
@@ -19,7 +31,7 @@ sensor:
         value_template: "{{ state_attr('media_player.livingroom_tv', 'source') }}"
 
 automation:
-  - alias: "livingroom_tv_turn_off_on_plex_idle"
+  - alias: "livingroom_tv_turn_off_when_plex_pause"
     trigger:
       platform: state
       entity_id: media_player.plex_lg_oled55b7v_z
@@ -32,3 +44,26 @@ automation:
     action:
       service: media_player.turn_off
       entity_id: media_player.livingroom_tv
+
+  - alias: "livingroom_tv_switch_source_to_plex"
+    trigger:
+      - platform: state
+        entity_id: switch.server
+        to: "on"
+      - platform: state
+        entity_id: media_player.livingroom_tv
+        to: "on"
+        from: "off"
+    condition:
+      - condition: state
+        entity_id: media_player.livingroom_tv
+        state: "on"
+      - condition: template
+        value_template: "{{ states('sensor.livingroom_tv_source') != 'Plex' }}"
+      - condition: template
+        value_template: "{{ (as_timestamp(utcnow()) - as_timestamp(states.media_player.livingroom_tv.last_changed)) < 120 }}"
+    action:
+      service: media_player.select_source
+      data:
+        entity_id: media_player.livingroom_tv
+        source: Plex
