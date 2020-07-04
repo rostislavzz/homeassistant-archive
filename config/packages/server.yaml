@@ -72,10 +72,6 @@ automation:
       entity_id: media_player.livingroom_tv
       to: "off"
       for: "00:15:00"
-    condition:
-      condition: state
-      entity_id: switch.server
-      state: "off"
     action:
       service: switch.turn_off
       entity_id: switch.server
