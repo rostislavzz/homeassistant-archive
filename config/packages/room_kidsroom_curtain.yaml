@@ -1,20 +1,20 @@
 automation:
-  - alias: 'kitchen_automations_on'
+  - alias: "kitchen_automations_on"
     trigger:
       platform: state
       entity_id: binary_sensor.kidsroom_curtain_contact
-      to: 'on'
+      to: "on"
     action:
-      service: switch.turn_on
-      entity_id: switch.kitchen_automations
+      service: homeassistant.turn_on
+      entity_id: group.kitchen_automations
 
-  - alias: 'kitchen_automations_off'
+  - alias: "kitchen_automations_off"
     trigger:
       platform: state
       entity_id: binary_sensor.kidsroom_curtain_contact
-      to: 'off'
+      to: "off"
     action:
       - service: switch.turn_off
         entity_id: switch.0x00158d00019ccab8_switch
-      - service: switch.turn_off
-        entity_id: switch.kitchen_automations
+      - service: homeassistant.turn_off
+        entity_id: group.kitchen_automations

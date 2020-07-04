@@ -10,6 +10,6 @@ cards:
         secondary_info: last-changed
       - entity: switch.0x00158d00019ccab8_switch
         name: "Свет"
-      - entity: switch.kitchen_automations
+      - entity: group.kitchen_automations
         name: "Автоматизации"
         icon: mdi:auto-fix

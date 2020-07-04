@@ -7,6 +7,6 @@ entities:
     name: "Свет"
     tap_action:
       action: toggle
-  - entity: switch.kitchen_automations
+  - entity: group.kitchen_automations
     name: "Автоматизации"
     icon: mdi:auto-fix
