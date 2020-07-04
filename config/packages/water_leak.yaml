@@ -49,7 +49,7 @@ notify:
 
 alert:
   water_leak_bathroom:
-    name: "Обнаружена протечка воды в ванной"
+    name: "Протечка воды в ванной"
     message: "Обнаружена протечка воды в ванной!"
     done_message: "Протечка воды в ванной устранена"
     entity_id: binary_sensor.0x00158d0001bb87d2
@@ -58,7 +58,7 @@ alert:
       - water_leak_livingroom_tv
       - water_leak_mobile_app
   water_leak_restroom:
-    name: "Обнаружена протечка воды в туалете"
+    name: "Протечка воды в туалете"
     message: "Обнаружена протечка воды в туалете!"
     done_message: "Протечка воды в туалете устранена"
     entity_id: binary_sensor.0x00158d00021126ee_water_leak
