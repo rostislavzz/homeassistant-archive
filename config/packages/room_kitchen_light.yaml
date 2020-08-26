@@ -24,17 +24,6 @@ homeassistant:
     sensor.kitchen_motion2_illuminance:
       friendly_name: "Освещенность на кухне"
 
-homekit:
-  filter:
-    include_entities:
-      - switch.0x00158d00019ccab8_switch
-      - group.kitchen_automations
-  entity_config:
-    switch.0x00158d00019ccab8_switch:
-      name: Свет
-    group.kitchen_automations:
-      name: Автоматизации
-
 automation:
   - alias: "kitchen_light_on"
     trigger:

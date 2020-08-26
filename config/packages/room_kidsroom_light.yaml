@@ -17,20 +17,3 @@ homeassistant:
       friendly_name: "Ночник в детской"
     switch.0x00158d0002235b38_switch_left:
       friendly_name: "Светильники в детской"
-
-homekit:
-  filter:
-    include_entities:
-      - light.kidsroom_ceiling_light
-      - light.kidsroom_ceiling_light_ambilight
-      - light.kidsroom_ceiling_light_nightlight
-      - switch.0x00158d0002235b38_switch_left
-  entity_config:
-    light.kidsroom_ceiling_light:
-      name: Свет
-    light.kidsroom_ceiling_light_ambilight:
-      name: Фоновый свет
-    light.kidsroom_ceiling_light_nightlight:
-      name: Ночник
-    switch.0x00158d0002235b38_switch_left:
-      name: Светильники

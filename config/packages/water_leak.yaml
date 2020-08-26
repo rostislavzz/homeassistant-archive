@@ -67,21 +67,6 @@ alert:
       - water_leak_livingroom_tv
       - water_leak_mobile_app
 
-homekit:
-  filter:
-    include_entities:
-      - binary_sensor.0x00158d0001bb87d2
-      - binary_sensor.0x00158d00021126ee_water_leak
-  entity_config:
-    binary_sensor.0x00158d0001bb87d2:
-      name: "Датчик протечки"
-      linked_battery_sensor: sensor.bathroom_water_leak_battery
-      low_battery_threshold: 30
-    binary_sensor.0x00158d00021126ee_water_leak:
-      name: "Датчик протечки"
-      linked_battery_sensor: sensor.0x00158d00021126ee_battery
-      low_battery_threshold: 30
-
 automation:
   - alias: "water_leak_livingroom_ceiling_light"
     trigger:

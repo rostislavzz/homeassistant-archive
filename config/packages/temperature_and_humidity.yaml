@@ -23,18 +23,3 @@ homeassistant:
       friendly_name: "Влажность в гостиной"
     sensor.0x00158d0002b518b9_temperature:
       friendly_name: "Температура в гостиной"
-
-homekit:
-  filter:
-    include_entities:
-      - sensor.0x00158d0001700c18_humidity
-      - sensor.0x00158d0001700c18_temperature
-  entity_config:
-    sensor.0x00158d0001700c18_humidity:
-      name: Влажность
-      low_battery_threshold: 30
-      linked_battery_sensor: sensor.kidsroom_sensor_battery
-    sensor.0x00158d0001700c18_temperature:
-      name: Температура
-      low_battery_threshold: 30
-      linked_battery_sensor: sensor.kidsroom_sensor_battery

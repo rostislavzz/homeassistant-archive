@@ -11,18 +11,6 @@ webostv:
       - YouTube
       - Apple TV
 
-homekit:
-  filter:
-    include_entities:
-      - media_player.livingroom_tv
-  entity_config:
-    media_player.livingroom_tv:
-      feature_list:
-        - feature: on_off
-        - feature: play_pause
-        - feature: play_stop
-        - feature: toggle_mute
-
 sensor:
   - platform: template
     sensors:

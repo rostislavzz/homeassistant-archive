@@ -8,6 +8,30 @@ homekit:
       - switch.0x00158d0001715c96_switch_right
       - cover.livingroom_curtain_cover
       - binary_sensor.0x00158d0001db8a6a
+      # спальня
+      - light.bedroom_daylight
+      - light.bedroom_nightlight
+      # детская
+      - light.kidsroom_ceiling_light
+      - light.kidsroom_ceiling_light_ambilight
+      - light.kidsroom_ceiling_light_nightlight
+      - switch.0x00158d0002235b38_switch_left
+      # кухня
+      - switch.0x00158d00019ccab8_switch
+      - group.kitchen_automations
+      # гостиная
+      - light.livingroom_ceiling_light
+      - light.livingroom_ceiling_light_ambilight
+      - light.livingroom_ceiling_light_nightlight
+      - media_player.livingroom_tv
+      # сервер
+      - switch.server
+      # температура и влажность
+      - sensor.0x00158d0001700c18_humidity
+      - sensor.0x00158d0001700c18_temperature
+      # санузел
+      - binary_sensor.0x00158d0001bb87d2
+      - binary_sensor.0x00158d00021126ee_water_leak
   entity_config:
     # гостиная
     switch.0x00158d0001715c96_switch_right:
@@ -15,6 +39,56 @@ homekit:
     binary_sensor.0x00158d0001db8a6a:
       name: Датчик дыма
       linked_battery_sensor: sensor.livingroom_smoke_battery
+    # спальня
+    light.bedroom_daylight:
+      name: Свет
+    light.bedroom_nightlight:
+      name: Ночник
+    # детская
+    light.kidsroom_ceiling_light:
+      name: Свет
+    light.kidsroom_ceiling_light_ambilight:
+      name: Фоновый свет
+    light.kidsroom_ceiling_light_nightlight:
+      name: Ночник
+    switch.0x00158d0002235b38_switch_left:
+      name: Светильники
+    # кухня
+    switch.0x00158d00019ccab8_switch:
+      name: Свет
+    group.kitchen_automations:
+      name: Автоматизации
+    # гостиная
+    light.livingroom_ceiling_light:
+      name: Свет
+    light.livingroom_ceiling_light_ambilight:
+      name: Фоновый свет
+    light.livingroom_ceiling_light_nightlight:
+      name: Ночник
+    media_player.livingroom_tv:
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute
+    # температура и влажность
+    sensor.0x00158d0001700c18_humidity:
+      name: Влажность
+      low_battery_threshold: 30
+      linked_battery_sensor: sensor.kidsroom_sensor_battery
+    sensor.0x00158d0001700c18_temperature:
+      name: Температура
+      low_battery_threshold: 30
+      linked_battery_sensor: sensor.kidsroom_sensor_battery
+    # санузел
+    binary_sensor.0x00158d0001bb87d2:
+      name: "Датчик протечки"
+      linked_battery_sensor: sensor.bathroom_water_leak_battery
+      low_battery_threshold: 30
+    binary_sensor.0x00158d00021126ee_water_leak:
+      name: "Датчик протечки"
+      linked_battery_sensor: sensor.0x00158d00021126ee_battery
+      low_battery_threshold: 30
 
 automation:
   - alias: "homekit_start"

@@ -19,20 +19,6 @@ yeelight:
         transitions:
           - RGBTransition: [225, 0, 0, 50, 1]
 
-homekit:
-  filter:
-    include_entities:
-      - light.livingroom_ceiling_light
-      - light.livingroom_ceiling_light_ambilight
-      - light.livingroom_ceiling_light_nightlight
-  entity_config:
-    light.livingroom_ceiling_light:
-      name: Свет
-    light.livingroom_ceiling_light_ambilight:
-      name: Фоновый свет
-    light.livingroom_ceiling_light_nightlight:
-      name: Ночник
-
 automation:
   - alias: "livingroom_ceiling_light_ambilight_tv_source"
     trigger:

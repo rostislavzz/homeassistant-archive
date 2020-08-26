@@ -30,11 +30,6 @@ homeassistant:
     switch.server:
       friendly_name: "Сервер"
 
-homekit:
-  filter:
-    include_entities:
-      - switch.server
-
 automation:
   - alias: "server_turn_on"
     trigger:
