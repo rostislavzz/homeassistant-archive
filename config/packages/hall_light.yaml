@@ -3,8 +3,6 @@ yeelight:
     10.0.0.183:
       name: hall_light
       nightlight_switch_type: light
-      use_music_mode: false
-      save_on_change: false
 
 history:
   exclude:
@@ -89,9 +87,8 @@ automation:
       - condition: state
         entity_id: group.person
         state: "home"
-      - condition: state
-        entity_id: binary_sensor.0x00158d00041d5e14_contact
-        state: "off"
+      - condition: template
+        value_template: "{{ states('binary_sensor.0x00158d00041d5e14_contact') != 'on' }}"
     action:
       service: light.turn_on
       entity_id: light.hall_light_nightlight
