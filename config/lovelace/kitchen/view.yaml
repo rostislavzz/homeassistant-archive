@@ -13,3 +13,6 @@ cards:
       - entity: group.kitchen_automations
         name: "Автоматизации"
         icon: mdi:auto-fix
+      - entity: switch.0x00158d0001db02b0
+        name: "Кофеварка"
+        icon: mdi:coffee-maker
